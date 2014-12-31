@@ -18,13 +18,37 @@
 }
 
 .icon-key {
-  background-image: url(../images/key.png) !important;
+  	background-image: url(../images/key.png) !important;
 }
 
 .icon-cancel {
-  background-image: url(../images/cancel.png) !important;
+  	background-image: url(../images/cancel.png) !important;
 }
 
 .key-go {
-  background-image: url(../images/key_go.png) !important;
+  	background-image: url(../images/key_go.png) !important;
+}
+
+.icon-folder {
+	background-image: url(../images/folder.png) !important;	
+}
+
+.icon-stop {
+	background-image: url(../images/stop.png) !important;	
+}
+
+.icon-report {
+	background-image: url(../images/report.png) !important;	
+}
+
+.icon-help {
+	background-image: url(../images/help.png) !important;	
+}
+
+.icon-ferramentas {
+	background-image: url(../images/ferramentas.png) !important;	
+}
+
+.icon-logout {
+	background-image: url(../images/logout.png) !important;	
 }

@@ -22,7 +22,8 @@ Ext.define('SistemaBolsa.Application', {
     ],
 
     controllers: [
-        'Login'
+        'Login',
+        'Main'
     ],
 
     stores: [
@@ -32,6 +33,8 @@ Ext.define('SistemaBolsa.Application', {
     splashscreen: {},
 
     autoCreateViewport: false,
+
+    enableQuickTips: true,
 
     init: function() {
         

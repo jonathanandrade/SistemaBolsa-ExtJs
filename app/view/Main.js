@@ -18,8 +18,8 @@ Ext.define('Blog.toolbar', {
                         text: 'Item 3'
                     }, '-', {
                         text: 'Logout',
-                        id: 'logout',
-                        iconCls: 'icon-stop',
+                        itemId: 'logout',
+                        iconCls: 'icon-logout',
                 }]
             },{
                 xtype: 'tbspacer',
@@ -46,7 +46,7 @@ Ext.define('Blog.toolbar', {
             },{
                 text: 'Opções',
                 arrowAlign: 'right',
-                iconCls: 'icon-wrench',
+                iconCls: 'icon-ferramentas',
                 itemId: 'opcoes',
                 menu: [{
                         text: 'Abrir Cadastro de User',
@@ -80,10 +80,13 @@ Ext.define('Blog.toolbar', {
             {xtype: 'tbfill'},
             {
                 xtype: 'button',
-                text: 'Logout'
+                text: 'Logout',
+                iconCls: 'icon-logout',
+                itemId: 'logout'
             }
         ]              
     });
+
 
 Ext.define('SistemaBolsa.view.Main', {
     extend: 'Ext.container.Container',
@@ -110,11 +113,13 @@ Ext.define('SistemaBolsa.view.Main', {
                 {
                     xtype: 'panel',
                     title: 'Cadastros',
+                    itemId: 'panelwest',
                     layout: 'vbox',
                     items: [
                         {
                             xtype: 'button',
                             text: 'Alterar dados do usuário',
+                            itemId: 'alterardadosusuario',
                             width: 200,
                             height: 40                     
                         },
@@ -176,9 +181,12 @@ Ext.define('SistemaBolsa.view.Main', {
         {
             region: 'center',
             xtype: 'tabpanel',
+            itemId: 'mainPanel',
+            activeTab: 0,
             items:[{
-                title: 'Center Tab 1'
-            }]
+                title: 'Home',
+                xtype: 'panel'
+            }]           
         },
         {
             region: 'north',

@@ -6,9 +6,7 @@ Ext.define('SistemaBolsa.controller.Login', {
     ],
 
     views: [
-        'Login',
-        //'Log.view.principal.LogGrid'
-        // 'authentication.CapsLockTooltip'
+        'Login'
     ],
 
 
@@ -29,15 +27,12 @@ Ext.define('SistemaBolsa.controller.Login', {
             "loggrid button#arquivo > menu > menuitem#logout": {
                 click: this.onButtonClickLogout
             }
-        });
-
-        
+        });        
 
     },
 
     onButtonClickSubmit: function(button, e, options) {
-        console.log('Login Submit');
-
+        
         var formPanel = button.up('form'),
             login = button.up('login'),
             
@@ -49,6 +44,8 @@ Ext.define('SistemaBolsa.controller.Login', {
 
                 pass = SistemaBolsa.util.MD5.encode(pass);
 
+                Ext.get(login.getEl()).mask("Autenticando... Por favor, Aguarde...", 'loading');
+
                 Ext.Ajax.request({
                     url: 'php/login/login.php',
                     
@@ -58,6 +55,9 @@ Ext.define('SistemaBolsa.controller.Login', {
                     },
 
                     failure: function(conn, response, options, e0pts) {
+
+                        Ext.get(login.getEl()).unmask();
+
                         Ext.MessageBox.show({
                             title: 'Erro',
                             msg: 'Problema com a conexão',
@@ -66,6 +66,9 @@ Ext.define('SistemaBolsa.controller.Login', {
                     },
 
                     success: function(conn, response, options, e0pts) {
+
+                        Ext.get(login.getEl()).unmask();
+
                         var result = Ext.JSON.decode(conn.responseText, true);
 
                         if (!result) {
@@ -80,11 +83,11 @@ Ext.define('SistemaBolsa.controller.Login', {
                         } else {
                             Ext.MessageBox.show({
                                 title: 'Erro',
-                                msg: result.msg,
+                                msg: 'Senha ou Usuário Incorreto',
                                 icon: Ext.MessageBox.ERROR
                             });
                         }
-                        
+
                     }
 
                 });
@@ -106,6 +109,7 @@ Ext.define('SistemaBolsa.controller.Login', {
     },
 
     onTextfielKeyPress: function(field, e, options) {
+
         var charCode = e.getCharCode();
 
         if ((e.shiftKey && charCode >= 97 && charCode <= 122) ||
