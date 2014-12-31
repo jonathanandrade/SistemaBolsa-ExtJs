@@ -13,7 +13,8 @@ Ext.define('SistemaBolsa.Application', {
 
     requires: [
         'Ext.form.Panel',
-        'SistemaBolsa.view.Viewport'
+        'SistemaBolsa.view.Viewport',
+        'SistemaBolsa.util.MD5'
     ],
 
     views: [

@@ -36,62 +36,64 @@ Ext.define('SistemaBolsa.controller.Login', {
     },
 
     onButtonClickSubmit: function(button, e, options) {
+        console.log('Login Submit');
 
-        var formPanel = button.up('form');
-        var login = button.up('login');
+        var formPanel = button.up('form'),
+            login = button.up('login'),
+            
+            values = formPanel.getValues(),
+            user = values.loginUsername,
+            pass = values.loginPassword;
+            
+            if(formPanel.getForm().isValid()) {
 
-        var values = formPanel.getValues();
-        var user = values.loginUsername;
-        var pass = values.loginPassword;
-  
+                pass = SistemaBolsa.util.MD5.encode(pass);
 
-        if (formPanel.getForm().isValid()) {
+                Ext.Ajax.request({
+                    url: 'php/login/login.php',
+                    
+                    params: {
+                        user: user,
+                        password: pass
+                    },
 
-            //pass = Log.util.MD5.encode(pass);
+                    failure: function(conn, response, options, e0pts) {
+                        Ext.MessageBox.show({
+                            title: 'Erro',
+                            msg: 'Problema com a conexão',
+                            icon: Ext.MessageBox.ERROR
+                        });
+                    },
 
-            Ext.get(login.getEl()).mask("Authenticating... Please wait...", 'loading');
+                    success: function(conn, response, options, e0pts) {
+                        var result = Ext.JSON.decode(conn.responseText, true);
 
-            login.close();
-            Ext.create('SistemaBolsa.view.Viewport');
+                        if (!result) {
+                            result = {};
+                            result.success = false;
+                            result.msg = conn.responseText;
+                        } 
 
-            /*Ext.Ajax.request({
-                url: 'php/login/login.php',
-                params: {
-                    user: user,
-                    password: pass
-                },
-                success: function(conn, response, options, eOpts) {
-
-                    Ext.get(login.getEl()).unmask();
-
-                    var result = Log.util.Util.decodeJSON(conn.responseText);
-
-                    if (result.success) {
-
-                        //Log.util.Alert.msg('Success!', 'User Authenticated.');
-
-                        login.close();
-                        Ext.create('Log.view.Viewport');
-                        Log.util.SessionMonitor.start();
-
-                    } else {
-                        //Log.util.Util.showErrorMsg(conn.responseText);
-                        Log.util.Util.showErrorMsg('Nome de usuário ou senha incorreto!');
-
+                        if (result.success) {
+                            login.close();
+                            Ext.create('SistemaBolsa.view.Viewport');
+                        } else {
+                            Ext.MessageBox.show({
+                                title: 'Erro',
+                                msg: result.msg,
+                                icon: Ext.MessageBox.ERROR
+                            });
+                        }
+                        
                     }
-                },
-                failure: function(conn, response, options, eOpts) {
 
-                    Ext.get(login.getEl()).unmask();
+                });
+            }
 
-                    Log.util.Util.showErrorMsg(conn.responseText);
-                }
-            });*/
-        }
     },
 
     onButtonClickCancel: function(button, e, options) {
-        console.log('Operação cancelada...');
+        //console.log('Operação cancelada...');
         button.up('form').getForm().reset();
     },
 
