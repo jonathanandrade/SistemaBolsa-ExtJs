@@ -87,9 +87,9 @@ Ext.define('Blog.toolbar', {
         ]              
     });
 
-
 Ext.define('SistemaBolsa.view.Main', {
     extend: 'Ext.container.Container',
+
     requires:[
         'Ext.tab.Panel',
         'Ext.layout.container.Border',

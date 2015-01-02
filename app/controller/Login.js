@@ -2,7 +2,9 @@ Ext.define('SistemaBolsa.controller.Login', {
     extend: 'Ext.app.Controller',
 
     requires: [
-        'SistemaBolsa.util.Alert'
+        'SistemaBolsa.util.Alert',
+        'SistemaBolsa.util.SessionMonitor',
+        'SistemaBolsa.util.MD5'
     ],
 
     views: [
@@ -24,7 +26,7 @@ Ext.define('SistemaBolsa.controller.Login', {
             "login form textfield[name=password]": {
                 keypress: this.onTextfielKeyPress
             },
-            "loggrid button#arquivo > menu > menuitem#logout": {
+            "appheader button#logout": {
                 click: this.onButtonClickLogout
             }
         });        
@@ -79,7 +81,8 @@ Ext.define('SistemaBolsa.controller.Login', {
 
                         if (result.success) {
                             login.close();
-                            Ext.create('SistemaBolsa.view.Viewport');
+                            Ext.create('SistemaBolsa.view.MyViewport');
+                            SistemaBolsa.util.SessionMonitor.start();
                         } else {
                             Ext.MessageBox.show({
                                 title: 'Erro',
@@ -130,28 +133,44 @@ Ext.define('SistemaBolsa.controller.Login', {
     },
 
     onButtonClickLogout: function(button, e, options) {
-        console.log('teste');
-
+        //console.log('Logout');
         Ext.Ajax.request({
             url: 'php/login/logout.php',
-            success: function(conn, response, options, eOpts) {
 
-                var result = Log.util.Util.decodeJSON(conn.responseText);
+            success: function(conn, response, options, e0pts) {
+
+                var result = Ext.JSON.decode(conn.responseText, true);
+
+                if (!result) {
+                    result = {};
+                    result.success = false;
+                    result.msg = conn.responseText;
+                }
 
                 if (result.success) {
-
+                    
                     button.up('mainviewport').destroy();
                     window.location.reload();
+
                 } else {
 
-                    Log.util.Util.showErrorMsg(result.msg);
+                    Ext.MessageBox.show({
+                        title: 'Erro',
+                        msg: 'Algum erro aconteceu',
+                        icon: Ext.MessageBox.ERROR
+                    });                    
                 }
             },
-            failure: function(conn, response, options, eOpts) {
 
-                Log.util.Util.showErrorMsg(conn.responseText);
+            failure: function(conn, response, options, e0pts) {
+
+                Ext.MessageBox.show({
+                    title: 'Erro',
+                    msg: 'Problema com a conexão',
+                    icon: Ext.MessageBox.ERROR
+                });
             }
-        });
+        })
     }
     
 });

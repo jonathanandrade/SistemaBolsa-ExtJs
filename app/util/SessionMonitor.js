@@ -8,7 +8,7 @@ Ext.define('SistemaBolsa.util.SessionMonitor', {
 
   interval: 1000 * 10,  // run every 10 seconds.
   lastActive: null,
-  maxInactive: 1000 * 60 * 1,  // 15 minutes of inactivity allowed; set it to 1 for testing.
+  maxInactive: 1000 * 60 * 1,  // Alterar aqui a quantidade de tempo para encerrar a sessão, nesse caso está 1 minuto.
   remaining: 0,
   ui: Ext.getBody(),
   
@@ -26,21 +26,21 @@ Ext.define('SistemaBolsa.util.SessionMonitor', {
     items: [{
       xtype: 'container',
       frame: true,
-      html: "Your session will automatically expires after 15 minutes of  inactivity. If your session expires, any unsaved data will be lost and  you will be automatically logged out. </br></br>If you want  to continue working, click the 'Continue Working'  button.</br></br>"    
+      html: "Sua sessão será expirada automaticamente após 15 minutos de inatividade. Se a sessão expirar, os dados não salvos serão perdidos e você será automaticamente encerrado. </br></br>Se você quer continuar, clique em 'Continuar'.</br></br>"    
     },{
       xtype: 'label',
       text: ''
     }],
     buttons: [{
-      text: 'Continue Working',
+      text: 'Continuar',
       handler: function() {
         Ext.TaskManager.stop(SistemaBolsa.util.SessionMonitor.countDownTask);
         SistemaBolsa.util.SessionMonitor.window.hide();
         SistemaBolsa.util.SessionMonitor.start();
         // 'poke' the server-side to update your session.
-        Ext.Ajax.request({
-          url: 'user/poke.action'
-        });
+        //Ext.Ajax.request({
+        //  url: 'user/poke.action'
+        //});
       }
     },{
       text: 'Logout',
@@ -50,7 +50,7 @@ Ext.define('SistemaBolsa.util.SessionMonitor', {
         SistemaBolsa.util.SessionMonitor.window.hide();
         
         // find and invoke your app's "Logout" button.
-        Ext.ComponentQuery.query('menuitem#logout')[0].fireEvent('click',Ext.ComponentQuery.query('menuitem#logout')[0]);
+        Ext.ComponentQuery.query('appheader button#logout')[0].fireEvent('click',Ext.ComponentQuery.query('appheader button#logout')[0]);
       }
     }]
   }),
@@ -134,7 +134,7 @@ Ext.define('SistemaBolsa.util.SessionMonitor', {
    * the seconds remaining prior to session expiration.  If the counter expires, you're logged out.
    */
   countDown: function() {
-    this.window.down('label').update('Your session will expire in ' +  this.remaining + ' second' + ((this.remaining == 1) ? '.' : 's.') );
+    this.window.down('label').update('Sua sessão vai expirar em ' +  this.remaining + ' segundos' + ((this.remaining == 1) ? '.' : 's.') );
     
     --this.remaining;
 

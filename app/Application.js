@@ -12,18 +12,23 @@ Ext.define('SistemaBolsa.Application', {
     extend: 'Ext.app.Application',
 
     requires: [
+        'SistemaBolsa.util.MD5',
         'Ext.form.Panel',
-        'SistemaBolsa.view.Viewport',
-        'SistemaBolsa.util.MD5'
+        'SistemaBolsa.view.MyViewport',
+        'Ext.form.Label',
+        'Ext.layout.container.Border',
+        'SistemaBolsa.view.Menu',
+        'Ext.menu.Menu'
     ],
 
     views: [
-        'Login'
+        'Login',
+        'Header',
+        'Menu'
     ],
 
     controllers: [
-        'Login',
-        'Main'
+        'Login'
     ],
 
     stores: [

@@ -52,3 +52,18 @@
 .icon-logout {
 	background-image: url(../images/logout.png) !important;	
 }
+
+.icon-chart_organisation {
+	background-image: url(../images/chart_organisation.png) !important;		
+}
+
+.icon-home {
+	background-image: url(../images/home.png) !important;		
+}
+
+#titleHeader {
+	color:#000;
+	font-size:20px;
+	font-weight:bold;
+	font-family:'Lucida Grande', Arial, Sans;
+}
