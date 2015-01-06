@@ -14,25 +14,31 @@ Ext.define('SistemaBolsa.Application', {
     requires: [
         'SistemaBolsa.util.MD5',
         'Ext.form.Panel',
-        'SistemaBolsa.view.MyViewport',
         'Ext.form.Label',
         'Ext.layout.container.Border',
-        'SistemaBolsa.view.Menu',
-        'Ext.menu.Menu'
+        'Ext.layout.container.Accordion',        
+        'Ext.form.field.ComboBox',
+        'Ext.form.field.Date',
+        'Ext.form.FieldSet',
+        'Ext.form.FieldContainer',
+        'Ext.form.RadioGroup'
     ],
 
     views: [
         'Login',
         'Header',
-        'Menu'
+        'SistemaBolsa.view.usuario.AlteraUsuario',
+        'SistemaBolsa.view.empresa.GridEmpresa',
+        'SistemaBolsa.view.MyViewport'
     ],
 
     controllers: [
-        'Login'
+        'Login',
+        'Menu'
     ],
 
     stores: [
-        // TODO: add stores here
+        'SistemaBolsa.store.combobox.ComboEstados'
     ],
 
     splashscreen: {},

@@ -37,6 +37,10 @@
 	background-image: url(../images/stop.png) !important;	
 }
 
+.icon-add {
+	background-image: url(../images/add.png) !important;	
+}
+
 .icon-report {
 	background-image: url(../images/report.png) !important;	
 }
@@ -59,6 +63,18 @@
 
 .icon-home {
 	background-image: url(../images/home.png) !important;		
+}
+
+.icon-grid {
+	background-image: url(../images/grid.png) !important;		
+}
+
+.icon-save {
+	background-image: url(../images/save.gif) !important;		
+}
+
+.icon-cancel {
+	background-image: url(../images/cancel.png) !important;		
 }
 
 #titleHeader {

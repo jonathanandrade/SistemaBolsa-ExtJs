@@ -6,7 +6,7 @@ Ext.define('SistemaBolsa.view.MyViewport', {
     requires:[
         'SistemaBolsa.view.Header',
         'SistemaBolsa.view.MainPanel',
-        'SistemaBolsa.view.Menu'
+        'SistemaBolsa.view.menu.Accordion'
     ],
 
     layout: {
@@ -19,7 +19,7 @@ Ext.define('SistemaBolsa.view.MyViewport', {
         Ext.applyIf(me, {
             items: [
                 {
-                    xtype: 'menu',
+                    xtype: 'mainmenu',
                     width: 185,
                     collapsible: true,
                     region: 'west' //,
@@ -31,7 +31,8 @@ Ext.define('SistemaBolsa.view.MyViewport', {
                 },
                 {
                     xtype: 'mainpanel',
-                    region: 'center'
+                    region: 'center',
+                    itemId: 'mainPanel'                   
                 },
                 {
                     xtype: 'container',
