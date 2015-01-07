@@ -3,6 +3,6 @@ Ext.define('SistemaBolsa.model.Empresa', {
 
 	idProperty: 'idempresa',
 
-	fields: ['idempresa', 'descricao']
+	fields: ['idempresa', 'descricao', 'sigla', 'atividade']
 
 });

@@ -5,6 +5,8 @@ Ext.define('SistemaBolsa.view.empresa.GridEmpresa', {
 
     iconCls: 'icon-grid',
     layout: 'fit',
+    store: 'SistemaBolsa.store.Empresas',
+
     maximized: true,
 
     autoShow: true,
@@ -13,27 +15,43 @@ Ext.define('SistemaBolsa.view.empresa.GridEmpresa', {
     width: 500,
     title: 'Cadastro de Empresas',
 
+    columns: [
+        {
+            text: 'ID',
+            width: 35,
+            dataIndex: 'idempresa'
+        },
+        {
+            text: 'Descrição',
+            width: 170,
+            flex: 1,
+            dataIndex: 'descricao'
+        }
+    ],
+
     dockedItems: [{
         xtype: 'toolbar',
-        dock: 'bottom',
-        layout: {
-            type: 'hbox',
-            pack: 'end'
-        },
-        items: [{
-                xtype: 'button',
-                text: 'Cancelar',
-                itemId: 'cancel',
-                iconCls: 'icon-cancel'
-            },
-
+        dock: 'top',
+        items: [
             {
                 xtype: 'button',
-                text: 'Salvar',
-                itemId: 'save',
-                iconCls: 'icon-save'
+                text: 'Novo',
+                itemId: 'add',
+                iconCls: 'icon-add'
+            },
+            {
+                xtype: 'button',
+                text: 'Excluir',
+                itemId: 'delete',
+                iconCls: 'icon-delete'
             }
         ]
-    }]
-    
-});
+    } //,
+    /*{
+        xtype: 'pagingtoolbar',
+        store: 'SistemaBolsa.store.Empresas',
+        dock: 'bottom',
+        displayInfo: true,
+        emptyMsg: 'Nenhuma empresa encontrada'
+    }*/  ]  
+}); 

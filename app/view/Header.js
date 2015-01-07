@@ -15,6 +15,12 @@ Ext.define('SistemaBolsa.view.Header', {
 			xtype: 'tbfill'
 		},
 		{
+			xtype: 'button',
+			text: 'Alterar Senha',
+			itemId: 'alterarsenha',
+			iconCls: 'icon-key'	
+		},
+		{
 			xtype: 'tbseparator'
 		},
 		{

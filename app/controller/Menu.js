@@ -3,7 +3,8 @@ Ext.define('SistemaBolsa.controller.Menu', {
 
 	views: [
 		'menu.Accordion',
-		'menu.ItemCadastros'
+		'menu.ItemCadastros',
+		'SistemaBolsa.view.empresa.GridEmpresa'
 	],
 
 	refs: [

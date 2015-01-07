@@ -28,6 +28,9 @@ Ext.define('SistemaBolsa.controller.Login', {
             },
             "appheader button#logout": {
                 click: this.onButtonClickLogout
+            },
+            "appheader button#alterarsenha": {
+                click: this.onButtonClickAlterarSenha
             }
         });        
 
@@ -171,6 +174,10 @@ Ext.define('SistemaBolsa.controller.Login', {
                 });
             }
         })
+    },
+
+    onButtonClickAlterarSenha: function(button, e, options) {
+        console.log('Alterar senha...');
     }
     
 });

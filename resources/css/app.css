@@ -41,6 +41,10 @@
 	background-image: url(../images/add.png) !important;	
 }
 
+.icon-delete {
+	background-image: url(../images/delete.png) !important;	
+}
+
 .icon-report {
 	background-image: url(../images/report.png) !important;	
 }

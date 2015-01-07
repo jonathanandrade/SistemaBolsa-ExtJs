@@ -9,9 +9,9 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
 
     autoShow: true,
 
-    height: 410,
+    height: 425,
     width: 650,
-    title: 'Cadastro de Usuarios',
+    title: 'Alterar Dados do Usuarios',
      
     items:[
         {
@@ -20,14 +20,14 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
             bodyPadding: 5,
             fieldDefaults: {
                 labelAlign: 'right',
-                labelWidth: 90,
+                labelWidth: 30,
                 msgTarget: 'qtip'
             },
 
             items: [
                 {
                     xtype: 'fieldset',
-                    title: 'Your Contact Information',
+                    title: 'Suas informações de contato',
                     defaultType: 'textfield',
                     layout: 'anchor',
                     defaults: {
@@ -36,7 +36,7 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
                     items: [
                         {
                             xtype: 'fieldcontainer',                    
-                            fieldLabel: 'Name',
+                            fieldLabel: 'Nome',
                             layout: 'hbox',
                             combineErrors: true,
                             defaultType: 'textfield',
@@ -44,17 +44,17 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
                                 hideLabel: 'true'
                             },
                             items: [{
-                                name: 'firstName',
-                                fieldLabel: 'First Name',
+                                name: 'nome',
+                                fieldLabel: 'Nome',
                                 flex: 2,
-                                emptyText: 'First',
+                                emptyText: 'Nome',
                                 allowBlank: false
                             }, {
-                                name: 'lastName',
-                                fieldLabel: 'Last Name',
+                                name: 'sobrenome',
+                                fieldLabel: 'Sobrenome',
                                 flex: 3,
                                 margins: '0 0 0 6',
-                                emptyText: 'Last',
+                                emptyText: 'Sobrenome',
                                 allowBlank: false
                             }]
                         }, 
@@ -64,26 +64,66 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
                             defaultType: 'textfield',
                             margin: '0 0 5 0',
                             items: [{
-                                    fieldLabel: 'Email Address',
+                                    fieldLabel: 'Email',
                                     name: 'email',
                                     vtype: 'email',
                                     flex: 1,
                                     allowBlank: false
+                                }]
+                        },
+                        {
+                            xtype: 'container',
+                            layout: 'hbox',
+                            defaultType: 'textfield',
+                            margin: '0 0 5 0',
+                            items: [{
+                                    fieldLabel: 'CPF',
+                                    name: 'cpf',
+                                    //vtype: 'email',
+                                    flex: 1,
+                                    allowBlank: false,                                    
+                                    emptyText: 'xxx.xxx.xxx-xx',
+                                    maskRe: /[\d\.\d\-]/,
+                                    regex: /^\d{3}.\d{3}.\d{3}-\d{2}$/,
+                                    regexText: 'Deve ser neste formato xxx.xxx.xxx-xx'
+                                    //maxLength : 11
                                 }, {
-                                    fieldLabel: 'Phone Number',
+                                    fieldLabel: 'RG',
+                                    name: 'rg'                                   
+                                }]
+                        },
+                        {
+                            xtype: 'container',
+                            layout: 'hbox',
+                            defaultType: 'textfield',
+                            margin: '0 0 5 0',
+                            items: [
+                                {
+                                    xtype: 'datefield',
+                                    fieldLabel: 'Data Nascimento',
+                                    name: 'data-nasc',
+                                    maxValue: new Date()
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'container',
+                            layout: 'hbox',
+                            defaultType: 'textfield',
+                            margin: '0 0 5 0',
+                            items: [
+                                {
+                                    fieldLabel: 'Telefone',
                                     labelWidth: 100,
-                                    name: 'phone',
-                                    width: 200,
-                                    emptyText: 'xxx-xxx-xxxx',
-                                    maskRe: /[\d\-]/,
-                                    regex: /^\d{3}-\d{3}-\d{4}$/,
-                                    regexText: 'Must be in the format xxx-xxx-xxxx'
-                            }]
-                        }    
+                                    name: 'telefone',
+                                    width: 200
+                                }
+                            ]
+                        }   
                     ]                       
                 }, {
                     xtype: 'fieldset',
-                    title: 'Mailing Address',
+                    title: 'Endereço',
                     defaultType: 'textfield',
                     layout: 'anchor',
                     defaults: {
@@ -92,10 +132,15 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
                     items: [
                         {
                             labelWidth: 90,
-                            fieldLabel: 'Street Address',
-                            name: 'mailingStreet',                                    
-                            billingFieldName: 'billingStreet',
-                            allowBlank: false
+                            fieldLabel: 'Endereço',
+                            name: 'endereco',                                    
+                            billingFieldName: 'endereco'
+                        },
+                        {
+                            labelWidth: 90,
+                            fieldLabel: 'Bairro',
+                            name: 'bairro',                                    
+                            billingFieldName: 'bairro'
                         }, 
                         {
                             xtype: 'container',
@@ -105,11 +150,10 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
                                 {
                                     labelWidth: 90,
                                     xtype: 'textfield',
-                                    fieldLabel: 'City',
-                                    name: 'mailingCity',
-                                    billingFieldName: 'billingCity',
-                                    flex: 1,
-                                    allowBlank: false
+                                    fieldLabel: 'Cidade',
+                                    name: 'cidade',
+                                    billingFieldName: 'cidade',
+                                    flex: 1
                                 },
                                 {
                                     xtype: 'combobox',
@@ -126,52 +170,54 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
                                 },
                                 {
                                     xtype: 'textfield',
-                                    fieldLabel: 'Postal Code',
+                                    fieldLabel: 'Cod. Postal',
                                     labelWidth: 80,
                                     name: 'mailingPostalCode',
                                     billingFieldName: 'billingPostalCode',
                                     width: 160,
-                                    allowBlank: false,
                                     maxLength: 10,
                                     enforceMaxLength: true,
                                     maskRe: /[\d\-]/,
-                                    regex: /^\d{5}(\-\d{4})?$/,
-                                    regexText: 'Must be in the format xxxxx or xxxxx-xxxx'
+                                    regex: /^\d{5}(\-\d{3})?$/,
+                                    regexText: 'Deve ser neste formato xxxxx or xxxxx-xxxx'
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'container',
+                            layout: 'hbox',
+                            margin: '0 0 5 0',   
+                            items: [
+                                {
+                                    labelWidth: 90,
+                                    xtype: 'textfield',
+                                    fieldLabel: 'Complemento',
+                                    name: 'complemento',
+                                    billingFieldName: 'complemento',
+                                    flex: 1
+                                },
+                                {
+                                    labelWidth: 90,
+                                    xtype: 'textfield',
+                                    fieldLabel: 'Número',
+                                    name: 'numero',
+                                    billingFieldName: 'numero'
                                 }
                             ]
                         }
                     ]
                 }, {
                     xtype: 'fieldset',
-                    title: 'Payment',
+                    title: 'Outros',
                     layout: 'anchor',
                     defaults: {
                         anchor: '100%'
                     },
-                    items: [
-                        {
-                            xtype: 'radiogroup',
-                            anchor: 'none',
-                            layout: {
-                                autoFlex: false
-                            },
-                            defaults: {
-                                name: 'ccType',
-                                margin: '0 15 0 0'
-                            },
-                            items: [{
-                                inputValue: 'M',
-                                boxLabel: 'Masculino',
-                                checked: true
-                            }, {
-                                inputValue: 'F',
-                                boxLabel: 'Feminino'
-                            }]   
-                        },
+                    items: [                        
                         {
                             xtype: 'textfield',
-                            name: 'ccName',
-                            fieldLabel: 'Name On Card',
+                            name: 'celular',
+                            fieldLabel: 'Celular',
                             allowBlank: false
                         }
                     ]

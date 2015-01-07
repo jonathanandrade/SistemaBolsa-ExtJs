@@ -34,7 +34,8 @@ Ext.define('SistemaBolsa.Application', {
 
     controllers: [
         'Login',
-        'Menu'
+        'Menu',
+        'Usuario'
     ],
 
     stores: [
