@@ -3,6 +3,8 @@ Ext.define('SistemaBolsa.store.Empresas', {
 
 	model: 'SistemaBolsa.model.Empresa',
 
+	//pageSize: 20,
+
 	proxy: {
 		type: 'ajax',
 

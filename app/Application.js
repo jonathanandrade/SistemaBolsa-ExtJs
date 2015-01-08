@@ -21,7 +21,8 @@ Ext.define('SistemaBolsa.Application', {
         'Ext.form.field.Date',
         'Ext.form.FieldSet',
         'Ext.form.FieldContainer',
-        'Ext.form.RadioGroup'
+        'Ext.form.RadioGroup',
+        'Ext.grid.Panel'
     ],
 
     views: [
@@ -29,13 +30,16 @@ Ext.define('SistemaBolsa.Application', {
         'Header',
         'SistemaBolsa.view.usuario.AlteraUsuario',
         'SistemaBolsa.view.empresa.GridEmpresa',
+        'SistemaBolsa.view.corretora.GridCorretora',
         'SistemaBolsa.view.MyViewport'
     ],
 
     controllers: [
         'Login',
         'Menu',
-        'Usuario'
+        'Usuario',
+        'Empresa',
+        'Corretora'
     ],
 
     stores: [

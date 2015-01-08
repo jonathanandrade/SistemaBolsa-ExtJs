@@ -21,6 +21,9 @@ Ext.define('SistemaBolsa.controller.Menu', {
 			},
 			"mainmenu itemcadastros button#cadastrarempresa": {
 				click: this.onButtonClickCadastrarEmpresa
+			},
+			"mainmenu itemcadastros button#cadastrarcorretora": {
+				click: this.onButtonClickCadastrarCorretora
 			}
 		})
 	},
@@ -33,5 +36,10 @@ Ext.define('SistemaBolsa.controller.Menu', {
 	onButtonClickCadastrarEmpresa: function(button, e, options) {
 		console.log('CadastrarEmpresa');
 		Ext.create('SistemaBolsa.view.empresa.GridEmpresa');
+	},
+
+	onButtonClickCadastrarCorretora: function(button, e, options) {
+		console.log('Cadastrar Corretora...');
+		Ext.create('SistemaBolsa.view.corretora.GridCorretora');
 	}
 });

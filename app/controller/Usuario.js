@@ -1,6 +1,10 @@
 Ext.define('SistemaBolsa.controller.Usuario', {
 	extend: 'Ext.app.Controller',
 
+    models: [
+        'SistemaBolsa.model.Usuario'
+    ],
+
     views: [
         'SistemaBolsa.view.usuario.AlteraUsuario'
     ],

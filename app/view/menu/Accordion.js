@@ -29,7 +29,7 @@ Ext.define('SistemaBolsa.view.menu.Accordion', {
     	},
     	{
         	title: 'Relatórios',
-        	html: 'itemrelatorios'
+        	xtype: 'itemrelatorios'
     	}
     ]
 });
