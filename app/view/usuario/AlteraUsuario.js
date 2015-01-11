@@ -12,6 +12,7 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
     height: 425,
     width: 650,
     title: 'Alterar Dados do Usuarios',
+    modal: true,
      
     items:[
         {

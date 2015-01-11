@@ -30,6 +30,7 @@ Ext.define('SistemaBolsa.Application', {
         'Header',
         'SistemaBolsa.view.usuario.AlteraUsuario',
         'SistemaBolsa.view.empresa.GridEmpresa',
+        'SistemaBolsa.view.empresa.FormEmpresa',
         'SistemaBolsa.view.corretora.GridCorretora',
         'SistemaBolsa.view.MyViewport'
     ],

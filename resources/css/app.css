@@ -69,8 +69,16 @@
 	background-image: url(../images/home.png) !important;		
 }
 
+.icon-empresa {
+	background-image: url(../images/empresa.png) !important;		
+}
+
 .icon-grid {
 	background-image: url(../images/grid.png) !important;		
+}
+
+.icon-user {
+	background-image: url(../images/user.png) !important;		
 }
 
 .icon-save {
@@ -79,6 +87,19 @@
 
 .icon-cancel {
 	background-image: url(../images/cancel.png) !important;		
+}
+
+
+.icon-user-menu {
+	background-image: url(../images/user-menu.png) !important;		
+}
+
+.icon-empresa-menu {
+	background-image: url(../images/empresa-menu.png) !important;		
+}
+
+.icon-corretora-menu {
+	background-image: url(../images/corretora-menu.png) !important;		
 }
 
 #titleHeader {

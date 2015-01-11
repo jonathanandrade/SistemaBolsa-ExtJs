@@ -29,17 +29,17 @@ Ext.define('SistemaBolsa.controller.Menu', {
 	},
 
 	onButtonClickAlterarDadosUsuario: function(button, e, options) {
-		console.log('AlterarDadosUsuario');
+		//console.log('AlterarDadosUsuario');
 		Ext.create('SistemaBolsa.view.usuario.AlteraUsuario');
 	},
 
 	onButtonClickCadastrarEmpresa: function(button, e, options) {
-		console.log('CadastrarEmpresa');
+		//console.log('CadastrarEmpresa');
 		Ext.create('SistemaBolsa.view.empresa.GridEmpresa');
 	},
 
 	onButtonClickCadastrarCorretora: function(button, e, options) {
-		console.log('Cadastrar Corretora...');
+		//console.log('Cadastrar Corretora...');
 		Ext.create('SistemaBolsa.view.corretora.GridCorretora');
 	}
 });

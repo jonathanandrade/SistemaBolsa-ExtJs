@@ -14,21 +14,23 @@ Ext.define('SistemaBolsa.view.menu.ItemCadastros', {
             itemId: 'alterardadosusuario',
             width: 182,           
             scale: 'large',
-            iconCls: 'icon-add'
+            iconCls: 'icon-user-menu'
         },
         {
             xtype: 'button',
             text: 'Cadastrar Empresa',
             itemId: 'cadastrarempresa',
             width: 182,
-            scale: 'large'
+            scale: 'large',
+            iconCls: 'icon-empresa-menu'
         },
         {
             xtype: 'button',
             text: 'Cadastrar Corretora',
             itemId: 'cadastrarcorretora',
             width: 182,
-            scale: 'large'
+            scale: 'large',
+            iconCls: 'icon-corretora-menu'
         },
    	]
 });
