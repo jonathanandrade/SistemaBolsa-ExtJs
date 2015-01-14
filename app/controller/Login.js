@@ -26,6 +26,9 @@ Ext.define('SistemaBolsa.controller.Login', {
             "login form textfield[name=password]": {
                 keypress: this.onTextfielKeyPress
             },
+            "login form button#cadastrar": {
+                click: this.onButtonClickCadastrar
+            },
             "appheader button#logout": {
                 click: this.onButtonClickLogout
             },
@@ -178,6 +181,12 @@ Ext.define('SistemaBolsa.controller.Login', {
 
     onButtonClickAlterarSenha: function(button, e, options) {
         console.log('Alterar senha...');
+    },
+
+    onButtonClickCadastrar: function(button, e, options) {
+        //console.log('Cadastrar Usuário');
+        var win = Ext.create('SistemaBolsa.view.usuario.FormUsuario');
+        win.setTitle('Cadastrar Usuário');
     }
     
 });

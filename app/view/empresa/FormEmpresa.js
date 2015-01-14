@@ -7,7 +7,7 @@ Ext.define('SistemaBolsa.view.empresa.FormEmpresa', {
 
 	layout: 'fit',
 	iconCls: 'icon-empresa',
-	title: 'Editar/Cadastrar de Empresa',
+	title: 'Editar/Cadastrar Empresa',
 	autoShow: true,
 	modal: true,   // Deixa como tela principal, impedindo alterações na parte de baixo
 

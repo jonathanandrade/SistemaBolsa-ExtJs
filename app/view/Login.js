@@ -48,6 +48,11 @@ Ext.define('SistemaBolsa.view.Login', {
             xtype: 'toolbar',
             dock: 'bottom',
             items: [{
+                xtype: 'button',
+                itemId: 'cadastrar',
+                iconCls: 'icon-users',
+                text: 'Cadastrar'
+            },{
                 xtype: 'tbfill'
             },{
                 xtype: 'button',

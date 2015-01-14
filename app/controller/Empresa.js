@@ -50,7 +50,7 @@ Ext.define('SistemaBolsa.controller.Empresa', {
 		var grid    = btn.up('gridempresa grid'),
 		    records = grid.getSelectionModel().getSelection();
 
-		    console.log(records);
+		//console.log(records);
 
 		if(records.length === 0) {
 			Ext.Msg.alert('Atenção', 'Nenhum registro selecionado');
@@ -70,7 +70,6 @@ Ext.define('SistemaBolsa.controller.Empresa', {
 				}
 			});
 		}
-
 	},
 
 	onEditClick: function(formempresa, record, item, index, e, eOpts) {

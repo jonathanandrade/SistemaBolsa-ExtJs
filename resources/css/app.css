@@ -45,6 +45,10 @@
 	background-image: url(../images/delete.png) !important;	
 }
 
+.icon-corretora {
+	background-image: url(../images/corretora.png) !important;	
+}
+
 .icon-report {
 	background-image: url(../images/report.png) !important;	
 }
@@ -79,6 +83,10 @@
 
 .icon-user {
 	background-image: url(../images/user.png) !important;		
+}
+
+.icon-users {
+	background-image: url(../images/users.png) !important;		
 }
 
 .icon-save {

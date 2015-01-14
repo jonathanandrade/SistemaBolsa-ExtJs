@@ -6,15 +6,15 @@ Ext.define('SistemaBolsa.controller.Usuario', {
     ],
 
     views: [
-        'SistemaBolsa.view.usuario.AlteraUsuario'
+        'SistemaBolsa.view.usuario.FormUsuario'
     ],
 
     init: function(application) {
         this.control({
-            "alterausuario toolbar button#save": {
+            "formusuario toolbar button#save": {
                 click: this.onButtonClickSave
             },
-            "alterausuario toolbar button#cancel": {
+            "formusuario toolbar button#cancel": {
                 click: this.onButtonClickCancel
             }
         });
@@ -22,10 +22,12 @@ Ext.define('SistemaBolsa.controller.Usuario', {
 
     onButtonClickSave: function(button, e, options) {
     	console.log('Save..');
+        var win    = button.up('window');
+        console.log(win);           
     },
 
     onButtonClickCancel: function(button, e, options) {
-    	console.log('Cancel..');
+    	//console.log('Cancel..');
     	button.up('window').close();
     }
 

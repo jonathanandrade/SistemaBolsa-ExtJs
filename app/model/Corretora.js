@@ -3,7 +3,7 @@ Ext.define('SistemaBolsa.model.Corretora', {
 
 	idProperty: 'idcorretora',
 
-	fields: ['idcorretora', 'descricao', 'cnpj', 'razao-social', 'endereco', 'numero', 'complemento', 
-	         'bairro', 'cidade', 'estado', 'cep', 'nome-fantasia', 'tipo']
+	fields: ['idcorretora', 'descricao', 'cnpj', 'razaoSocial', 'endereco', 'numero', 'complemento', 
+	         'bairro', 'cidade', 'estado', 'cep', 'nomeFantasia', 'tipo', 'contato', 'telefone']
 
 });

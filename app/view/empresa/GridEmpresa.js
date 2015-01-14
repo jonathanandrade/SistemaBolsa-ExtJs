@@ -61,6 +61,6 @@ Ext.define('SistemaBolsa.view.empresa.GridEmpresa', {
             emptyMsg: 'Nenhuma empresa encontrada'
         }]
 
-    }],
+    }]
 
 });

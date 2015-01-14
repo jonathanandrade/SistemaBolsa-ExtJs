@@ -1,7 +1,7 @@
-Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
+Ext.define('SistemaBolsa.view.usuario.FormUsuario', {
     extend: 'Ext.window.Window',
 
-    alias: 'widget.alterausuario',
+    alias: 'widget.formusuario',
 
     iconCls: 'icon-grid',
     layout: 'fit',
@@ -11,7 +11,7 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
 
     height: 425,
     width: 650,
-    title: 'Alterar Dados do Usuarios',
+    title: 'Editar/Cadastrar Usuarios',
     modal: true,
      
     items:[
