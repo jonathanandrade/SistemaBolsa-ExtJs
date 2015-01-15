@@ -9,14 +9,14 @@ Ext.define('SistemaBolsa.view.usuario.FormUsuario', {
 
     autoShow: true,
 
-    height: 425,
+    height: 450,
     width: 650,
     title: 'Editar/Cadastrar Usuarios',
     modal: true,
      
     items:[
         {
-            //xtype: 'form',
+            xtype: 'form',
             //layout: 'anchor',
             bodyPadding: 5,
             fieldDefaults: {
@@ -28,7 +28,42 @@ Ext.define('SistemaBolsa.view.usuario.FormUsuario', {
             items: [
                 {
                     xtype: 'fieldset',
-                    title: 'Suas informações de contato',
+                    title: 'Informações de Acesso',
+                    defaultType: 'textfield',
+                    layout: 'anchor',
+                    defaults: {
+                        anchor: '100%'
+                    },
+                    items: [
+                        {
+                            xtype: 'fieldcontainer',                    
+                            fieldLabel: 'Login',
+                            layout: 'hbox',
+                            combineErrors: true,
+                            defaultType: 'textfield',
+                            defaults: {
+                                hideLabel: 'true'
+                            },
+                            items: [{
+                                name: 'login',
+                                fieldLabel: 'Login',
+                                flex: 1,
+                                emptyText: 'Login',
+                                allowBlank: false
+                            }, {
+                                inputType: 'password',
+                                name: 'senha',
+                                fieldLabel: 'Senha',
+                                width: 200,
+                                margins: '0 0 0 6',
+                                emptyText: 'Senha',
+                                allowBlank: false
+                            }]
+                        }]
+                },
+                {
+                    xtype: 'fieldset',
+                    title: 'Suas Informações de Contato',
                     defaultType: 'textfield',
                     layout: 'anchor',
                     defaults: {
@@ -102,25 +137,19 @@ Ext.define('SistemaBolsa.view.usuario.FormUsuario', {
                                 {
                                     xtype: 'datefield',
                                     fieldLabel: 'Data Nascimento',
-                                    name: 'data-nasc',
+                                    labelWidth: 100,
+                                    name: 'dataNasc',
+                                    width: 300,
                                     maxValue: new Date()
-                                }
-                            ]
-                        },
-                        {
-                            xtype: 'container',
-                            layout: 'hbox',
-                            defaultType: 'textfield',
-                            margin: '0 0 5 0',
-                            items: [
+                                },
                                 {
                                     fieldLabel: 'Telefone',
-                                    labelWidth: 100,
-                                    name: 'telefone',
-                                    width: 200
+                                    labelWidth: 150,
+                                    name: 'telefone' //,
+                                    //width: 303
                                 }
                             ]
-                        }   
+                        }  
                     ]                       
                 }, {
                     xtype: 'fieldset',
@@ -132,13 +161,13 @@ Ext.define('SistemaBolsa.view.usuario.FormUsuario', {
                     },
                     items: [
                         {
-                            labelWidth: 90,
+                            labelWidth: 50,
                             fieldLabel: 'Endereço',
                             name: 'endereco',                                    
                             billingFieldName: 'endereco'
                         },
                         {
-                            labelWidth: 90,
+                            labelWidth: 50,
                             fieldLabel: 'Bairro',
                             name: 'bairro',                                    
                             billingFieldName: 'bairro'
@@ -149,7 +178,7 @@ Ext.define('SistemaBolsa.view.usuario.FormUsuario', {
                             margin: '0 0 5 0',   
                             items: [
                                 {
-                                    labelWidth: 90,
+                                    labelWidth: 50,
                                     xtype: 'textfield',
                                     fieldLabel: 'Cidade',
                                     name: 'cidade',
@@ -160,6 +189,7 @@ Ext.define('SistemaBolsa.view.usuario.FormUsuario', {
                                     xtype: 'combobox',
                                     fieldLabel: 'Estado',
                                     id: 'estado',
+                                    name: 'estado',
                                     store: 'SistemaBolsa.store.combobox.ComboEstados',
                                     queryMode: 'local',
                                     displayField: 'Estado',
@@ -173,8 +203,8 @@ Ext.define('SistemaBolsa.view.usuario.FormUsuario', {
                                     xtype: 'textfield',
                                     fieldLabel: 'Cod. Postal',
                                     labelWidth: 80,
-                                    name: 'mailingPostalCode',
-                                    billingFieldName: 'billingPostalCode',
+                                    name: 'cep',
+                                    billingFieldName: 'cep',
                                     width: 160,
                                     maxLength: 10,
                                     enforceMaxLength: true,
@@ -216,10 +246,10 @@ Ext.define('SistemaBolsa.view.usuario.FormUsuario', {
                     },
                     items: [                        
                         {
+                            labelWidth: 40,
                             xtype: 'textfield',
                             name: 'celular',
-                            fieldLabel: 'Celular',
-                            allowBlank: false
+                            fieldLabel: 'Celular'
                         }
                     ]
                 }

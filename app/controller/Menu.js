@@ -32,8 +32,8 @@ Ext.define('SistemaBolsa.controller.Menu', {
 		//console.log('AlterarDadosUsuario');		
 		var win = Ext.create('SistemaBolsa.view.usuario.FormUsuario');
 		win.setTitle('Alterar Dados do Usuário');
-		var form = win.down('form'); 							
-		//form.loadRecord(record);	
+		var form = win.down('form');
+		//form.loadRecord(record);
 	},
 
 	onButtonClickCadastrarEmpresa: function(button, e, options) {
