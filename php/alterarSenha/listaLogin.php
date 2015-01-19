@@ -11,7 +11,7 @@
 	//$queryString = "SELECT * FROM usuario LIMIT 1, 25";
 
 	$login = $_SESSION['login'];
-	$queryString = "SELECT * FROM usuario where login = '$login'";
+	$queryString = "SELECT iduser, login FROM usuario where login = '$login'";
 
 	//consulta sql
 	$query = mysql_query($queryString) or die(mysql_error());

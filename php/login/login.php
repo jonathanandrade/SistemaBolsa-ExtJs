@@ -13,14 +13,14 @@
 	$userName = $mysqli->real_escape_string($userName);
 	$pass = $mysqli->real_escape_string($pass);
 
-	$sql = "SELECT * FROM usuario WHERE nome ='$userName' and senha = '$pass'";
+	$sql = "SELECT * FROM usuario WHERE login ='$userName' and senha = '$pass'";
 
 	$result = array();
 	if ($resultdb = $mysqli->query($sql)) {
 		$count = $resultdb->num_rows;
 		if($count==1){
 			$_SESSION['authenticated'] = "yes";
-			$_SESSION['username'] = $userName;
+			$_SESSION['login'] = $userName;   /// o irá gravar na session
 			$result['success'] = true;
 			$result['msg'] = 'User authenticated!';
 		} else {
@@ -33,5 +33,6 @@
 
 	$mysqli->close();
 
-	echo json_encode($result);
+	echo json_encode($result);   
+
 ?>

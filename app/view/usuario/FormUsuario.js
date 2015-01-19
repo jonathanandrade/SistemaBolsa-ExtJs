@@ -71,6 +71,12 @@ Ext.define('SistemaBolsa.view.usuario.FormUsuario', {
                     },
                     items: [
                         {
+                            xtype: 'textfield',
+                            name: 'iduser',
+                            fieldLabel: 'ID',
+                            hidden: true
+                        },
+                        {
                             xtype: 'fieldcontainer',                    
                             fieldLabel: 'Nome',
                             layout: 'hbox',

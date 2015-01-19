@@ -8,7 +8,7 @@ Ext.define('SistemaBolsa.util.SessionMonitor', {
 
   interval: 1000 * 10,  // run every 10 seconds.
   lastActive: null,
-  maxInactive: 1000 * 60 * 1,  // Alterar aqui a quantidade de tempo para encerrar a sessão, nesse caso está 1 minuto.
+  maxInactive: 1000 * 60 * 3,  // Alterar aqui a quantidade de tempo para encerrar a sessão, nesse caso está 1 minuto.
   remaining: 0,
   ui: Ext.getBody(),
   

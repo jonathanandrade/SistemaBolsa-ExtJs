@@ -180,7 +180,27 @@ Ext.define('SistemaBolsa.controller.Login', {
     },
 
     onButtonClickAlterarSenha: function(button, e, options) {
-        console.log('Alterar senha...');
+        //console.log('Alterar senha...');
+        var win = Ext.create('SistemaBolsa.view.AlterarSenha');
+        win.setTitle('Alterar Senha');
+        var form = win.down('form');
+        
+        Ext.Ajax.request({
+            url: 'php/alterarSenha/listaLogin.php',
+            method: 'GET',
+            success: function(conn, response, options, eOpts) {
+                var result = Ext.JSON.decode(conn.responseText, true);             
+                //console.log(result.usuario[0]);
+
+                var modelUsuario = Ext.create('SistemaBolsa.model.Usuario', {
+                    iduser: result.usuario[0].iduser,
+                    login: result.usuario[0].login
+                })
+
+                //console.log(modelUsuario);
+                form.loadRecord(modelUsuario);
+            }
+        });
     },
 
     onButtonClickCadastrar: function(button, e, options) {

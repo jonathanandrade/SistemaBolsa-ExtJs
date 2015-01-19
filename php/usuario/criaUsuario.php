@@ -27,7 +27,7 @@
 	$bairro = $data->bairro;
 	$cidade = $data->cidade;
 	$estado = $data->estado;
-	$cep = $data->email;
+	$cep = $data->cep;
 	$complemento = $data->complemento;
 	$numero = $data->numero;
 	$celular = $data->celular;
@@ -77,10 +77,3 @@
 		)
 	));
 ?>
-
-
-               
-                
-                
-                login: values.login,
-                senha: SistemaBolsa.util.M

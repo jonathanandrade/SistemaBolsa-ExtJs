@@ -2,6 +2,9 @@
 	//chama o arquivo de conexão com o bd
 	include("../conectar.php");
 
+	session_start();
+	$login = $_SESSION['login'];
+
 	$info = $_POST['corretora'];
 	$data = json_decode(stripslashes($info));
 	$razaoSocial = $data->razaoSocial;
@@ -18,8 +21,8 @@
 	$contato = $data->contato;
 	$telefone = $data->telefone;
 	//consulta sql
-	$query = sprintf("INSERT INTO corretora (razaoSocial, nomeFantasia, cnpj, endereco,bairro,cidade,estado,cep,complemento,numero,contato,telefone) 
-					  values ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+	$query = sprintf("INSERT INTO corretora (razaoSocial, nomeFantasia, cnpj, endereco,bairro,cidade,estado,cep,complemento,numero,contato,telefone,login) 
+					  values ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
 		mysql_real_escape_string($razaoSocial),
 		mysql_real_escape_string($nomeFantasia),
 		mysql_real_escape_string($cnpj),
@@ -31,7 +34,8 @@
 		mysql_real_escape_string($complemento),
 		mysql_real_escape_string($numero),
 		mysql_real_escape_string($contato),
-		mysql_real_escape_string($telefone));
+		mysql_real_escape_string($telefone),
+		mysql_real_escape_string($login));
 	$rs = mysql_query($query);
 	echo json_encode(array(
 		"success" => mysql_errno() == 0,
@@ -48,7 +52,8 @@
 			"complemento" => $complemento,
 			"numero" => $numero,
 			"contato" => $contato,
-			"telefone" => $telefone
+			"telefone" => $telefone,
+			"login" => $login,
 		)
 	));
 ?>

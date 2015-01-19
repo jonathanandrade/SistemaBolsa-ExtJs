@@ -2,10 +2,13 @@
 	//chama o arquivo de conexão com o bd
 	include("../conectar.php");
 
+	session_start();
+	$login = $_SESSION['login'];
+
 	$start = $_REQUEST['start'];
 	$limit = $_REQUEST['limit'];
 	$queryString = "SELECT idcorretora, descricao, cnpj, endereco, razaoSocial,numero,bairro,cidade,estado,cep,complemento,contato,telefone
-	 				FROM corretora LIMIT $start, $limit";
+	 				FROM corretora where login = '$login' LIMIT $start, $limit";
 	//$queryString = "SELECT idcorretora, descricao, cnpj, endereco,razaoSocial,numero,bairro,cidade,estado,cep,complemento,contato,telefone
 	// 				FROM corretora LIMIT 0, 25";
 

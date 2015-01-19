@@ -33,7 +33,8 @@ Ext.define('SistemaBolsa.Application', {
         'SistemaBolsa.view.empresa.FormEmpresa',
         'SistemaBolsa.view.corretora.GridCorretora',
         'SistemaBolsa.view.corretora.FormCorretora',
-        'SistemaBolsa.view.MyViewport'
+        'SistemaBolsa.view.MyViewport',
+        'SistemaBolsa.view.AlterarSenha'
     ],
 
     controllers: [
@@ -41,7 +42,8 @@ Ext.define('SistemaBolsa.Application', {
         'Menu',
         'Usuario',
         'Empresa',
-        'Corretora'
+        'Corretora',
+        'AlterarSenha'
     ],
 
     stores: [

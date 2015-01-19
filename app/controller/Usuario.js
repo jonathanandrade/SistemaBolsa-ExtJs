@@ -25,17 +25,26 @@ Ext.define('SistemaBolsa.controller.Usuario', {
         var win  = button.up('window');
         var form = win.down('form');
         var values = form.getValues();
-        var record = form.getRecord();
-        //var grid   = Ext.ComponentQuery.query('gridcorretora grid')[0],
-        //var store  = grid.getStore();
-        //console.log(values); 
-        //console.log(record);
+        var record = form.getRecord();  
 
         if(record) {
             // Editando corretora
-            console.log(record);
+            //console.log(record); // Dados anteriores
             record.set(values);
-            console.log(record);
+            //console.log(record); // Dados atualizados
+
+            var dadosUsuario = Ext.encode(record.data);
+            //console.log(dadosUsuario); // dados em formato json
+
+            Ext.Ajax.request({
+                url: 'php/usuario/atualizaUsuario.php',
+                method: 'POST',
+                success: function(conn, response, options, eOpts) {},
+                params: {
+                    'usuario': dadosUsuario
+                }
+            });             
+             
         } else {
             // Cadastro
             var novoUsuario = Ext.create('SistemaBolsa.model.Usuario', {
@@ -59,7 +68,6 @@ Ext.define('SistemaBolsa.controller.Usuario', {
             })
             
             //console.log(novoUsuario);
-
             //codifica os dados em JSON
             var dadosUsuario = Ext.encode(novoUsuario.data);
 
@@ -71,11 +79,10 @@ Ext.define('SistemaBolsa.controller.Usuario', {
                 params: {
                     'usuario': dadosUsuario
                 }
-            });            
+            });        
         }
         
-        win.close(); // Fecha o formulario
-        //Ext.MessageBox.alert('Informação','Salvo com Sucesso !');
+        win.close(); // Fecha o formulario        
 
     },
 

@@ -2,9 +2,12 @@
 	//chama o arquivo de conexão com o bd
 	include("../conectar.php");
 
+	session_start();
+	$login = $_SESSION['login'];
+
 	$start = $_REQUEST['start'];
 	$limit = $_REQUEST['limit'];
-	$queryString = "SELECT * FROM empresa LIMIT $start, $limit";
+	$queryString = "SELECT * FROM empresa where login = '$login' LIMIT $start, $limit";
 	//$queryString = "SELECT * FROM empresa LIMIT 0, 25";
 
 	//consulta sql
