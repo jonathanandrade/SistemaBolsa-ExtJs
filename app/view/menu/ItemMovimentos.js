@@ -6,6 +6,10 @@ Ext.define('SistemaBolsa.view.menu.ItemMovimentos', {
 	autoScroll: true,
 	rootVisible: false,
 	layout: 'vbox',
+     bodyStyle: {
+                background: '#eee' //,
+                //padding: '10px'
+            },
 
    	items: [
    		{

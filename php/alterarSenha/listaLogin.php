@@ -4,12 +4,6 @@
 
 	session_start();
 
-	//$start = $_REQUEST['start'];
-	//$limit = $_REQUEST['limit'];
-	//$queryString = "SELECT * FROM usuario LIMIT $start, $limit";
-	
-	//$queryString = "SELECT * FROM usuario LIMIT 1, 25";
-
 	$login = $_SESSION['login'];
 	$queryString = "SELECT iduser, login FROM usuario where login = '$login'";
 
