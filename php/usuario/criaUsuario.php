@@ -33,8 +33,20 @@
 	$celular = $data->celular;
 	$login = $data->login;
 	$senha = $data->senha;
-	//consulta sql
-	$query = sprintf("INSERT INTO usuario (nome, sobrenome, email, cpf, rg, dataNasc,telefone,endereco,bairro,cidade,estado,cep,complemento,numero,celular,login,senha) values ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+
+	//consulta sql para verificar se ja tem o usuario cadastrado
+	$retorno = mysql_query("SELECT LOGIN FROM USUARIO WHERE login = '$login'");	
+	if (mysql_num_rows($retorno) > 0) {
+		// nao cadastra registro igual
+		$result['success'] = false;
+		$result['msg'] = 'Login ja cadastrado.';
+		
+		$mysqli->close();
+
+		echo json_encode($result);  
+	} else {
+
+		$query = sprintf("INSERT INTO usuario (nome, sobrenome, email, cpf, rg, dataNasc,telefone,endereco,bairro,cidade,estado,cep,complemento,numero,celular,login,senha) values ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
 		mysql_real_escape_string($nome),
 		mysql_real_escape_string($sobrenome),
 		mysql_real_escape_string($email),
@@ -52,10 +64,10 @@
 		mysql_real_escape_string($celular),
 		mysql_real_escape_string($login),
 		mysql_real_escape_string($senha));
-	$rs = mysql_query($query);
-	echo json_encode(array(
-		"success" => mysql_errno() == 0,
-		"usuarios" => array(
+		$rs = mysql_query($query);
+		echo json_encode(array(
+			"success" => mysql_errno() == 0,
+			"usuarios" => array(
 			"idusuario" => mysql_insert_id(),
 			"nome" => $nome,
 			"sobrenome" => $sobrenome,
@@ -74,6 +86,7 @@
 			"celular" => $celular,
 			"login" => $login,
 			"senha" => $senha
-		)
-	));
+			)
+		));
+	}
 ?>

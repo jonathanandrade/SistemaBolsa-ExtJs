@@ -43,7 +43,9 @@ Ext.define('SistemaBolsa.controller.Usuario', {
                 params: {
                     'usuario': dadosUsuario
                 }
-            });             
+            });    
+
+            win.close(); // Fecha o formulario         
              
         } else {
             // Cadastro
@@ -75,15 +77,25 @@ Ext.define('SistemaBolsa.controller.Usuario', {
             Ext.Ajax.request({
                 url: 'php/usuario/criaUsuario.php',
                 method: 'POST',
-                success: function(conn, response, options, eOpts) {},
+
                 params: {
                     'usuario': dadosUsuario
-                }
-            });        
-        }
-        
-        win.close(); // Fecha o formulario        
-
+                },
+                
+                success: function(conn, response, options, eOpts) {
+                    var result = Ext.JSON.decode(conn.responseText, true);
+                    if (!result.success) {
+                        Ext.MessageBox.show({
+                            title: 'Erro',
+                            msg: 'Já possui um cadastro com esse Login',
+                            icon: Ext.MessageBox.ERROR
+                        })
+                    } else {
+                        win.close(); // Fecha o formulario
+                    }
+                },
+            });                  
+        }   
     },
 
     onButtonClickCancel: function(button, e, options) {
