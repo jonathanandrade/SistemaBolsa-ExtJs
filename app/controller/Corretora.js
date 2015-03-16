@@ -15,7 +15,7 @@ Ext.define('SistemaBolsa.controller.Corretora', {
 
 	init: function(application){
 		this.control({
-			"gridcorretora grid": {
+			"gridcorretora": {
                 render: this.onWindowRender,
                 itemdblclick : this.onEditClick
             },
@@ -46,7 +46,7 @@ Ext.define('SistemaBolsa.controller.Corretora', {
 
 	onDeleteClick: function(btn, e, e0pts) {
 		//console.log('Deletar...');
-		var grid    = btn.up('gridcorretora grid'),
+		var grid    = btn.up('gridcorretora'),
 		    records = grid.getSelectionModel().getSelection();
 
 		//console.log(records);
@@ -91,7 +91,7 @@ Ext.define('SistemaBolsa.controller.Corretora', {
 		    form   = win.down('form'),
 		    values = form.getValues(),
 			record = form.getRecord(),
-		 	grid   = Ext.ComponentQuery.query('gridcorretora grid')[0],
+		 	grid   = Ext.ComponentQuery.query('gridcorretora')[0],
 		 	store  = grid.getStore();
 
 		if(record) {

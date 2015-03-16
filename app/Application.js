@@ -16,7 +16,8 @@ Ext.define('SistemaBolsa.Application', {
         'Ext.form.Panel',
         'Ext.form.Label',
         'Ext.layout.container.Border',
-        'Ext.layout.container.Accordion',        
+        'Ext.layout.container.Accordion',
+        'Ext.layout.container.Column',  
         'Ext.form.field.ComboBox',
         'Ext.form.field.Date',
         'Ext.form.FieldSet',
@@ -34,7 +35,11 @@ Ext.define('SistemaBolsa.Application', {
         'SistemaBolsa.view.corretora.GridCorretora',
         'SistemaBolsa.view.corretora.FormCorretora',
         'SistemaBolsa.view.MyViewport',
-        'SistemaBolsa.view.AlterarSenha'
+        'SistemaBolsa.view.AlterarSenha',
+        'SistemaBolsa.view.menu.Menu', 
+        'SistemaBolsa.view.menu.MenuItem',
+        'SistemaBolsa.view.movimentos.GridMovimentos',
+        'SistemaBolsa.view.usuario.AlteraUsuario'
     ],
 
     controllers: [
@@ -43,7 +48,8 @@ Ext.define('SistemaBolsa.Application', {
         'Usuario',
         'Empresa',
         'Corretora',
-        'AlterarSenha'
+        'AlterarSenha',
+        'AlterarUsuario'
     ],
 
     stores: [

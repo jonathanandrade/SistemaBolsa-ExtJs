@@ -1,13 +1,15 @@
 Ext.define('SistemaBolsa.view.corretora.GridCorretora', {
-	extend: 'Ext.window.Window',
+	extend: 'Ext.grid.Panel',
 
     alias: 'widget.gridcorretora',
 
-    iconCls: 'icon-grid',
-    layout: 'fit',
-    store: 'SistemaBolsa.store.Corretoras',
+    requires: [
+        'Ext.grid.RowNumberer'
+    ],
 
-    maximized: true,
+    viewConfig: {
+        stripeRows: true
+    },
 
     autoShow: true,
 
@@ -15,16 +17,18 @@ Ext.define('SistemaBolsa.view.corretora.GridCorretora', {
     width: 500,
     title: 'Cadastro de Corretoras',
 
-    items: [{
+    store: 'SistemaBolsa.store.Corretoras',
 
-        xtype: 'gridpanel',
-        store: 'SistemaBolsa.store.Corretoras',
-
-        columns: [{
-            text: 'ID',
-            width: 35,
-            dataIndex: 'idcorretora'
-        }, {
+    columns: [
+        //{
+        //    text: 'ID',
+        //    width: 35,
+        //    dataIndex: 'idcorretora'
+        //},
+        {
+             xtype: 'rownumberer'
+        },
+        {
             text: 'Razão Social',
             width: 170,
             dataIndex: 'razaoSocial',
@@ -93,6 +97,4 @@ Ext.define('SistemaBolsa.view.corretora.GridCorretora', {
             displayInfo: true,
             emptyMsg: 'Nenhuma corretora encontrada'
         }]
-
-    }]
 });

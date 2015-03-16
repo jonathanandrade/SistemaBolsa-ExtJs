@@ -1,0 +1,181 @@
+{"items": 
+[
+	{
+		"title": "Empresa",
+		"iconCls": "icon-empresa",
+		"id": "1",
+		"items": [
+			{
+				"text": "Cadastro de Empresa",
+				"iconCls": "icon-cad-empresa",
+				"menu_id": "1",
+				"id": "11",
+				"className": "gridempresa"
+			},
+			{
+				"text": "menu 1.2",
+				"iconCls": "user_gray",
+				"menu_id": "1",
+				"id": "12"
+			},
+			{
+				"text": "menu 1.3",
+				"iconCls": "user_green",
+				"menu_id": "1",
+				"id": "13"
+			},
+			{
+				"text": "menu 1.4",
+				"iconCls": "user_orange",
+				"menu_id": "1",
+				"id": "14"
+			},
+			{
+				"text": "menu 1.5",
+				"iconCls": "user_red",
+				"menu_id": "1",
+				"id": "15"
+			},
+			{
+				"text": "menu 1.6",
+				"iconCls": "user_suit",
+				"menu_id": "1",
+				"id": "16"
+			},
+			{
+				"text": "menu 1.7",
+				"iconCls": "user",
+				"menu_id": "1",
+				"id": "17"
+			}
+		]
+	},
+	{
+		"title": "Corretora",
+		"iconCls": "icon-corretora",
+		"id": "2",
+		"items": [
+			{
+				"text": "Cadastro de Corretora",
+				"iconCls": "icon-cad-corretora",
+				"menu_id": "2",
+				"id": "21",
+				"className": "gridcorretora"				
+			},
+			{
+				"text": "menu 2.2",
+				"iconCls": "chart_curve",
+				"menu_id": "2",
+				"id": "22"
+			},
+			{
+				"text": "menu 2.3",
+				"iconCls": "chart_org",
+				"menu_id": "2",
+				"id": "23"
+			},
+			{
+				"text": "menu 2.4",
+				"iconCls": "chart_pie",
+				"menu_id": "2",
+				"id": "24"
+			}			
+		]
+	},
+	{
+		"title": "Movimentos",
+		"iconCls": "icon-movimentos",
+		"id": "3",
+		"items": [
+			{
+				"text": "Movimentos",
+				"iconCls": "icon-cad-mov",
+				"menu_id": "3",
+				"id": "31",
+				"className": "gridmovimentos"				
+			},
+			{
+				"text": "menu 3.2",
+				"iconCls": "tag_green",
+				"menu_id": "3",
+				"id": "32"
+			},
+			{
+				"text": "menu 3.3",
+				"iconCls": "tag_orange",
+				"menu_id": "3",
+				"id": "33"
+			},
+			{
+				"text": "menu 3.4",
+				"iconCls": "tag_pink",
+				"menu_id": "3",
+				"id": "34"
+			},
+			{
+				"text": "menu 3.5",
+				"iconCls": "tag_purple",
+				"menu_id": "3",
+				"id": "35"
+			},
+			{
+				"text": "menu 3.6",
+				"iconCls": "tag_red",
+				"menu_id": "3",
+				"id": "36"
+			},
+			{
+				"text": "menu 3.7",
+				"iconCls": "tag_yellow",
+				"menu_id": "3",
+				"id": "37"
+			}
+		]
+	},
+	{
+		"title": "Relatórios",
+		"iconCls": "icon-relatorio",
+		"id": "4",
+		"items": [
+			{
+				"text": "Pizza",
+				"iconCls": "icon-graf-pizza",
+				"menu_id": "4",
+				"id": "41"
+			},
+			{
+				"text": "Colunas",
+				"iconCls": "icon-graf-coluna",
+				"menu_id": "4",
+				"id": "42"
+			},
+			{
+				"text": "Curva",
+				"iconCls": "icon-graf-curva",
+				"menu_id": "4",
+				"id": "43"
+			},
+			{
+				"text": "Barras",
+				"iconCls": "icon-graf-barra",
+				"menu_id": "4",
+				"id": "44"
+			}			
+		]
+	},
+	{
+		"title": "Manutenção",
+		"iconCls": "icon-manutencao",
+		"id": "5",
+		"items": [
+			{
+				"text": "Alterar Dados do Usuário",
+				"iconCls": "icon-usuario",
+				"menu_id": "5",
+				"id": "45",
+				"className": "alterausuario"
+			}		
+		]
+	}
+]
+}

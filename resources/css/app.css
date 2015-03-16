@@ -17,6 +17,11 @@
 	min-height: 110px !important;
 }
 
+/* DEIXA EM NEGRITO A LINHA EM FOCO */
+.x-grid-row-over .x-grid-cell-inner {
+    font-weight: bold;
+}
+
 .icon-key {
   	background-image: url(../images/key.png) !important;
 }
@@ -45,40 +50,20 @@
 	background-image: url(../images/delete.png) !important;	
 }
 
-.icon-corretora {
-	background-image: url(../images/corretora.png) !important;	
-}
-
 .icon-report {
 	background-image: url(../images/report.png) !important;	
-}
-
-.icon-help {
-	background-image: url(../images/help.png) !important;	
-}
-
-.icon-ferramentas {
-	background-image: url(../images/ferramentas.png) !important;	
 }
 
 .icon-logout {
 	background-image: url(../images/logout.png) !important;	
 }
 
-.icon-chart_organisation {
-	background-image: url(../images/chart_organisation.png) !important;		
-}
-
-.icon-home {
-	background-image: url(../images/home.png) !important;		
-}
-
-.icon-empresa {
-	background-image: url(../images/empresa.png) !important;		
-}
-
 .icon-grid {
 	background-image: url(../images/grid.png) !important;		
+}
+
+.icon-menu {
+	background-image: url(../images/menu.png) !important;		
 }
 
 .icon-user {
@@ -97,18 +82,80 @@
 	background-image: url(../images/cancel.png) !important;		
 }
 
-
-.icon-user-menu {
-	background-image: url(../images/user-menu.png) !important;		
+.icon-accept {
+	background-image: url(../images/accept.png) !important;		
 }
 
-.icon-empresa-menu {
-	background-image: url(../images/empresa-menu.png) !important;		
+.icon-remove {
+	background-image: url(../images/remove.png) !important;		
 }
 
-.icon-corretora-menu {
-	background-image: url(../images/corretora-menu.png) !important;		
+.icon-home {
+	background-image: url(../images/ihome.png) !important;	
 }
+
+/*------------------------- EMPRESA ------------------------*/
+.icon-empresa {
+	background-image: url(../images/empresas.png) !important;	
+}
+
+.icon-cad-empresa {
+	background-image: url(../images/cad-empresa.png) !important;	
+}
+/*----------------------- FIM EMPRESA ----------------------*/
+
+/*------------------------- CORRETORA ----------------------*/
+.icon-corretora {
+	background-image: url(../images/corretoras.png) !important;	
+}
+
+.icon-cad-corretora {
+	background-image: url(../images/cad-corretora.png) !important;	
+}
+/*----------------------- FIM CORRETORA ---------------------*/
+
+
+/*------------------------ MOVIMENTOS -----------------------*/
+.icon-movimentos {
+	background-image: url(../images/movimentos.png) !important;	
+}
+
+.icon-cad-mov {
+	background-image: url(../images/cad-mov.png) !important;	
+}
+/*----------------------- FIM MOVIMENTOS --------------------*/
+
+/*----------------------- RELATORIOS ------------------------*/
+.icon-relatorio {
+	background-image: url(../images/relatorio.png) !important;		
+}
+
+.icon-graf-pizza {
+	background-image: url(../images/graf-pizza.png) !important;	
+}
+
+.icon-graf-coluna {
+	background-image: url(../images/graf-coluna.png) !important;	
+}
+
+.icon-graf-curva {
+	background-image: url(../images/graf-curva.png) !important;	
+}
+
+.icon-graf-barra {
+	background-image: url(../images/graf-barra.png) !important;	
+}
+/*------------------------ FIM RELATORIOS --------------------*/
+
+/*------------------------ MANUTENÇÃO ------------------------*/
+.icon-manutencao {
+	background-image: url(../images/manutencao.png) !important;	
+}
+
+.icon-usuario {
+	background-image: url(../images/usuario.png) !important;		
+}
+/*---------------------- FIM MANUTENÇÃO ----------------------*/
 
 #titleHeader {
 	color:#000;

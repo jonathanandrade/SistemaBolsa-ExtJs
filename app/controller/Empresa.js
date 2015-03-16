@@ -15,7 +15,7 @@ Ext.define('SistemaBolsa.controller.Empresa', {
 
 	init: function(application){
 		this.control({
-			"gridempresa grid": {
+			"gridempresa": {
                 render: this.onWindowRender,
                 itemdblclick : this.onEditClick
             },
@@ -42,12 +42,12 @@ Ext.define('SistemaBolsa.controller.Empresa', {
 	onAddClick: function(btn, e, e0pts) {
 		//console.log('Adicionar...');
 		var win = Ext.create('SistemaBolsa.view.empresa.FormEmpresa');
-		win.setTitle('Cadastrar Empresa');
+		win.setTitle('Cadastrar Empresa');		
 	},
 
 	onDeleteClick: function(btn, e, e0pts) {
 		//console.log('Deletar...');
-		var grid    = btn.up('gridempresa grid'),
+		var grid    = btn.up('gridempresa'),
 		    records = grid.getSelectionModel().getSelection();
 
 		//console.log(records);
@@ -92,7 +92,7 @@ Ext.define('SistemaBolsa.controller.Empresa', {
 		    form   = win.down('form'),
 		    values = form.getValues(),
 			record = form.getRecord(),
-		 	grid   = Ext.ComponentQuery.query('gridempresa grid')[0],
+		 	grid   = Ext.ComponentQuery.query('gridempresa')[0],
 		 	store  = grid.getStore();
 
 		if(record) {

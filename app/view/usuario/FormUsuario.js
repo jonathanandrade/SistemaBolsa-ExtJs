@@ -3,7 +3,7 @@ Ext.define('SistemaBolsa.view.usuario.FormUsuario', {
 
     alias: 'widget.formusuario',
 
-    iconCls: 'icon-grid',
+    //iconCls: 'icon-grid',
     layout: 'fit',
     //maximized: true,    
 

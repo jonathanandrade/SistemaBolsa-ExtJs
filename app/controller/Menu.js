@@ -1,80 +1,93 @@
 Ext.define('SistemaBolsa.controller.Menu', {
-	extend: 'Ext.app.Controller',
+    extend: 'Ext.app.Controller',
 
-	views: [
-		'menu.Accordion',
-		'menu.ItemCadastros',
-		'SistemaBolsa.view.empresa.GridEmpresa'
-	],
+    models: [
+        'MenuRoot',
+        'MenuItem'
+    ],
+    stores: [
+        'Menu'
+    ],
+    views: [
+        'menu.Menu',
+        'menu.MenuItem'
+    ],
 
-	refs: [
-		{
-			ref: 'mainPanel',
-			selector: 'mainPanel'
-		}
-	],
+    refs: [
+        {
+            ref: 'mainPanel',
+            selector: 'mainviewport #mainPanel',
+            xtype: 'Ext.tab.Panel'
+        }
+    ],
 
-	init: function(application) {
-		this.control({
-			"mainmenu itemcadastros button#alterardadosusuario": {
-				click: this.onButtonClickAlterarDadosUsuario
-			},
-			"mainmenu itemcadastros button#cadastrarempresa": {
-				click: this.onButtonClickCadastrarEmpresa
-			},
-			"mainmenu itemcadastros button#cadastrarcorretora": {
-				click: this.onButtonClickCadastrarCorretora
-			}
-		})
-	},
+    onPanelRender: function(component, eOpts) {
+        //console.log('renderizou');
+        this.getMenuStore().load(function(records, op, success){
 
-	onButtonClickAlterarDadosUsuario: function(button, e, options) {
-		//console.log('AlterarDadosUsuario');		
-		var win = Ext.create('SistemaBolsa.view.usuario.FormUsuario');
-		win.setTitle('Alterar Dados do Usuário');
-		var form = win.down('form');
-		
-		Ext.Ajax.request({
-            url: 'php/usuario/listaUsuario.php',
-            method: 'GET',
-            success: function(conn, response, options, eOpts) {
-       		    var result = Ext.JSON.decode(conn.responseText, true);         	   
-         	    //console.log(result.usuario[0]);
+            var menuPanel = Ext.ComponentQuery.query('menuwest')[0];
 
-         	   	var modelUsuario = Ext.create('SistemaBolsa.model.Usuario', {
-                	iduser: result.usuario[0].iduser,
-                	nome: result.usuario[0].nome,
-	                sobrenome: result.usuario[0].sobrenome,
-	                email: result.usuario[0].email,
-	                cpf: result.usuario[0].cpf,
-	                rg: result.usuario[0].rg,
-	                dataNasc: result.usuario[0].dataNasc,
-	                telefone: result.usuario[0].telefone,
-	                endereco: result.usuario[0].endereco,
-	                bairro: result.usuario[0].bairro,
-	                cidade: result.usuario[0].cidade,
-	                estado: result.usuario[0].estado,
-	                cep: result.usuario[0].cep,
-	                complemento: result.usuario[0].complemento,
-	                numero: result.usuario[0].numero,
-	                celular: result.usuario[0].celular,
-	                login: result.usuario[0].login,
-	                //senha: result.usuario[0].senha 
-	            })
+            //console.log("esse" + menuPanel);
+            Ext.each(records, function(root){
 
-	            //console.log(modelUsuario);
-	            form.loadRecord(modelUsuario);
-        	}
+                var menu = Ext.create('SistemaBolsa.view.menu.MenuItem',{
+                    title: root.get('title'),
+                    iconCls: root.get('iconCls')
+                });
+
+                Ext.each(root.items(), function(itens){
+
+                    Ext.each(itens.data.items, function(item){
+
+                        menu.getRootNode().appendChild({
+                            text: item.get('text'), 
+                            leaf: true, 
+                            iconCls: item.get('iconCls'),
+                            id: item.get('id'),
+                            className: item.get('className') 
+                        });
+                    });  
+                });
+                //console.log("menu:" + menuPanel); //LOG
+                //console.log(menu); //LOG
+
+                menuPanel.add(menu);
+            }); 
         });
-	},
+    },
 
-	onButtonClickCadastrarEmpresa: function(button, e, options) {
-		//console.log('CadastrarEmpresa');
-		Ext.create('SistemaBolsa.view.empresa.GridEmpresa');
-	},
+    onItemdblclick: function(rowmodel, record, index, eOpts) {
+        //console.log('clicou');
 
-	onButtonClickCadastrarCorretora: function(button, e, options) {
-		//console.log('Cadastrar Corretora...');
-		Ext.create('SistemaBolsa.view.corretora.GridCorretora');
-	}
+        var mainPanel = this.getMainPanel();
+
+        var newTab = mainPanel.items.findBy(
+        function (tab){ 
+            return tab.title === record.get('text'); 
+        }
+        );
+
+        if (!newTab){
+            newTab = mainPanel.add({
+                xtype: record.raw.className,
+                closable: true,
+                iconCls: record.get('iconCls'),
+                title: record.get('text')                
+            });            
+        } 
+
+        mainPanel.setActiveTab(newTab);
+    },
+
+    init: function(application) {
+        this.control({
+            "menuwest": {
+                render: this.onPanelRender
+            },
+            "treepanel": {
+                itemdblclick: this.onItemdblclick
+            }
+        });
+    }
+
 });

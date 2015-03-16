@@ -14,21 +14,24 @@ Ext.define('SistemaBolsa.view.menu.ItemMovimentos', {
    	items: [
    		{
             xtype: 'button',
-            text: 'Botão',
+            text: 'Botão 1',
             width: 182,
-            scale: 'large' 
+            scale: 'large',
+            itemId: 'botao1'
         },
         {
             xtype: 'button',
-            text: 'Botão',
+            text: 'Botão 2',
             width: 182,
-            scale: 'large'
+            scale: 'large',
+            itemId: 'botao2'
         },
         {
             xtype: 'button',
-            text: 'Botão',
+            text: 'Botão 3',
             width: 182,
-            scale: 'large'
+            scale: 'large',
+            itemId: 'botao3'
         },
    	]
 });
