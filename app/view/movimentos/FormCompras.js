@@ -1,13 +1,13 @@
-Ext.define('SistemaBolsa.view.empresa.FormEmpresa', {
+Ext.define('SistemaBolsa.view.movimentos.FormCompras', {
 	extend: 'Ext.window.Window',
-	alias: 'widget.formempresa',
+	alias: 'widget.formcompras',
 
 	height: 200,
 	width: 450,
 
 	layout: 'fit',
-	iconCls: 'icon-empresa',
-	title: 'Editar/Cadastrar Empresa',
+	iconCls: 'icon-cad-mov',
+	title: 'Editar/Cadastrar Ação',
 	autoShow: true,
 	modal: true,   // Deixa como tela principal, impedindo alterações na parte de baixo
 
@@ -15,35 +15,41 @@ Ext.define('SistemaBolsa.view.empresa.FormEmpresa', {
 		xtype: 'form',
 		bodyPadding: 10,
 		defaults: {
-			anchor: '100%',
-			frame: false
+			anchor: '100%'
 		},
 
 		items: [
 			{
 				xtype: 'textfield',
-				name: 'idempresa',
+				name: 'idmovimento',
 				fieldLabel: 'ID',
 				hidden: true
 			},
 			{
+				xtype: 'combobox',
+                anchor: '70%',
+                fieldLabel: 'Ativo',
+                emptyText: 'Siglas',
+                store: 'SistemaBolsa.store.combobox.ComboSiglasAcao',
+                queryMode: 'local',
+                id: 'siglas',
+                displayField: 'sigla',
+                valueField: 'sigla',
+                editable: false
+			},			
+			{
 				xtype: 'textfield',
-				name: 'descricao',
-				fieldLabel: 'Descrição',
+				name: 'quantidade',
+				fieldLabel: 'Quantidade',
 				allowBlank: false,
 				msgTarget: 'side'
 			},
 			{
 				xtype: 'textfield',
-				name: 'sigla',
-				fieldLabel: 'Sigla',
+				name: 'valorUnitario',
+				fieldLabel: 'Vlr. Unit',
 				allowBlank: false,
 				msgTarget: 'side'
-			},
-			{
-				xtype: 'textfield',
-				name: 'atividade',
-				fieldLabel: 'Atividade'
 			}
 		]
 	}],

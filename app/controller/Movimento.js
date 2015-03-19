@@ -1,35 +1,46 @@
-Ext.define('SistemaBolsa.controller.Corretora', {
+Ext.define('SistemaBolsa.controller.Movimento', {
 	extend: 'Ext.app.Controller',
 
 	models: [
-		'SistemaBolsa.model.Corretora'
+		'SistemaBolsa.model.Movimento'
 	],
 
 	stores: [
-		'SistemaBolsa.store.Corretoras'
+		'SistemaBolsa.store.Movimentos'
 	],
 
+	requires: [
+        'SistemaBolsa.ux.notification.Notification'
+    ],
+
 	views: [
-		'SistemaBolsa.view.corretora.GridCorretora'
+		'SistemaBolsa.view.movimentos.GridCompras',
+		'SistemaBolsa.view.movimentos.GridCompras'
 	],
 
 	init: function(application){
 		this.control({
-			"gridcorretora": {
+			"gridcompras": {
                 render: this.onWindowRender,
                 itemdblclick : this.onEditClick
             },
-			"gridcorretora toolbar button#add": {
+			"gridcompras toolbar button#add": {
 				click : this.onAddClick
 			},
-			"gridcorretora toolbar button#delete": {
+			"gridcompras toolbar button#delete": {
 				click : this.onDeleteClick
 			},
-			"formcorretora button#save": {
-				click: this.onSaveClick
+			"gridvendas toolbar button#vender": {
+				click : this.onVenderClick
 			},
-			"formcorretora button#cancel": {
+			"gridvendas": {
+                render: this.onWindowRender
+            },
+			"formcompras button#cancel": {
 				click: this.onCancelClick
+			},
+			"formcompras button#save": {
+				click: this.onSaveClick
 			}
 		})
 	},
@@ -39,14 +50,13 @@ Ext.define('SistemaBolsa.controller.Corretora', {
 	},
 
 	onAddClick: function(btn, e, e0pts) {
-		//console.log('Adicionar...');
-		var win = Ext.create('SistemaBolsa.view.corretora.FormCorretora');
-		win.setTitle('Cadastrar Corretora');
+		var win = Ext.create('SistemaBolsa.view.movimentos.FormCompras');
+		win.setTitle('Compra de Ações');		
 	},
 
 	onDeleteClick: function(btn, e, e0pts) {
 		//console.log('Deletar...');
-		var grid    = btn.up('gridcorretora'),
+		var grid    = btn.up('gridcompras'),
 		    records = grid.getSelectionModel().getSelection();
 
 		//console.log(records);
@@ -72,7 +82,7 @@ Ext.define('SistemaBolsa.controller.Corretora', {
 				            closable: false,
 				            title: 'Informação',
 				            iconCls: 'ux-notification-icon-information',
-				            html: 'Corretora excluída com sucesso.',
+				            html: 'Ação excluída com sucesso.',
 				            autoDestroyDelay: 1800,
 				            slideInDelay: 600,
 				            slideDownDelay: 600,
@@ -82,15 +92,15 @@ Ext.define('SistemaBolsa.controller.Corretora', {
 					}
 				}
 			});
-		}
+		} 
 	},
 
 	onEditClick: function(formempresa, record, item, index, e, eOpts) {
 		//console.log('Editar...');
-		var win = Ext.create('SistemaBolsa.view.corretora.FormCorretora'); // Cria o formulario
-		win.setTitle('Editar Corretora - ' + record.get('razaoSocial'));   // Seta o titulo da janela
-		var form = win.down('form'); 								   // Pega a referencia do formulario
-		form.loadRecord(record);	    							   // Carrega os dados do item seleciona com o duplo clique
+		var win = Ext.create('SistemaBolsa.view.movimentos.FormCompras'); // Cria o formulario
+		win.setTitle('Editar Ação - ' + record.get('descricao')); 		  // Seta o titulo da janela
+		var form = win.down('form'); 								   	  // Pega a referencia do formulario
+		form.loadRecord(record);	    							   	  // Carrega os dados do item seleciona com o duplo clique
 	},
 
 	onCancelClick: function(btn, e, e0pts) {
@@ -105,40 +115,33 @@ Ext.define('SistemaBolsa.controller.Corretora', {
 		    form   = win.down('form'),
 		    values = form.getValues(),
 			record = form.getRecord(),
-		 	grid   = Ext.ComponentQuery.query('gridcorretora')[0],
+		 	grid   = Ext.ComponentQuery.query('gridcompras')[0],
 		 	store  = grid.getStore();
 
 		if (form.getForm().isValid()) {
 
 			if(record) {
-				// Editando corretora
+				// Editando empresa
 				//console.log(record);
 				record.set(values);
-				//console.log(record);
+				//console.log(record);			
 			} else {
-				// Cadastro
-				var novaCorretora = Ext.create('SistemaBolsa.model.Corretora', {
-					razaoSocial: values.razaoSocial,
-					nomeFantasia: values.nomeFantasia,
-					cnpj: values.cnpj,
-					endereco: values.endereco,
-					bairro: values.bairro,
-					cidade: values.cidade,
-					estado: values.estado,
-					cep: values.cep,
-					complemento: values.complemento,
-					numero: values.numero,
-					contato: values.contato,
-					telefone: values.telefone
+				// Cadastro			
+				var novoMovimento = Ext.create('SistemaBolsa.model.Movimento', {
+					sigla: values.sigla,
+					quantidade: values.quantidade,
+					valorUnitario: values.valorUnitario,
+					media: ((values.quantidade * values.valorUnitario) / values.quantidade),
+					tipo: 'C' // Tipo de Movimento Compra
 				});
 				
-				//console.log(novaCorretora);
-				store.add(novaCorretora);			
+				//console.log(novoMovimento);
+				store.add(novoMovimento);
 			}
 
-			store.sync(); // Atualiza o banco de dados
-			grid.getStore().load(); // Atualiza o grid
 			
+			store.sync(); // Atualiza o banco de dados		
+			grid.getStore().load(); // Atualiza o grid
 			win.close(); // Fecha o formulario
 			
 			Ext.create('widget.uxNotification', {
@@ -153,7 +156,7 @@ Ext.define('SistemaBolsa.controller.Corretora', {
 	            slideDownDelay: 600,
 	            //slideInAnimation: 'bounceOut',
 	            //slideDownAnimation: 'easeIn'
-	        }).show();
+	        }).show(); 
 
 	    } else { // <<< Fim formPanel.getForm().isValid()
 
@@ -171,6 +174,11 @@ Ext.define('SistemaBolsa.controller.Corretora', {
 				//slideDownAnimation: 'easeIn'
 			}).show();
 
-	    }
+		}
+	},
+
+	onVenderClick: function(btn, e, e0pts) {
+		console.log('Vendeu...');
 	}
+
 });

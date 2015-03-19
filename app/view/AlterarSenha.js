@@ -56,7 +56,8 @@ Ext.define('SistemaBolsa.view.AlterarSenha', {
             id: 'senha',
             maxLength: 15,            
             //vtype: 'customPass',
-            msgTarget: 'side'
+            allowBlank: false,
+            msgTarget: 'under'
         }],
         dockedItems: [{
             xtype: 'toolbar',

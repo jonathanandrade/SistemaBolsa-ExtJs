@@ -38,8 +38,10 @@ Ext.define('SistemaBolsa.Application', {
         'SistemaBolsa.view.AlterarSenha',
         'SistemaBolsa.view.menu.Menu', 
         'SistemaBolsa.view.menu.MenuItem',
-        'SistemaBolsa.view.movimentos.GridMovimentos',
-        'SistemaBolsa.view.usuario.AlteraUsuario'
+        'SistemaBolsa.view.movimentos.GridCompras',
+        'SistemaBolsa.view.usuario.AlteraUsuario',
+        'SistemaBolsa.view.movimentos.FormCompras',
+        'SistemaBolsa.view.movimentos.GridVendas'
     ],
 
     controllers: [
@@ -49,11 +51,13 @@ Ext.define('SistemaBolsa.Application', {
         'Empresa',
         'Corretora',
         'AlterarSenha',
-        'AlterarUsuario'
+        'AlterarUsuario',
+        'Movimento'
     ],
 
     stores: [
-        'SistemaBolsa.store.combobox.ComboEstados'
+        'SistemaBolsa.store.combobox.ComboEstados',
+        'SistemaBolsa.store.combobox.ComboSiglasAcao'
     ],
 
     splashscreen: {},

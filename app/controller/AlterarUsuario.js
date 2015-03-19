@@ -5,13 +5,17 @@ Ext.define('SistemaBolsa.controller.AlterarUsuario', {
         'SistemaBolsa.model.Usuario'
     ],
 
+    requires: [
+        'SistemaBolsa.ux.notification.Notification'
+    ],
+
     views: [
         'SistemaBolsa.view.usuario.AlteraUsuario'
     ],
 
     init: function(application) {
         this.control({
-            "alterausuario": {
+            "mainpanel alterausuario": {
                 render: this.onRenderPanel
             },
             "alterausuario toolbar button#save": {
@@ -24,9 +28,10 @@ Ext.define('SistemaBolsa.controller.AlterarUsuario', {
     },
 
     onRenderPanel: function(form, e0pts) {
-        console.log('asdf');  
-
-        //var form = Ext.ComponentQuery.query('alterausuario form');
+       
+        var panel = Ext.ComponentQuery.query('mainpanel')[0];
+        //console.log(panel);
+        var form = panel.down('alterausuario');
         //console.log(form);
 
         Ext.Ajax.request({
@@ -56,8 +61,12 @@ Ext.define('SistemaBolsa.controller.AlterarUsuario', {
                     //senha: result.usuario[0].senha 
                 })
 
-                console.log(modelUsuario);
+                //console.log(modelUsuario.data.login);
                 //form.loadRecord(modelUsuario);
+                //Ext.getCmp('login').setValue(modelUsuario.data.login);
+                //Ext.getCmp('nome').setValue(modelUsuario.data.nome);
+                //Ext.getCmp('sobrenome').setValue(modelUsuario.data.sobrenome);
+                Ext.getCmp('email').setValue(modelUsuario.data.email);                
 
             }
         });
@@ -65,9 +74,28 @@ Ext.define('SistemaBolsa.controller.AlterarUsuario', {
     },
 
     onButtonClickSave: function(button, e, options) {
-    	console.log('Save..');
+    	console.log('Save..');       
 
-        Ext.example.msg('Button Click', 'You clicked the {0} button', btn);
+        Ext.create('widget.uxNotification', {
+            position: 't',
+            cls: 'ux-notification-light',
+            closable: false,
+            title: '',
+            iconCls: 'ux-notification-icon-information',
+            html: 'Using document as manager. No title and closable: false. Entering from the t edge.',
+            autoDestroyDelay: 1500,
+            slideInDelay: 600,
+            slideDownDelay: 600,
+            //slideInAnimation: 'bounceOut',
+            //slideDownAnimation: 'easeIn'
+        }).show();
+
+        //Ext.MessageBox.confirm('Confirm', 'Are you sure you want to do that?', showResult);
+
+        //function showResult(btn){
+        //Ext.example.msg('Button Click', 'You clicked the {0} button', btn);
+    
+    
         /*var win  = button.up('window');
         var form = win.down('form');
         var values = form.getValues();

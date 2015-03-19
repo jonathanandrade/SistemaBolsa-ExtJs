@@ -3,7 +3,7 @@ Ext.define('SistemaBolsa.view.menu.Menu', {
     alias: 'widget.menuwest',
 
     height: 432,
-    width: 251,
+    width: 280,
     collapseDirection: 'left',
     layout: {
         type: 'accordion'

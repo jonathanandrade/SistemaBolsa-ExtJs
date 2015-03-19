@@ -186,7 +186,8 @@ Ext.define('SistemaBolsa.view.corretora.FormCorretora', {
 			xtype: 'button',
 			text: 'Salvar',
 			itemId: 'save',
-			iconCls: 'icon-save'
+			iconCls: 'icon-save',
+			formBind: true
 		}]
 	}]
 });

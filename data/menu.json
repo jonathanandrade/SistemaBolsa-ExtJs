@@ -88,17 +88,18 @@
 		"id": "3",
 		"items": [
 			{
-				"text": "Movimentos",
+				"text": "Compra de Ações",
 				"iconCls": "icon-cad-mov",
 				"menu_id": "3",
 				"id": "31",
-				"className": "gridmovimentos"				
+				"className": "gridcompras"				
 			},
 			{
-				"text": "menu 3.2",
-				"iconCls": "tag_green",
+				"text": "Venda de Ações",
+				"iconCls": "icon-exl-mov",
 				"menu_id": "3",
-				"id": "32"
+				"id": "32",
+				"className": "gridvendas"
 			},
 			{
 				"text": "menu 3.3",

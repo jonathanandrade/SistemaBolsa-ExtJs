@@ -4,7 +4,7 @@ Ext.define('SistemaBolsa.store.combobox.ComboEstados', {
 	fields: ['Estado'],
 
 	data: [{
-		"Estado": "AC" // Acre
+		"Estado": "AC", "name": "Acre"
 	}, {
 		"Estado": "AL" // Alagoas
 	}, {

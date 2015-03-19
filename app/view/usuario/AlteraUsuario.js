@@ -3,6 +3,7 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
     alias: 'widget.alterausuario',
 
     bodyPadding: 15,
+    autoScroll: true,
 
     items: [{
         xtype: 'fieldset',
@@ -22,6 +23,7 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
             items: [{
                 name: 'login',
                 fieldLabel: 'Login',
+                id: 'login',
                 maxLength: 25,
                 flex: 1,
                 emptyText: 'Login',
@@ -48,6 +50,7 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
                 fieldLabel: 'Nome',
                 labelStyle: 'font-weight:bold;',
                 name: 'nome',
+                id: 'nome',
                 vtype: 'nome',
                 flex: 1,
                 allowBlank: false
@@ -61,6 +64,7 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
             margin: '0 0 5 0',
             items: [{
                 fieldLabel: 'Sobrenome',
+                id: 'sobrenome',
                 labelStyle: 'font-weight:bold;',
                 name: 'sobrenome',
                 vtype: 'sobrenome',
@@ -77,6 +81,7 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
                 fieldLabel: 'Email',
                 labelStyle: 'font-weight:bold;',
                 name: 'email',
+                id: 'email',
                 vtype: 'email',
                 flex: 1,
                 allowBlank: false
@@ -178,9 +183,9 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
                 queryMode: 'local',
                 displayField: 'Estado',
                 valueField: 'Estado',
-                value: 'SC',
                 editable: false,
-                width: 250
+                width: 250,
+                value: 'SC'
 
             }, {
 

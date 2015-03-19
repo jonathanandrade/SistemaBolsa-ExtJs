@@ -20,11 +20,12 @@ Ext.define('SistemaBolsa.view.corretora.GridCorretora', {
     store: 'SistemaBolsa.store.Corretoras',
 
     columns: [
-        //{
-        //    text: 'ID',
-        //    width: 35,
-        //    dataIndex: 'idcorretora'
-        //},
+        {
+            text: 'ID',
+            width: 35,
+            dataIndex: 'idcorretora',
+            hidden: true
+        },
         {
              xtype: 'rownumberer'
         },
@@ -74,7 +75,7 @@ Ext.define('SistemaBolsa.view.corretora.GridCorretora', {
             text: 'Telefone',
             width: 170,
             dataIndex: 'telefone'
-        }],
+        }],       
 
         dockedItems: [{
             xtype: 'toolbar',

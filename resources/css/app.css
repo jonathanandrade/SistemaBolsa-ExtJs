@@ -17,10 +17,32 @@
 	min-height: 110px !important;
 }
 
-/* DEIXA EM NEGRITO A LINHA EM FOCO */
+/*------------------------- DEIXA EM NEGRITO A LINHA EM FOCO ------------------------*/
 .x-grid-row-over .x-grid-cell-inner {
     font-weight: bold;
 }
+
+/*------------------------- ICONES DA MENSAGEM DE INFORMAÇÃO ------------------------*/
+.ux-notification-icon-information {
+	background-image: url(../images/info.png);
+}
+
+.ux-notification-light .x-window-header {
+	background-color: transparent;
+}
+
+body .ux-notification-light {
+	background-image: url(../images/fader.png);
+}
+
+.ux-notification-light .x-window-body {
+	text-align: center;
+	padding: 15px 5px 20px 5px;
+	background-color: transparent;
+	border: 0px solid white;
+}
+/*------------------------- ICONES DA MENSAGEM DE INFORMAÇÃO ------------------------*/
+
 
 .icon-key {
   	background-image: url(../images/key.png) !important;
@@ -94,7 +116,7 @@
 	background-image: url(../images/ihome.png) !important;	
 }
 
-/*------------------------- EMPRESA ------------------------*/
+/*------------------------------------- EMPRESA ------------------------------------*/
 .icon-empresa {
 	background-image: url(../images/empresas.png) !important;	
 }
@@ -102,9 +124,9 @@
 .icon-cad-empresa {
 	background-image: url(../images/cad-empresa.png) !important;	
 }
-/*----------------------- FIM EMPRESA ----------------------*/
+/*----------------------------------- FIM EMPRESA ----------------------------------*/
 
-/*------------------------- CORRETORA ----------------------*/
+/*------------------------------------- CORRETORA ----------------------------------*/
 .icon-corretora {
 	background-image: url(../images/corretoras.png) !important;	
 }
@@ -112,10 +134,10 @@
 .icon-cad-corretora {
 	background-image: url(../images/cad-corretora.png) !important;	
 }
-/*----------------------- FIM CORRETORA ---------------------*/
+/*----------------------------------- FIM CORRETORA ---------------------------------*/
 
 
-/*------------------------ MOVIMENTOS -----------------------*/
+/*------------------------------------ MOVIMENTOS -----------------------------------*/
 .icon-movimentos {
 	background-image: url(../images/movimentos.png) !important;	
 }
@@ -123,9 +145,13 @@
 .icon-cad-mov {
 	background-image: url(../images/cad-mov.png) !important;	
 }
-/*----------------------- FIM MOVIMENTOS --------------------*/
 
-/*----------------------- RELATORIOS ------------------------*/
+.icon-exl-mov {
+	background-image: url(../images/exl-mov.png) !important;	
+}
+/*----------------------------------- FIM MOVIMENTOS --------------------------------*/
+
+/*----------------------------------- RELATORIOS ------------------------------------*/
 .icon-relatorio {
 	background-image: url(../images/relatorio.png) !important;		
 }
@@ -145,9 +171,9 @@
 .icon-graf-barra {
 	background-image: url(../images/graf-barra.png) !important;	
 }
-/*------------------------ FIM RELATORIOS --------------------*/
+/*------------------------------------ FIM RELATORIOS --------------------------------*/
 
-/*------------------------ MANUTENÇÃO ------------------------*/
+/*------------------------------------ MANUTENÇÃO ------------------------------------*/
 .icon-manutencao {
 	background-image: url(../images/manutencao.png) !important;	
 }
@@ -155,7 +181,7 @@
 .icon-usuario {
 	background-image: url(../images/usuario.png) !important;		
 }
-/*---------------------- FIM MANUTENÇÃO ----------------------*/
+/*---------------------------------- FIM MANUTENÇÃO ----------------------------------*/
 
 #titleHeader {
 	color:#000;

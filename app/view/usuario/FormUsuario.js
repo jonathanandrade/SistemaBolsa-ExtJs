@@ -23,7 +23,7 @@ Ext.define('SistemaBolsa.view.usuario.FormUsuario', {
                 labelAlign: 'right',
                 labelWidth: 30,
                 msgTarget: 'qtip'
-            },
+            },  
 
             items: [
                 {
@@ -281,7 +281,8 @@ Ext.define('SistemaBolsa.view.usuario.FormUsuario', {
                 xtype: 'button',
                 text: 'Salvar',
                 itemId: 'save',
-                iconCls: 'icon-save'
+                iconCls: 'icon-save',                
+                formBind: true
             }
         ]
     }]

@@ -1,7 +1,7 @@
-Ext.define('SistemaBolsa.view.empresa.GridEmpresa', {
+Ext.define('SistemaBolsa.view.movimentos.GridCompras', {
     extend: 'Ext.grid.Panel',
 
-    alias: 'widget.gridempresa',
+    alias: 'widget.gridcompras',
 
     requires: [
         'Ext.grid.RowNumberer'
@@ -15,33 +15,33 @@ Ext.define('SistemaBolsa.view.empresa.GridEmpresa', {
 
     height: 400,
     width: 500,
-    title: 'Cadastro de Empresas',
+    title: 'Compra de Ações',
 
-    store: 'SistemaBolsa.store.Empresas',
+    store: 'SistemaBolsa.store.Movimentos',
 
     columns: [
      {
         text: 'ID',
         width: 35,
-        dataIndex: 'idempresa',
+        dataIndex: 'idmovimento',
         hidden: true
      },
      {
          xtype: 'rownumberer'
      },
      {
-        text: 'Descrição',
+        text: 'Ativo',
         width: 170,
         flex: 1,
-        dataIndex: 'descricao'
-    }, {
-        text: 'Sigla',
-        width: 170,
         dataIndex: 'sigla'
     }, {
-        text: 'Atividade',
+        text: 'Quantidade',
         width: 170,
-        dataIndex: 'atividade'
+        dataIndex: 'quantidade'
+    }, {
+        text: 'Vlr. Unitário',
+        width: 170,
+        dataIndex: 'valorUnitario'
     }],
 
     dockedItems: [{
@@ -60,10 +60,10 @@ Ext.define('SistemaBolsa.view.empresa.GridEmpresa', {
         }]
     }, {
         xtype: 'pagingtoolbar',
-        store: 'SistemaBolsa.store.Empresas',
+        store: 'SistemaBolsa.store.Movimentos',
         dock: 'top',
         displayInfo: true,
-        emptyMsg: 'Nenhuma empresa encontrada'
+        emptyMsg: 'Nenhum movimento encontrado'
     }]
 
 

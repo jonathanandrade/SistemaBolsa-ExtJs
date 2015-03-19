@@ -42,7 +42,7 @@ Ext.define('SistemaBolsa.view.Login', {
             maxLength: 15,
             value: 'qwe123',
             //vtype: 'customPass',
-            msgTarget: 'side'
+            msgTarget: 'under'
         }],
         dockedItems: [{
             xtype: 'toolbar',

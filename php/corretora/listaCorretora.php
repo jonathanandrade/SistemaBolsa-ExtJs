@@ -22,7 +22,7 @@
 	}
 
 	//consulta total de linhas na tabela
-	$queryTotal = mysql_query('SELECT count(*) as num FROM corretora') or die(mysql_error());
+	$queryTotal = mysql_query("SELECT count(*) as num FROM corretora where login = '$login'") or die(mysql_error());
 	$row = mysql_fetch_assoc($queryTotal);
 	$total = $row['num'];
 	//encoda para formato JSON
