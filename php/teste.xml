@@ -1,0 +1,6 @@
+<ComportamentoPapeis>
+<Papel Codigo="PETR4" Nome="PETROBRAS PN" Ibovespa="#" Data="24/03/201500:00:00" Abertura="9,37" Minimo="9,22" Maximo="9,45" Medio="9,37" Ultimo="9,42" Oscilacao="0,42" Minino="9,22"/>
+<Papel Codigo="BBDC4" Nome="BRADESCO PN N1" Ibovespa="#" Data="24/03/201500:00:00" Abertura="36,80" Minimo="35,97" Maximo="37,17" Medio="36,42" Ultimo="36,58" Oscilacao="-0,95" Minino="35,97"/>
+<Papel Codigo="OGXP3" Nome="OGX PETROLEO ON NM" Ibovespa="" Data="24/03/201500:00:00" Abertura="0,07" Minimo="0,07" Maximo="0,08" Medio="0,07" Ultimo="0,07" Oscilacao="0,00" Minino="0,07"/>
+<Papel Codigo="AELP3" Nome="AES ELPA ON" Ibovespa="" Data="24/03/201500:00:00" Abertura="8,00" Minimo="8,00" Maximo="8,15" Medio="8,08" Ultimo="8,15" Oscilacao="0,00" Minino="8,00"/>
+</ComportamentoPapeis>

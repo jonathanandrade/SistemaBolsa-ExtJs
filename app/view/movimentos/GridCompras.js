@@ -4,7 +4,8 @@ Ext.define('SistemaBolsa.view.movimentos.GridCompras', {
     alias: 'widget.gridcompras',
 
     requires: [
-        'Ext.grid.RowNumberer'
+        'Ext.grid.RowNumberer',
+        'Ext.selection.CellModel'
     ],
 
     viewConfig: {
@@ -27,7 +28,15 @@ Ext.define('SistemaBolsa.view.movimentos.GridCompras', {
         hidden: true
      },
      {
-         xtype: 'rownumberer'
+        xtype: 'rownumberer'        
+     },
+     {
+        xtype: 'checkcolumn',
+        width: 40,
+        header: 'Exibir',
+        dataIndex: 'exibir',
+        id: 'exibir',
+        stopSelection: false
      },
      {
         text: 'Ativo',
@@ -41,7 +50,21 @@ Ext.define('SistemaBolsa.view.movimentos.GridCompras', {
     }, {
         text: 'Vlr. Unitário',
         width: 170,
-        dataIndex: 'valorUnitario'
+        dataIndex: 'valorUnitario',
+        renderer: Ext.util.Format.currency(('valorUnitario'), '$ ', 2)
+    }, {
+        text: 'Data Compra',
+        dataIndex: 'dataCompra',
+        xtype: 'datecolumn',
+        groupable: false,
+        width: 115,
+        renderer: Ext.util.Format.dateRenderer('d/m/Y'),
+        filter: {
+
+        },
+        editor: {
+            xtype: 'datefield'
+        }
     }],
 
     dockedItems: [{

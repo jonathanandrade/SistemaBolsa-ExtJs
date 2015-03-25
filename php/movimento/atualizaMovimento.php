@@ -9,12 +9,15 @@
 	$valorUnitario = $data->valorUnitario;	
 	$idmovimento = $data->idmovimento;
 	$media = ($data->quantidade * $data->valorUnitario) / $data->quantidade;
+	$dataCompra = date("Y/m/d");
+	
 	//consulta sql
-	$query = sprintf("UPDATE movimento SET sigla = '%s', quantidade = '%s', valorUnitario = '%s', media = '%s' WHERE idmovimento=%d",
+	$query = sprintf("UPDATE movimento SET sigla = '%s', quantidade = '%s', valorUnitario = '%s', media = '%s', dataCompra = '%s' WHERE idmovimento=%d",
 		mysql_real_escape_string($sigla),
 		mysql_real_escape_string($quantidade),
 		mysql_real_escape_string($valorUnitario),
 		mysql_real_escape_string($media),
+		mysql_real_escape_string($dataCompra),
 		mysql_real_escape_string($idmovimento));
 	$rs = mysql_query($query);
 	echo json_encode(array(
@@ -24,7 +27,8 @@
 			"sigla" => $sigla,
 			"quantidade" => $quantidade,
 			"valorUnitario" => $valorUnitario,
-			"media" => $media
+			"media" => $media,
+			"dataCompra" => $dataCompra
 		)
 	));
 ?>

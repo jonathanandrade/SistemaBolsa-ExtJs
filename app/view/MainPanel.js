@@ -4,56 +4,43 @@ Ext.define('SistemaBolsa.view.MainPanel', {
 
 	activeTab: 0,
 
-	items: [
-		{
-			xtype: 'panel',
-			closable: false,
-			iconCls: 'icon-home',
-			title: 'Home',
-			bodyStyle: {
-				background: '#eee',
-				padding: '10px'
-			},
-			items: [
-				{
-					xtype: 'form',
-					frame: false,
-					bodyStyle: {
-						//background: '#eee',
-						Padding: '15px'
-					},
-					items: [
-						{
-							xtype: 'button',
-							text: 'Alterar Senha',
-							itemId: 'alterarsenha',
-							iconCls: 'icon-key',
-							width: 182,           
-							scale: 'large' //,
-							//bodyPadding: 15
-						}
-					]
-				},
-				{
-					xtype: 'form',
-					frame: false,
-					bodyStyle: {
-						//background: '#eee',
-						Padding: '15px'
-					},
-					items: [
-						{
-							xtype: 'button',
-							text: 'Alterar Senha',
-							itemId: 'alterarsenha',
-							iconCls: 'icon-cancel',
-							width: 182,           
-							scale: 'large' //,
-							//bodyPadding: 15
-						}
-					]
-				}				
-			]
-		}
-	]
+	items: [{
+		xtype: 'panel',
+		closable: false,
+		autoScroll: true,
+		iconCls: 'icon-home',
+		title: 'Home',
+		bodyStyle: {
+			background: '#eee',
+			padding: '5px'
+		},
+		items: [{
+			xtype: 'grid',
+			store: 'SistemaBolsa.store.Cotacoes',
+			autoShow: true,
+
+			columns: [{
+				text: 'Codigo',
+				//width: 35,
+				dataIndex: 'Codigo'
+			}, {
+				text: 'Nome',
+				width: 170,
+				flex: 1,
+				dataIndex: 'Nome'
+			}, {
+				text: 'Medio',
+				width: 170,
+				dataIndex: 'Medio'
+			}, {
+				text: 'Ultimo',
+				width: 170,
+				dataIndex: 'Ultimo'
+			}, {
+				text: 'Oscilacao',
+				width: 170,
+				dataIndex: 'Oscilacao'
+			}]
+		}]
+	}]
 });

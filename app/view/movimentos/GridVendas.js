@@ -44,6 +44,7 @@ Ext.define('SistemaBolsa.view.movimentos.GridVendas', {
             menuDisabled: true,
             sortable: false,
             xtype: 'actioncolumn',
+            text: 'Vender',
             width: 50,
             items: [{
                 iconCls: 'icon-delete',

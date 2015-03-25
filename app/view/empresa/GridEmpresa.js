@@ -12,7 +12,6 @@ Ext.define('SistemaBolsa.view.empresa.GridEmpresa', {
     },
 
     autoShow: true,
-
     height: 400,
     width: 500,
     title: 'Cadastro de Empresas',

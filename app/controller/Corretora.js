@@ -137,7 +137,7 @@ Ext.define('SistemaBolsa.controller.Corretora', {
 			}
 
 			store.sync(); // Atualiza o banco de dados
-			grid.getStore().load(); // Atualiza o grid
+			//grid.getStore().load(); // Atualiza o grid
 			
 			win.close(); // Fecha o formulario
 			

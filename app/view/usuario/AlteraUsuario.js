@@ -4,6 +4,10 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
 
     bodyPadding: 15,
     autoScroll: true,
+    bodyStyle: {
+            background: '#eee',
+            padding: '5px'
+        },
 
     items: [{
         xtype: 'fieldset',

@@ -41,6 +41,9 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 			},
 			"formcompras button#save": {
 				click: this.onSaveClick
+			},
+			"gridcompras checkcolumn#exibir": {
+				checkchange: this.onCheckboxChanged
 			}
 		})
 	},
@@ -135,13 +138,12 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 					tipo: 'C' // Tipo de Movimento Compra
 				});
 				
-				//console.log(novoMovimento);
 				store.add(novoMovimento);
 			}
 
 			
 			store.sync(); // Atualiza o banco de dados		
-			grid.getStore().load(); // Atualiza o grid
+			
 			win.close(); // Fecha o formulario
 			
 			Ext.create('widget.uxNotification', {
@@ -175,10 +177,26 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 			}).show();
 
 		}
+
+		grid.getStore().load(); // Atualiza o grid
 	},
 
 	onVenderClick: function(btn, e, e0pts) {
 		console.log('Vendeu...');
+	},
+
+	onCheckboxChanged: function(column, rowIndex, checked) {
+		console.log('Checkbox changed');
+	  	//grid column information
+		console.log(column);
+		//grid row number
+		console.log(rowIndex);
+		//the checkbox value
+		console.log(checked);
+		var grid = Ext.ComponentQuery.query('gridcompras')[0];
+		var rec = grid.getStore().getAt(rowIndex);
+
+		console.log(rec.data.sigla);
 	}
 
 });

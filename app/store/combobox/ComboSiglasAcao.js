@@ -15,6 +15,6 @@ Ext.define('SistemaBolsa.store.combobox.ComboSiglasAcao', {
 		}
 	},
 
-	autoLoad: false
+	autoLoad: true
 
 });

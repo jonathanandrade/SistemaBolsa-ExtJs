@@ -32,10 +32,13 @@ Ext.define('SistemaBolsa.view.movimentos.FormCompras', {
                 emptyText: 'Siglas',
                 store: 'SistemaBolsa.store.combobox.ComboSiglasAcao',
                 queryMode: 'local',
-                id: 'siglas',
+                id: 'sigla',
+                name: 'sigla',
                 displayField: 'sigla',
                 valueField: 'sigla',
-                editable: false
+                editable: false,
+                allowBlank: false,
+                msgTarget: 'side'
 			},			
 			{
 				xtype: 'textfield',

@@ -23,7 +23,9 @@ Ext.define('SistemaBolsa.Application', {
         'Ext.form.FieldSet',
         'Ext.form.FieldContainer',
         'Ext.form.RadioGroup',
-        'Ext.grid.Panel'
+        'Ext.grid.Panel',
+        'Ext.grid.column.CheckColumn',
+        'Ext.grid.column.Date'
     ],
 
     views: [
@@ -52,12 +54,14 @@ Ext.define('SistemaBolsa.Application', {
         'Corretora',
         'AlterarSenha',
         'AlterarUsuario',
-        'Movimento'
+        'Movimento',
+        'MainPanel'
     ],
 
     stores: [
         'SistemaBolsa.store.combobox.ComboEstados',
-        'SistemaBolsa.store.combobox.ComboSiglasAcao'
+        'SistemaBolsa.store.combobox.ComboSiglasAcao',
+        'SistemaBolsa.store.Cotacoes'
     ],
 
     splashscreen: {},
