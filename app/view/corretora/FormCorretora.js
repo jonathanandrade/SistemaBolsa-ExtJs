@@ -132,7 +132,7 @@ Ext.define('SistemaBolsa.view.corretora.FormCorretora', {
 					flex: 1
 				}, {
 					labelWidth: 90,
-					xtype: 'textfield',
+					xtype: 'numberfield',
 					fieldLabel: 'Número',
 					name: 'numero',
 					billingFieldName: 'numero'

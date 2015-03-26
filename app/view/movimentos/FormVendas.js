@@ -1,13 +1,12 @@
-Ext.define('SistemaBolsa.view.movimentos.FormCompras', {
+Ext.define('SistemaBolsa.view.movimentos.FormVendas', {
 	extend: 'Ext.window.Window',
-	alias: 'widget.formcompras',
+	alias: 'widget.formvendas',
 
 	height: 200,
 	width: 450,
 
 	layout: 'fit',
-	iconCls: 'icon-cad-mov',
-	title: 'Editar/Cadastrar Ação',
+	iconCls: 'icon-exl-mov',
 	autoShow: true,
 	modal: true,   // Deixa como tela principal, impedindo alterações na parte de baixo
 
@@ -26,19 +25,13 @@ Ext.define('SistemaBolsa.view.movimentos.FormCompras', {
 				hidden: true
 			},
 			{
-				xtype: 'combobox',
-                anchor: '70%',
+				xtype: 'textfield',
                 fieldLabel: 'Ativo',
                 emptyText: 'Siglas',
-                store: 'SistemaBolsa.store.combobox.ComboSiglasAcao',
-                queryMode: 'local',
                 id: 'sigla',
                 name: 'sigla',
-                displayField: 'sigla',
-                valueField: 'sigla',
                 editable: false,
-                allowBlank: false,
-                msgTarget: 'side'
+                disabled: true
 			},			
 			{
 				xtype: 'numberfield',

@@ -39,7 +39,8 @@ Ext.define('SistemaBolsa.view.movimentos.GridVendas', {
         }, {
             text: 'Vlr. Unitário',
             width: 170,
-            dataIndex: 'valorUnitario'
+            dataIndex: 'valorUnitario',
+            renderer: Ext.util.Format.brMoney
         }, {
             menuDisabled: true,
             sortable: false,
@@ -50,8 +51,8 @@ Ext.define('SistemaBolsa.view.movimentos.GridVendas', {
                 iconCls: 'icon-delete',
                 tooltip: 'Vender Ação',
                 handler: function(grid, rowIndex, colIndex) {
-                    var rec = grid.getStore().getAt(rowIndex);
-                    Ext.Msg.alert('Sell', 'Sell ' + rec.get('company'));                    
+                    var win = Ext.create('SistemaBolsa.view.movimentos.FormVendas');
+                    win.setTitle('Venda de Ações');
                 }
             }]
         }

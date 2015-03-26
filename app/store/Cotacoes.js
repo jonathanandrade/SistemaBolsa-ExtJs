@@ -6,11 +6,11 @@ Ext.define('SistemaBolsa.store.Cotacoes', {
 
 	proxy: {
         type: 'ajax',
-        url : 'php/teste.xml',
+        url: 'php/xml/scriptXml.php',
         reader: {
             type: 'xml',
-            root  : 'ComportamentoPapeis',
-            record: 'Papel'
+            record: 'Papel',
+            root: 'ComportamentoPapeis'
         }
     }
 });

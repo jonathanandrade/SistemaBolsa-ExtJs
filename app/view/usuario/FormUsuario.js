@@ -235,7 +235,7 @@ Ext.define('SistemaBolsa.view.usuario.FormUsuario', {
                                 },
                                 {
                                     labelWidth: 90,
-                                    xtype: 'textfield',
+                                    xtype: 'numberfield',
                                     fieldLabel: 'Número',
                                     name: 'numero',
                                     billingFieldName: 'numero'

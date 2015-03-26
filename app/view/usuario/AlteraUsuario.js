@@ -211,7 +211,7 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
                 layout: 'hbox',
                 margin: '0 0 5 0',
                 items: [{
-                    xtype: 'textfield',
+                    xtype: 'numberfield',
                     fieldLabel: 'Número',
                     labelStyle: 'font-weight:bold;',
                     name: 'numero',

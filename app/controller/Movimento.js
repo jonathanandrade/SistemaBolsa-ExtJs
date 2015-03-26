@@ -14,7 +14,6 @@ Ext.define('SistemaBolsa.controller.Movimento', {
     ],
 
 	views: [
-		'SistemaBolsa.view.movimentos.GridCompras',
 		'SistemaBolsa.view.movimentos.GridCompras'
 	],
 
@@ -29,12 +28,12 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 			},
 			"gridcompras toolbar button#delete": {
 				click : this.onDeleteClick
-			},
-			"gridvendas toolbar button#vender": {
-				click : this.onVenderClick
-			},
+			},			
 			"gridvendas": {
                 render: this.onWindowRender
+            },            
+			"formcompras": {
+                render: this.onWindowRenderCombo
             },
 			"formcompras button#cancel": {
 				click: this.onCancelClick
@@ -44,12 +43,21 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 			},
 			"gridcompras checkcolumn#exibir": {
 				checkchange: this.onCheckboxChanged
+			},
+			"formvendas button#cancel": {
+				click: this.onCancelClickFormVendas
 			}
 		})
 	},
 
 	onWindowRender: function(grid, e0pts) {
 		grid.getStore().load();
+	},
+
+	onWindowRenderCombo: function(grid, e0pts) {
+		var combo = Ext.ComponentQuery.query('formcompras form combobox#sigla')[0];
+		var store = combo.getStore();
+		store.load();
 	},
 
 	onAddClick: function(btn, e, e0pts) {
@@ -113,6 +121,13 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 		win.close();				 // Fecha a janela
 	},
 
+	onCancelClickFormVendas: function(btn, e, e0pts) {
+		var win = btn.up('window');  
+		var form = win.down('form'); 
+		form.getForm().reset();		 
+		win.close();	
+	},
+
 	onSaveClick: function(btn, e, e0pts) {
 		var win    = btn.up('window'),
 		    form   = win.down('form'),
@@ -135,7 +150,8 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 					quantidade: values.quantidade,
 					valorUnitario: values.valorUnitario,
 					media: ((values.quantidade * values.valorUnitario) / values.quantidade),
-					tipo: 'C' // Tipo de Movimento Compra
+					tipo: 'C', // Tipo de Movimento Compra
+					total: (values.quantidade * values.valorUnitario)
 				});
 				
 				store.add(novoMovimento);
@@ -181,10 +197,6 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 		grid.getStore().load(); // Atualiza o grid
 	},
 
-	onVenderClick: function(btn, e, e0pts) {
-		console.log('Vendeu...');
-	},
-
 	onCheckboxChanged: function(column, rowIndex, checked) {
 		console.log('Checkbox changed');
 	  	//grid column information
@@ -198,5 +210,6 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 
 		console.log(rec.data.sigla);
 	}
+	
 
 });

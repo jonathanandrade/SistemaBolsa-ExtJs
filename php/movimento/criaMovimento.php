@@ -11,14 +11,16 @@
 	$quantidade = $data->quantidade;
 	$valorUnitario = $data->valorUnitario;
 	$media = $data->media;
+	$total = $data->total;
 	$tipo = $data->tipo;
 	$dataCompra = date("Y/m/d");
 	//consulta sql
-	$query = sprintf("INSERT INTO movimento (sigla, quantidade, valorUnitario, media, tipo, login, dataCompra) values ('%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+	$query = sprintf("INSERT INTO movimento (sigla, quantidade, valorUnitario, media, total, tipo, login, dataCompra) values ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
 		mysql_real_escape_string($sigla),
 		mysql_real_escape_string($quantidade),
 		mysql_real_escape_string($valorUnitario),
 		mysql_real_escape_string($media),
+		mysql_real_escape_string($total),
 		mysql_real_escape_string($tipo),
 		mysql_real_escape_string($login),
 		mysql_real_escape_string($dataCompra));
@@ -31,6 +33,7 @@
 			"quantidade" => $quantidade,
 			"valorUnitario" => $valorUnitario,
 			"media" => $media,
+			"total" => $total,
 			"tipo" => $tipo,
 			"login" => $login,
 			"dataCompra" => $dataCompra

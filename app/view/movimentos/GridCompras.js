@@ -51,7 +51,12 @@ Ext.define('SistemaBolsa.view.movimentos.GridCompras', {
         text: 'Vlr. Unitário',
         width: 170,
         dataIndex: 'valorUnitario',
-        renderer: Ext.util.Format.currency(('valorUnitario'), '$ ', 2)
+        renderer: Ext.util.Format.brMoney
+    }, {
+        text: 'Total',
+        width: 170,
+        dataIndex: 'total',
+        renderer: Ext.util.Format.brMoney
     }, {
         text: 'Data Compra',
         dataIndex: 'dataCompra',
@@ -88,6 +93,5 @@ Ext.define('SistemaBolsa.view.movimentos.GridCompras', {
         displayInfo: true,
         emptyMsg: 'Nenhum movimento encontrado'
     }]
-
 
 });

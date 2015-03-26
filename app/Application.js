@@ -25,7 +25,8 @@ Ext.define('SistemaBolsa.Application', {
         'Ext.form.RadioGroup',
         'Ext.grid.Panel',
         'Ext.grid.column.CheckColumn',
-        'Ext.grid.column.Date'
+        'Ext.grid.column.Date',
+        'Ext.data.reader.Xml'
     ],
 
     views: [
@@ -43,6 +44,7 @@ Ext.define('SistemaBolsa.Application', {
         'SistemaBolsa.view.movimentos.GridCompras',
         'SistemaBolsa.view.usuario.AlteraUsuario',
         'SistemaBolsa.view.movimentos.FormCompras',
+        'SistemaBolsa.view.movimentos.FormVendas',
         'SistemaBolsa.view.movimentos.GridVendas'
     ],
 

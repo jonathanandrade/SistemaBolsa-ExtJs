@@ -20,7 +20,7 @@ Ext.define('SistemaBolsa.view.MainPanel', {
 			autoShow: true,
 
 			columns: [{
-				text: 'Codigo',
+				text: 'Código',
 				//width: 35,
 				dataIndex: 'Codigo'
 			}, {
@@ -33,14 +33,25 @@ Ext.define('SistemaBolsa.view.MainPanel', {
 				width: 170,
 				dataIndex: 'Medio'
 			}, {
-				text: 'Ultimo',
+				text: 'Último',
 				width: 170,
 				dataIndex: 'Ultimo'
 			}, {
-				text: 'Oscilacao',
+				text: 'Oscilação',
 				width: 170,
-				dataIndex: 'Oscilacao'
+				dataIndex: 'Oscilacao',
+				renderer: change
 			}]
 		}]
 	}]
 });
+
+//funcao colorir
+function change(val) {
+    if (val > '0.00') {
+        return '<span style="color:green;">' + val + '</span>';
+    } else if (val < '0.00') {
+        return '<span style="color:red;">' + val + '</span>';
+    }
+    return val;
+}

@@ -18,25 +18,22 @@ Ext.define('SistemaBolsa.view.empresa.GridEmpresa', {
 
     store: 'SistemaBolsa.store.Empresas',
 
-    columns: [
-     {
+    columns: [{
         text: 'ID',
         width: 35,
         dataIndex: 'idempresa',
         hidden: true
-     },
-     {
-         xtype: 'rownumberer'
-     },
-     {
-        text: 'Descrição',
-        width: 170,
-        flex: 1,
-        dataIndex: 'descricao'
+    }, {
+        xtype: 'rownumberer'
     }, {
         text: 'Sigla',
         width: 170,
         dataIndex: 'sigla'
+    }, {
+        text: 'Descrição',
+        width: 170,
+        flex: 1,
+        dataIndex: 'descricao'
     }, {
         text: 'Atividade',
         width: 170,

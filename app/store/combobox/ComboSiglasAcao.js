@@ -13,8 +13,8 @@ Ext.define('SistemaBolsa.store.combobox.ComboSiglasAcao', {
 			type: 'json',
 			root: 'data'
 		}
-	},
+	} //,
 
-	autoLoad: true
+	//autoLoad: true
 
 });

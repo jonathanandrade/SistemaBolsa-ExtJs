@@ -7,7 +7,7 @@
 
 	$start = $_REQUEST['start'];
 	$limit = $_REQUEST['limit'];
-	$queryString = "SELECT idmovimento, sigla, quantidade, valorUnitario, dataCompra FROM movimento where login = '$login' and tipo = 'C' LIMIT $start, $limit";
+	$queryString = "SELECT idmovimento, sigla, quantidade, total, valorUnitario, dataCompra FROM movimento where login = '$login' and tipo = 'C' LIMIT $start, $limit";
 	//$queryString = "SELECT idmovimento, sigla, quantidade, valorUnitario FROM movimento LIMIT 0, 25";
 
 	//consulta sql
@@ -20,7 +20,7 @@
 	}
 
 	//consulta total de linhas na tabela
-	$queryTotal = mysql_query('SELECT count(*) as num FROM movimento') or die(mysql_error());
+	$queryTotal = mysql_query("SELECT count(*) as num FROM movimento where login = '$login'") or die(mysql_error());
 	$row = mysql_fetch_assoc($queryTotal);
 	$total = $row['num'];
 	//encoda para formato JSON
