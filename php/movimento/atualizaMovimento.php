@@ -1,6 +1,10 @@
 <?php
 	//chama o arquivo de conexão com o bd
 	include("../conectar.php");
+	include("bancoMovimento.php");
+
+	session_start();
+	$login = $_SESSION['login'];
 
 	$info = $_POST['movimento'];
 	$data = json_decode(stripslashes($info));
@@ -34,4 +38,10 @@
 			"dataCompra" => $dataCompra
 		)
 	));
+
+	// Atualizando quantidade de ações na tabela movsaldo
+	atualizaQuantidade($login, $sigla);
+
+	// Atualizando média
+	atualizaMedia($login, $sigla);
 ?>

@@ -1,6 +1,7 @@
 <?php
 	//chama o arquivo de conexão com o bd
 	include("../conectar.php");
+	include("bancoMovimento.php");
 
 	session_start();
 	$login = $_SESSION['login'];
@@ -40,17 +41,20 @@
 		)
 	));
 
-	// Adicionando na tabela de saldos
-	$retorno = mysql_query("select siglaCons from movsaldo where login = '$login' and siglaCons = '$sigla'");
+	// Adicionando na tabela de movsaldos
+	$retorno = mysql_query("SELECT siglaCons from movsaldo where login = '$login' and siglaCons = '$sigla'");
 	if (mysql_num_rows($retorno) > 0) {
 		// Já possui lançamento
-		$retornoQtd = mysql_query("select sum(quantidade) from movimento where login = '$login' and sigla = '$sigla'");
-		$qtd = (int)$retornoQtd + $quantidade;
-		$sql = mysql_query("update movsaldo set qtdTotal = '$qtd' where login = '$login' and siglaCons = '$sigla'");
+
+		// Atualizando quantidade de ações na tabela movsaldo
+		atualizaQuantidade($login, $sigla);
+
+		// Atualizando média
+		atualizaMedia($login, $sigla);
 
 	} else {
 		// Primeiro lançamento
-		$sql = mysql_query("insert into movsaldo (idmovsaldo, qtdTotal, mediaAtual, siglaCons, login) values (null, '$quantidade', '$media', '$sigla', '$login')");
+		$sql = mysql_query("INSERT into movsaldo (idmovsaldo, qtdTotal, mediaAtual, siglaCons, login) values (null, '$quantidade', '$media', '$sigla', '$login')");
 	}	
 
 ?>

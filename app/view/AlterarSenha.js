@@ -35,20 +35,10 @@ Ext.define('SistemaBolsa.view.AlterarSenha', {
             hidden: true
         },
         {
-            xtype: 'fieldcontainer',                    
+            name: 'login',
             fieldLabel: 'Login',
-            layout: 'hbox',
-            combineErrors: true,
-            defaultType: 'textfield',
-            defaults: {
-                hideLabel: 'true'
-            },
-            items: [{
-                name: 'login',
-                fieldLabel: 'Login',
-                flex: 1,
-                disabled: true
-            }]
+            flex: 1,            
+            readOnly: true
         }, {
             inputType: 'password',
             name: 'senha',

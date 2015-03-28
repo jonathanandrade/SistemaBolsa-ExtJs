@@ -7,7 +7,7 @@
 
 	$start = $_REQUEST['start'];
 	$limit = $_REQUEST['limit'];
-	$queryString = "SELECT idmovimento, sigla, quantidade, total, valorUnitario, dataCompra FROM movimento where login = '$login' and tipo = 'C' LIMIT $start, $limit";
+	$queryString = "SELECT idmovimento, sigla, quantidade, total, valorUnitario, dataCompra, dataVenda FROM movimento where login = '$login' and tipo = 'C' LIMIT $start, $limit";
 	//$queryString = "SELECT idmovimento, sigla, quantidade, valorUnitario FROM movimento LIMIT 0, 25";
 
 	//consulta sql

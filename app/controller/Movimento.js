@@ -14,7 +14,8 @@ Ext.define('SistemaBolsa.controller.Movimento', {
     ],
 
 	views: [
-		'SistemaBolsa.view.movimentos.GridCompras'
+		'SistemaBolsa.view.movimentos.GridCompras',
+		'SistemaBolsa.view.movimentos.GridVendas'
 	],
 
 	init: function(application){
@@ -46,6 +47,9 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 			},
 			"formvendas button#cancel": {
 				click: this.onCancelClickFormVendas
+			},
+			"formvendas button#save": {
+				click: this.onSaveClickFormVendas
 			}
 		})
 	},
@@ -106,6 +110,22 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 		} 
 	},
 
+	onCheckboxChanged: function(column, rowIndex, checked) {
+		console.log('Checkbox changed');
+	  	//grid column information
+		console.log(column);
+		//grid row number
+		console.log(rowIndex);
+		//the checkbox value
+		console.log(checked);
+		var grid = Ext.ComponentQuery.query('gridcompras')[0];
+		var rec = grid.getStore().getAt(rowIndex);
+
+		console.log(rec.data.sigla);
+	},
+
+/*&--------------------------------------------- COMPRAS ---------------------------------------------&*/
+
 	onEditClick: function(formempresa, record, item, index, e, eOpts) {
 		//console.log('Editar...');
 		var win = Ext.create('SistemaBolsa.view.movimentos.FormCompras'); // Cria o formulario
@@ -119,14 +139,7 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 		var form = win.down('form'); // Pegar a referencia do form
 		form.getForm().reset();		 // Reseta todos os campos
 		win.close();				 // Fecha a janela
-	},
-
-	onCancelClickFormVendas: function(btn, e, e0pts) {
-		var win = btn.up('window');  
-		var form = win.down('form'); 
-		form.getForm().reset();		 
-		win.close();	
-	},
+	},	
 
 	onSaveClick: function(btn, e, e0pts) {
 		var win    = btn.up('window'),
@@ -194,22 +207,71 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 
 		}
 
-		grid.getStore().load(); // Atualiza o grid
+		grid.getStore().reload(); // Atualiza o grid
 	},
 
-	onCheckboxChanged: function(column, rowIndex, checked) {
-		console.log('Checkbox changed');
-	  	//grid column information
-		console.log(column);
-		//grid row number
-		console.log(rowIndex);
-		//the checkbox value
-		console.log(checked);
-		var grid = Ext.ComponentQuery.query('gridcompras')[0];
-		var rec = grid.getStore().getAt(rowIndex);
+/*&------------------------------------------- FIM COMPRAS -------------------------------------------&*/
 
-		console.log(rec.data.sigla);
+/*&--------------------------------------------- VENDAS ---------------------------------------------&*/
+	onCancelClickFormVendas: function(btn, e, e0pts) {
+		var win = btn.up('window');  
+		var form = win.down('form'); 
+		form.getForm().reset();		 
+		win.close();	
+	},
+
+	onSaveClickFormVendas: function(btn, e, e0pts) {
+		
+		var win    = btn.up('window'),
+		    form   = win.down('form'),
+		    values = form.getValues(),
+			record = form.getRecord(),
+			grid   = Ext.ComponentQuery.query('gridvendas')[0],
+		 	store  = grid.getStore();
+
+		if (values.quantidade > parseInt(record.data.quantidade)) {
+			
+			Ext.create('widget.uxNotification', {
+				position: 't',
+				cls: 'ux-notification-light',
+				closable: false,
+				title: 'Erro',
+				iconCls: 'ux-notification-icon-exclamation',
+				html: 'Não pode vender mais do que possui.',
+				autoDestroyDelay: 2200,
+				slideInDelay: 600,
+				slideDownDelay: 600,
+				//slideInAnimation: 'bounceOut',
+				//slideDownAnimation: 'easeIn'
+			}).show();
+
+		} else {
+			
+			var movVenda = Ext.create('SistemaBolsa.model.Movimento', {
+				idmovimento: values.idmovimento,
+				sigla: values.sigla,
+				quantidade: values.quantidade, // Quantidade para a venda
+				valorUnitario: values.valorUnitario
+			});
+
+			var dadosVenda = Ext.encode(movVenda.data);
+            			
+            Ext.Ajax.request({
+                url: 'php/movimento/vendeMovimento.php',
+                method: 'POST',
+                success: function(conn, response, options, eOpts) {},
+                params: {
+                    'movimento': dadosVenda
+                }
+            });
+			
+		};		
+				
+		win.close();
+
+		grid.getStore().reload(); // Atualiza o grid
 	}
 	
+/*&------------------------------------------- FIM VENDAS -------------------------------------------&*/
 
 });

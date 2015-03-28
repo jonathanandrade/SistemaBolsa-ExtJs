@@ -27,6 +27,10 @@
 	background-image: url(../images/info.png);
 }
 
+.ux-notification-icon-exclamation {
+	background-image: url(../images/exclamation.png);
+}
+
 .ux-notification-light .x-window-header {
 	background-color: transparent;
 }

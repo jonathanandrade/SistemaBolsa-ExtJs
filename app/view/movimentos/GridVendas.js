@@ -37,10 +37,23 @@ Ext.define('SistemaBolsa.view.movimentos.GridVendas', {
             width: 170,
             dataIndex: 'quantidade'
         }, {
-            text: 'Vlr. Unitário',
+            text: 'Vlr. Unitário de Compra',
             width: 170,
             dataIndex: 'valorUnitario',
             renderer: Ext.util.Format.brMoney
+        }, {
+            text: 'Data Venda',
+            dataIndex: 'dataVenda',
+            xtype: 'datecolumn',
+            groupable: false,
+            width: 115,
+            renderer: Ext.util.Format.dateRenderer('d/m/Y'),
+            filter: {
+
+            },
+            editor: {
+                xtype: 'datefield'
+            }
         }, {
             menuDisabled: true,
             sortable: false,
@@ -51,8 +64,12 @@ Ext.define('SistemaBolsa.view.movimentos.GridVendas', {
                 iconCls: 'icon-delete',
                 tooltip: 'Vender Ação',
                 handler: function(grid, rowIndex, colIndex) {
-                    var win = Ext.create('SistemaBolsa.view.movimentos.FormVendas');
-                    win.setTitle('Venda de Ações');
+                    var win = Ext.create('SistemaBolsa.view.movimentos.FormVendas'); // Cria a janela
+                    win.setTitle('Venda de Ações'); // Seta o título
+                    var grid = Ext.ComponentQuery.query('gridvendas')[0]; // Recebe a referencia do grid
+                    var rec = grid.getStore().getAt(rowIndex); // Pega os valores da linha selecionada
+                    var form = win.down('form'); // Pega a referencia do form
+                    form.loadRecord(rec); // Carrega os dados no form
                 }
             }]
         }
@@ -62,12 +79,13 @@ Ext.define('SistemaBolsa.view.movimentos.GridVendas', {
         xtype: 'toolbar',
         dock: 'top',
         items: [
-        /*{
-            xtype: 'button',
-            text: 'Vender',
-            itemId: 'vender',
-            iconCls: 'icon-delete'
-        }*/ ]
+            /*{
+                xtype: 'button',
+                text: 'Vender',
+                itemId: 'vender',
+                iconCls: 'icon-delete'
+            }*/
+        ]
     }, {
         xtype: 'pagingtoolbar',
         store: 'SistemaBolsa.store.Movimentos',

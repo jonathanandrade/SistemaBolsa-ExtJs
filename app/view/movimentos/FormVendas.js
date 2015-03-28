@@ -31,20 +31,21 @@ Ext.define('SistemaBolsa.view.movimentos.FormVendas', {
                 id: 'sigla',
                 name: 'sigla',
                 editable: false,
-                disabled: true
-			},			
-			{
-				xtype: 'numberfield',
-				name: 'quantidade',
-				fieldLabel: 'Quantidade',
-				allowBlank: false,
-				msgTarget: 'side'
+                readOnly : true
 			},
 			{
 				xtype: 'numberfield',
 				decimalPrecision: 2,
 				name: 'valorUnitario',
 				fieldLabel: 'Vlr. Unit',
+				allowBlank: false,
+				msgTarget: 'side',
+				readOnly : true
+			},			
+			{
+				xtype: 'numberfield',
+				name: 'quantidade',
+				fieldLabel: 'Quantidade',
 				allowBlank: false,
 				msgTarget: 'side'
 			}
