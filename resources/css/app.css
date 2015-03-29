@@ -153,6 +153,10 @@ body .ux-notification-light {
 .icon-exl-mov {
 	background-image: url(../images/vnd-mov.png) !important;	
 }
+
+.icon-carteira {
+	background-image: url(../images/carteira.png) !important;	
+}
 /*----------------------------------- FIM MOVIMENTOS --------------------------------*/
 
 /*----------------------------------- RELATORIOS ------------------------------------*/

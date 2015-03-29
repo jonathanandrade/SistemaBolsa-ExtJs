@@ -29,13 +29,15 @@ Ext.define('SistemaBolsa.view.MainPanel', {
 				flex: 1,
 				dataIndex: 'Nome'
 			}, {
-				text: 'Medio',
+				text: 'Médio',
 				width: 170,
-				dataIndex: 'Medio'
+				dataIndex: 'Medio',
+				renderer: real
 			}, {
 				text: 'Último',
 				width: 170,
-				dataIndex: 'Ultimo'
+				dataIndex: 'Ultimo',
+				renderer: real
 			}, {
 				text: 'Oscilação',
 				width: 170,
@@ -49,9 +51,13 @@ Ext.define('SistemaBolsa.view.MainPanel', {
 //funcao colorir
 function change(val) {
     if (val > '0.00') {
-        return '<span style="color:green;">' + val + '</span>';
+        return '<span style="color:green;">' + 'R$ ' + val + '</span>';
     } else if (val < '0.00') {
-        return '<span style="color:red;">' + val + '</span>';
+        return '<span style="color:red;">' + 'R$ ' + val + '</span>';
     }
     return val;
+}
+
+function real(val) {
+	return '<span>' + 'R$ ' + val + '</span>';
 }

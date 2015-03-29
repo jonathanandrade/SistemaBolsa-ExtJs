@@ -92,7 +92,7 @@
 				"iconCls": "icon-cad-mov",
 				"menu_id": "3",
 				"id": "31",
-				"className": "gridcompras"				
+				"className": "gridcompras"
 			},
 			{
 				"text": "Venda de Ações",
@@ -102,10 +102,11 @@
 				"className": "gridvendas"
 			},
 			{
-				"text": "menu 3.3",
-				"iconCls": "tag_orange",
+				"text": "Carteira",
+				"iconCls": "icon-carteira",
 				"menu_id": "3",
-				"id": "33"
+				"id": "33",				
+				"className": "gridcarteira"
 			},
 			{
 				"text": "menu 3.4",

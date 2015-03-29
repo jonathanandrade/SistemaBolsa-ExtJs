@@ -45,7 +45,8 @@ Ext.define('SistemaBolsa.Application', {
         'SistemaBolsa.view.usuario.AlteraUsuario',
         'SistemaBolsa.view.movimentos.FormCompras',
         'SistemaBolsa.view.movimentos.FormVendas',
-        'SistemaBolsa.view.movimentos.GridVendas'
+        'SistemaBolsa.view.movimentos.GridVendas',
+        'SistemaBolsa.view.movimentos.GridCarteira'
     ],
 
     controllers: [
@@ -57,7 +58,8 @@ Ext.define('SistemaBolsa.Application', {
         'AlterarSenha',
         'AlterarUsuario',
         'Movimento',
-        'MainPanel'
+        'MainPanel',
+        'Carteira'
     ],
 
     stores: [
