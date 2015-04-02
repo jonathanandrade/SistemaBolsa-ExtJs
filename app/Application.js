@@ -26,7 +26,9 @@ Ext.define('SistemaBolsa.Application', {
         'Ext.grid.Panel',
         'Ext.grid.column.CheckColumn',
         'Ext.grid.column.Date',
-        'Ext.data.reader.Xml'
+        'Ext.data.reader.Xml',
+        'Ext.chart.series.Line',
+        'Ext.chart.axis.Numeric'
     ],
 
     views: [
@@ -46,7 +48,8 @@ Ext.define('SistemaBolsa.Application', {
         'SistemaBolsa.view.movimentos.FormCompras',
         'SistemaBolsa.view.movimentos.FormVendas',
         'SistemaBolsa.view.movimentos.GridVendas',
-        'SistemaBolsa.view.movimentos.GridCarteira'
+        'SistemaBolsa.view.movimentos.GridCarteira',
+        'SistemaBolsa.view.graficos.GraficoLinha'
     ],
 
     controllers: [
@@ -59,13 +62,15 @@ Ext.define('SistemaBolsa.Application', {
         'AlterarUsuario',
         'Movimento',
         'MainPanel',
-        'Carteira'
+        'Carteira',
+        'SistemaBolsa.controller.graficos.GraficoLinha'
     ],
 
     stores: [
         'SistemaBolsa.store.combobox.ComboEstados',
         'SistemaBolsa.store.combobox.ComboSiglasAcao',
-        'SistemaBolsa.store.Cotacoes'
+        'SistemaBolsa.store.Cotacoes',
+        'SistemaBolsa.store.graficos.GraficoLinhas'
     ],
 
     splashscreen: {},

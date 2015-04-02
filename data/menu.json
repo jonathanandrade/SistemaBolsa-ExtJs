@@ -135,7 +135,7 @@
 		]
 	},
 	{
-		"title": "Relatórios",
+		"title": "Gráficos",
 		"iconCls": "icon-relatorio",
 		"id": "4",
 		"items": [
@@ -152,10 +152,11 @@
 				"id": "42"
 			},
 			{
-				"text": "Curva",
+				"text": "Linha",
 				"iconCls": "icon-graf-curva",
 				"menu_id": "4",
-				"id": "43"
+				"id": "43",				
+				"className": "graficolinha"
 			},
 			{
 				"text": "Barras",

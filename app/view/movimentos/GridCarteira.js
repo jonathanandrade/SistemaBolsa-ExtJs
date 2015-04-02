@@ -20,8 +20,6 @@ Ext.define('SistemaBolsa.view.movimentos.GridCarteira', {
 
     store: 'SistemaBolsa.store.Carteiras',
 
-    //'idmovsaldo', 'siglaCons', 'qtdTotal', 'mediaAtual', 'cotacao'
-
     columns: [{
             text: 'ID',
             width: 35,
@@ -50,26 +48,7 @@ Ext.define('SistemaBolsa.view.movimentos.GridCarteira', {
             dataIndex: 'cotacao',
             renderer: Ext.util.Format.brMoney
         }
-    ],
-
-    dockedItems: [{
-        xtype: 'toolbar',
-        dock: 'top',
-        items: [
-            /*{
-                xtype: 'button',
-                text: 'Vender',
-                itemId: 'vender',
-                iconCls: 'icon-delete'
-            }*/
-        ]
-    }, {
-        xtype: 'pagingtoolbar',
-        store: 'SistemaBolsa.store.Carteiras',
-        dock: 'top',
-        displayInfo: true,
-        emptyMsg: 'Nenhum movimento encontrado'
-    }]
+    ]
 
 });
 

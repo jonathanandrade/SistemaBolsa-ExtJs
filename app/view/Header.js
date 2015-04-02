@@ -4,7 +4,8 @@ Ext.define('SistemaBolsa.view.Header', {
 
 	heigth: 30,
 	ui: 'footer',
-	style: 'border-bottom: 4px solid #4C72A4',
+	//style: 'border-bottom: 4px solid #4C72A4',
+	style: 'border-bottom: 4px solid #000000',
 
 	items: [
 		{

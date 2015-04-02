@@ -191,6 +191,12 @@ body .ux-notification-light {
 }
 /*---------------------------------- FIM MANUTENÇÃO ----------------------------------*/
 
+/*------------------------------------ CARTEIRA ------------------------------------*/
+.icon-atualizar {
+	background-image: url(../images/atualizar.png) !important;	
+}
+/*---------------------------------- FIM CARTEIRA ----------------------------------*/
+
 #titleHeader {
 	color:#000;
 	font-size:20px;

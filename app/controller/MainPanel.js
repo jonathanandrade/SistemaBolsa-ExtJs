@@ -17,6 +17,9 @@ Ext.define('SistemaBolsa.controller.MainPanel', {
         this.control({
             "mainpanel panel grid": {
                 render: this.onRenderPanel
+            },
+            "mainpanel toolbar button#atualizar": {
+                click: this.onRenderPanel // Chama a mesma função que atualiza sozinho
             }
         });
     },

@@ -44,18 +44,30 @@ Ext.define('SistemaBolsa.view.MainPanel', {
 				dataIndex: 'Oscilacao',
 				renderer: change
 			}]
+		}],
+		dockedItems: [{
+			xtype: 'toolbar',
+			dock: 'bottom',
+			items: [{
+				xtype: 'button',
+				text: 'Atualizar',
+				itemId: 'atualizar',
+				iconCls: 'icon-atualizar'
+			}]
 		}]
 	}]
+
+
 });
 
 //funcao colorir
 function change(val) {
-    if (val > '0.00') {
-        return '<span style="color:green;">' + 'R$ ' + val + '</span>';
-    } else if (val < '0.00') {
-        return '<span style="color:red;">' + 'R$ ' + val + '</span>';
-    }
-    return val;
+	if (val > '0.00') {
+		return '<span style="color:green;">' + 'R$ ' + val + '</span>';
+	} else if (val < '0.00') {
+		return '<span style="color:red;">' + 'R$ ' + val + '</span>';
+	}
+	return val;
 }
 
 function real(val) {
