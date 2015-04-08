@@ -2,8 +2,9 @@
 
 	//echo file_get_contents("http://www.bmfbovespa.com.br/Pregao-Online/ExecutaAcaoCarregarDadosPapeis.asp?CodDado=BBDC4");
 	
-	$link = "http://www.bmfbovespa.com.br/Pregao-Online/ExecutaAcaoCarregarDadosPapeis.asp?CodDado=";
-	$acao = 'ANIM3';
+	$link = "http://www.bmfbovespa.com.br/Pregao-Online/ExecutaAcaoCarregarDadosPapeis.asp?CodDado=";	
+	$info = $_POST['acao'];
+	$acao = json_decode(stripslashes($info));
 
 	$link .= $acao;	
 

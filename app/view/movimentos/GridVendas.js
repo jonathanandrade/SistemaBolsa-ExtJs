@@ -34,7 +34,7 @@ Ext.define('SistemaBolsa.view.movimentos.GridVendas', {
             dataIndex: 'sigla'
         }, {
             text: 'Quantidade',
-            width: 170,
+            width: 160,
             dataIndex: 'quantidade'
         }, {
             text: 'Vlr. Unitário de Compra',

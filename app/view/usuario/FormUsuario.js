@@ -9,7 +9,7 @@ Ext.define('SistemaBolsa.view.usuario.FormUsuario', {
 
     autoShow: true,
 
-    height: 450,
+    height: 510,
     width: 650,
     title: 'Editar/Cadastrar Usuarios',
     modal: true,

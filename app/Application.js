@@ -49,7 +49,8 @@ Ext.define('SistemaBolsa.Application', {
         'SistemaBolsa.view.movimentos.FormVendas',
         'SistemaBolsa.view.movimentos.GridVendas',
         'SistemaBolsa.view.movimentos.GridCarteira',
-        'SistemaBolsa.view.graficos.GraficoLinha'
+        'SistemaBolsa.view.graficos.GraficoLinha',
+        'SistemaBolsa.view.graficos.Base'
     ],
 
     controllers: [
@@ -63,7 +64,8 @@ Ext.define('SistemaBolsa.Application', {
         'Movimento',
         'MainPanel',
         'Carteira',
-        'SistemaBolsa.controller.graficos.GraficoLinha'
+        'SistemaBolsa.controller.graficos.GraficoLinha',
+        'SistemaBolsa.controller.graficos.Base'        
     ],
 
     stores: [

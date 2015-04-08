@@ -159,7 +159,7 @@ body .ux-notification-light {
 }
 /*----------------------------------- FIM MOVIMENTOS --------------------------------*/
 
-/*----------------------------------- RELATORIOS ------------------------------------*/
+/*----------------------------------- GRÁFICOS ------------------------------------*/
 .icon-relatorio {
 	background-image: url(../images/relatorio.png) !important;		
 }
@@ -179,7 +179,11 @@ body .ux-notification-light {
 .icon-graf-barra {
 	background-image: url(../images/graf-barra.png) !important;	
 }
-/*------------------------------------ FIM RELATORIOS --------------------------------*/
+
+.icon-gerar {
+	background-image: url(../images/gerar.png) !important;	
+}
+/*------------------------------------ FIM GRÁFICOS --------------------------------*/
 
 /*------------------------------------ MANUTENÇÃO ------------------------------------*/
 .icon-manutencao {

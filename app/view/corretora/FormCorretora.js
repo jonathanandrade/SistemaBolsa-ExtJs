@@ -2,7 +2,7 @@ Ext.define('SistemaBolsa.view.corretora.FormCorretora', {
 	extend: 'Ext.window.Window',
 	alias: 'widget.formcorretora',
 
-	height: 370,
+	height: 410,
 	width: 650,
 
 	layout: 'fit',

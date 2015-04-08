@@ -1,123 +1,86 @@
 Ext.define('SistemaBolsa.view.graficos.GraficoLinha', {
-   extend: 'Ext.chart.Chart',
+
+    extend: 'Ext.chart.Chart',
 
     alias: 'widget.graficolinha',
+    store: 'SistemaBolsa.store.graficos.GraficoLinhas',
     autoScroll: true,
 
-    animate: true,
-    maximized: true,
-    store: 'SistemaBolsa.store.graficos.GraficoLinhas',
-    shadow: true,
-    insetPadding: 60,
-    theme: 'Base:gradients',
-
     axes: [{
+        title: 'Valor',
         type: 'Numeric',
-        minimum: 0,
         position: 'left',
         fields: ['valor'],
-        title: 'Valor',
-        minorTickSteps: 1,
+        minimum: 0,
+        maximum: 20,
         grid: {
             odd: {
                 opacity: 1,
                 fill: '#ddd',
                 stroke: '#bbb',
-                'stroke-width': 0.2
+                'stroke-width': 2
             }
         }
     }, {
-        type: 'Numeric',
+        title: 'Hora',
+        type: 'Category',
         position: 'bottom',
         fields: ['hora'],
-        title: 'Hora'
+        dateFormat: 'ga'
     }],
+
     series: [{
         type: 'line',
-        highlight: {
-            size: 30,
-            radius: 20
-        },
-        axis: 'left',
         xField: 'hora',
         yField: 'valor',
-        markerConfig: {
-            type: 'cross',
-            size: 3,
-            radius: 3,
-            'stroke-width': 0.5
-        }
-    }, {
-        type: 'line',        
         highlight: {
             size: 1,
             radius: 1
         },
-        axis: 'left',
-        smooth: true,
-        xField: 'hora',
-        yField: 'valor',        
         markerConfig: {
-            type: 'circle',
-            size: 1,
-            radius: 1,
-            'stroke-width': 0.5
+           type: 'cross',
+           //size: 1,
+           radius: 3,
+           //'stroke-width': 0
         }
-    }],
-
-    dockedItems: [{
-        xtype: 'toolbar',
-        dock: 'top',
-        items: [{
-            xtype: 'button',
-            text: 'Salvar Gráfico',
-            itemId: 'salvar_graf_linha',
-            iconCls: 'icon-save'
-        }, {
-            xtype: 'button',
-            text: 'Atualizar',
-            itemId: 'atualizar_graf_linha',
-            iconCls: 'icon-atualizar'
-        }]
     }]
 
 
+    /*    
+        extend: 'Ext.grid.Panel',
 
-/*
-extend: 'Ext.grid.Panel',
+            alias: 'widget.graficolinha',
 
-    alias: 'widget.graficolinha',
+            store: 'SistemaBolsa.store.graficos.GraficoLinhas',
 
-    store: 'SistemaBolsa.store.graficos.GraficoLinhas',
+            columns: [{
+                xtype: 'rownumberer',
+                width: 30
+            }, {
+                text: 'Valor',
+                width: 170,
+                dataIndex: 'valor'
+            }, {
+                text: 'Hora',
+                width: 170,
+                dataIndex: 'hora'
+            }],
 
-    columns: [{
-        xtype: 'rownumberer',
-        width: 30
-    }, {
-        text: 'Valor',
-        width: 170,
-        dataIndex: 'valor'
-    }, {
-        text: 'Hora',
-        width: 170,
-        dataIndex: 'hora'
-    }],
-
-    dockedItems: [{
-        xtype: 'toolbar',
-        dock: 'top',
-        items: [{
-            xtype: 'button',
-            text: 'Novo',
-            itemId: 'add',
-            iconCls: 'icon-add'
-        }, {
-            xtype: 'button',
-            text: 'Excluir',
-            itemId: 'delete',
-            iconCls: 'icon-delete'
-        }]
-    }]
-*/
+            dockedItems: [{
+                xtype: 'toolbar',
+                dock: 'top',
+                items: [{
+                    xtype: 'button',
+                    text: 'Novo',
+                    itemId: 'add',
+                    iconCls: 'icon-add'
+                }, {
+                    xtype: 'button',
+                    text: 'Excluir',
+                    itemId: 'delete',
+                    iconCls: 'icon-delete'
+                }]
+            }]
+    */
 
 });
