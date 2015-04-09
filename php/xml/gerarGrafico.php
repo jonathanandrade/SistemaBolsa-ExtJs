@@ -3,14 +3,12 @@
 	//echo file_get_contents("http://www.bmfbovespa.com.br/Pregao-Online/ExecutaAcaoCarregarDadosPapeis.asp?CodDado=BBDC4");
 	
 	$link = "http://www.bmfbovespa.com.br/Pregao-Online/ExecutaAcaoCarregarDadosPapeis.asp?CodDado=";	
-	$info = $_POST['acao'];
-	$acao = json_decode(stripslashes($info));
+	$acao = $_REQUEST['acao'];
 
 	$link .= $acao;	
 
 	$link = file_get_contents($link);
 	//echo $link;
-
 	//$link .= $acao;
 	//echo $link;
 
@@ -38,8 +36,8 @@
 
 		$arrayJson[] = array(
 			"hora" => $tmp[0],
-			"valor" => $tmp[1]
-			//,"oscilacao" => $tmp[2]
+			"valor" => $tmp[1],
+			"oscilacao" => $tmp[2]
 		);
 
 		//echo "$variacoes[$i] <br>";

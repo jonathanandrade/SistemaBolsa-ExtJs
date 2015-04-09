@@ -4,15 +4,17 @@ Ext.define('SistemaBolsa.view.graficos.GraficoLinha', {
 
     alias: 'widget.graficolinha',
     store: 'SistemaBolsa.store.graficos.GraficoLinhas',
-    autoScroll: true,
+
+    insetPadding: 30, // Padding interior
 
     axes: [{
         title: 'Valor',
         type: 'Numeric',
         position: 'left',
         fields: ['valor'],
-        minimum: 0,
-        maximum: 20,
+        label: {
+            renderer: Ext.util.Format.numberRenderer('0.00')
+        },        
         grid: {
             odd: {
                 opacity: 1,
@@ -26,61 +28,35 @@ Ext.define('SistemaBolsa.view.graficos.GraficoLinha', {
         type: 'Category',
         position: 'bottom',
         fields: ['hora'],
-        dateFormat: 'ga'
+        dateFormat: 'ga',
+        label: {
+            font: '9px Arial'
+        }
     }],
 
     series: [{
         type: 'line',
         xField: 'hora',
         yField: 'valor',
+        // Exibir valores em uma janela quando passa o mouse por cima do ponto
+        tips: {
+            trackMouse: true,
+            width: 200, // Comprimento da caixinha
+            height: 25, // Altura da caixinha
+            renderer: function(storeItem, item, attr) {
+                this.setTitle(' Hora: ' + storeItem.get('hora') + ' - ' + 'Valor: R$ ' + storeItem.get('valor'));
+            }
+        },
         highlight: {
-            size: 1,
-            radius: 1
+            //size: 1,
+            radius: 3
         },
         markerConfig: {
-           type: 'cross',
-           //size: 1,
-           radius: 3,
-           //'stroke-width': 0
+            type: 'circle',
+            //size: 0, // Tamanho da linha em destaque
+            radius: 2, // Tamanho fixo dos pontos
+            'stroke-width': 0
         }
     }]
-
-
-    /*    
-        extend: 'Ext.grid.Panel',
-
-            alias: 'widget.graficolinha',
-
-            store: 'SistemaBolsa.store.graficos.GraficoLinhas',
-
-            columns: [{
-                xtype: 'rownumberer',
-                width: 30
-            }, {
-                text: 'Valor',
-                width: 170,
-                dataIndex: 'valor'
-            }, {
-                text: 'Hora',
-                width: 170,
-                dataIndex: 'hora'
-            }],
-
-            dockedItems: [{
-                xtype: 'toolbar',
-                dock: 'top',
-                items: [{
-                    xtype: 'button',
-                    text: 'Novo',
-                    itemId: 'add',
-                    iconCls: 'icon-add'
-                }, {
-                    xtype: 'button',
-                    text: 'Excluir',
-                    itemId: 'delete',
-                    iconCls: 'icon-delete'
-                }]
-            }]
-    */
-
+    
 });

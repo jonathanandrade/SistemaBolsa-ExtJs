@@ -28,7 +28,8 @@ Ext.define('SistemaBolsa.Application', {
         'Ext.grid.column.Date',
         'Ext.data.reader.Xml',
         'Ext.chart.series.Line',
-        'Ext.chart.axis.Numeric'
+        'Ext.chart.axis.Numeric',
+        'Ext.chart.axis.Category'
     ],
 
     views: [

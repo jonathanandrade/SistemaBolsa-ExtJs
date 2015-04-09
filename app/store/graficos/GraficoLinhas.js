@@ -16,6 +16,6 @@ Ext.define('SistemaBolsa.store.graficos.GraficoLinhas', {
 		}
 	},
 
-	autoLoad: true
+	autoLoad: false
 
 });
