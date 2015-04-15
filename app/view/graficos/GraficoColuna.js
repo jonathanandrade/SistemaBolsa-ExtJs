@@ -7,39 +7,48 @@ Ext.define('SistemaBolsa.view.graficos.GraficoColuna', {
     style: 'background:#fff',
     animate: true,
     shadow: true,
+    legend: {
+        position: 'top'
+    },
     axes: [{
         type: 'Numeric',
-        position: 'bottom',
-        fields: ['valorAtual'],
+        position: 'left',
+        fields: ['cotacao','mediaAtual'],
         label: {
             renderer: Ext.util.Format.numberRenderer('0.00')
-        },
-        title: 'Number of Hits',
+        },        
+        title: 'Valores',
         grid: true,
         minimum: 0
+    }, {
+        type: 'Category',
+        position: 'bottom',
+        fields: ['siglaCons'],
+        title: 'Média Atual x Cotação Atual'
     }],
     series: [{
         type: 'column',
-        axis: 'bottom',
+        axis: 'left',
         highlight: true,
         tips: {
             trackMouse: true,
-            width: 140,
+            width: 260,
             height: 28,
             renderer: function(storeItem, item) {
-                //this.setTitle(storeItem.get('name') + ': ' + storeItem.get('data1') + ' $');
+                this.setTitle('Sua média: ' + storeItem.get('mediaAtual') + ' - Cotação Atual: ' + storeItem.get('cotacao'));
             }
         },
         label: {
-            display: 'insideEnd',
-            'text-anchor': 'middle',
-            field: 'data1',
-            renderer: Ext.util.Format.numberRenderer('0.00'),
-            orientation: 'vertical',
-            color: '#333'
+            //display: 'insideEnd',
+            //'text-anchor': 'middle',
+            //field: 'cotacao',
+            //text: 'Jonathan',
+            //renderer: Ext.util.Format.numberRenderer('0.00'),
+            //orientation: 'vertical',
+            //color: '#333'
         },
-        xField: 'valorAtual',
-        //yField: 'data1'
+        //xField: ['cotacao'],
+        yField: ['mediaAtual','cotacao']
     }]
 
 });

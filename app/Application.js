@@ -52,7 +52,8 @@ Ext.define('SistemaBolsa.Application', {
         'SistemaBolsa.view.movimentos.GridVendas',
         'SistemaBolsa.view.movimentos.GridCarteira',        
         'SistemaBolsa.view.graficos.BaseLinha',
-        'SistemaBolsa.view.graficos.BaseColuna'
+        'SistemaBolsa.view.graficos.BaseColuna',
+        'SistemaBolsa.view.graficos.BaseBarra'
     ],
 
     controllers: [
@@ -67,7 +68,8 @@ Ext.define('SistemaBolsa.Application', {
         'MainPanel',
         'Carteira',
         'SistemaBolsa.controller.graficos.BaseLinha',
-        'SistemaBolsa.controller.graficos.BaseColuna'
+        'SistemaBolsa.controller.graficos.BaseColuna',
+        'SistemaBolsa.controller.graficos.BaseBarra'
     ],
 
     stores: [
@@ -75,7 +77,8 @@ Ext.define('SistemaBolsa.Application', {
         'SistemaBolsa.store.combobox.ComboSiglasAcao',
         'SistemaBolsa.store.Cotacoes',
         'SistemaBolsa.store.graficos.GraficoLinhas',
-        'SistemaBolsa.store.graficos.GraficoColuna'
+        'SistemaBolsa.store.graficos.GraficoColuna',
+        'SistemaBolsa.store.graficos.GraficoBarras'
     ],
 
     splashscreen: {},
