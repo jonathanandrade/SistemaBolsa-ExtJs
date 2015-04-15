@@ -1,5 +1,4 @@
 Ext.define('SistemaBolsa.view.graficos.GraficoLinha', {
-
     extend: 'Ext.chart.Chart',
 
     alias: 'widget.graficolinha',
@@ -35,9 +34,9 @@ Ext.define('SistemaBolsa.view.graficos.GraficoLinha', {
     }],
 
     series: [{
-        type: 'line',
-        xField: 'hora',
+        type: 'line',        
         yField: 'valor',
+        xField: 'hora',
         // Exibir valores em uma janela quando passa o mouse por cima do ponto
         tips: {
             trackMouse: true,

@@ -63,9 +63,9 @@ Ext.define('SistemaBolsa.view.MainPanel', {
 //funcao colorir
 function change(val) {
 	if (val > '0.00') {
-		return '<span style="color:green;">' + 'R$ ' + val + '</span>';
+		return '<span style="color:green;">' + val + ' %' + '</span>';
 	} else if (val < '0.00') {
-		return '<span style="color:red;">' + 'R$ ' + val + '</span>';
+		return '<span style="color:red;">' + val + ' %' + '</span>';
 	}
 	return val;
 }

@@ -146,10 +146,11 @@
 				"id": "41"
 			},
 			{
-				"text": "Colunas",
+				"text": "Sua Média x Cotação",
 				"iconCls": "icon-graf-coluna",
 				"menu_id": "4",
-				"id": "42"
+				"id": "42",
+				"className": "basecoluna"
 			},
 			{
 				"text": "Linha",

@@ -1,4 +1,4 @@
-Ext.define('SistemaBolsa.controller.graficos.Base', {
+Ext.define('SistemaBolsa.controller.graficos.BaseLinha', {
     extend: 'Ext.app.Controller',
 
     init: function(application) {

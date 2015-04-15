@@ -75,7 +75,7 @@ Ext.define('SistemaBolsa.controller.MainPanel', {
 
             },
 
-            interval: 15000 //3000 = 3s
+            interval: 30000 //3000 = 3s
         });
 
     }

@@ -8,7 +8,7 @@ Ext.define('SistemaBolsa.store.graficos.GraficoLinhas', {
 	proxy: {
 		type: 'ajax',
 
-		url: 'php/xml/gerarGrafico.php',
+		url: 'php/graficos/gerarGraficoLinha.php',
 
 		reader: {
 			type: 'json',
