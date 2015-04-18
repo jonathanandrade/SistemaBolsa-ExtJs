@@ -140,10 +140,11 @@
 		"id": "4",
 		"items": [
 			{
-				"text": "Pizza",
-				"iconCls": "icon-graf-pizza",
+				"text": "Oscilações Diárias",
+				"iconCls": "icon-graf-oscilacao",
 				"menu_id": "4",
-				"id": "41"
+				"id": "41",
+				"className": "baseoscilacao"
 			},
 			{
 				"text": "Sua Média x Cotação",
@@ -160,7 +161,7 @@
 				"className": "graficobase"
 			},
 			{
-				"text": "Barras",
+				"text": "Variações em Colunas",
 				"iconCls": "icon-graf-barra",
 				"menu_id": "4",
 				"id": "44",

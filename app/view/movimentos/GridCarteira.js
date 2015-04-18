@@ -61,7 +61,7 @@ Ext.define('SistemaBolsa.view.movimentos.GridCarteira', {
                 win.setTitle('Venda de Ações'); // Seta o título
                 var grid = Ext.ComponentQuery.query('gridcarteira')[0]; // Recebe a referencia do grid
                 var rec = grid.getStore().getAt(rowIndex); // Pega os valores da linha selecionada
-                console.log(rec);
+                //console.log(rec);
                 var form = win.down('form'); // Pega a referencia do form
                 form.loadRecord(rec); // Carrega os dados no form
             }
@@ -90,11 +90,15 @@ Ext.define('SistemaBolsa.view.movimentos.GridCarteira', {
 });
 
 //funcao colorir
-function change(val) {
-    if (val > '0.00') {
-        return '<span style="color:green;">' + 'R$ ' + val + '</span>';
-    } else if (val < '0.00') {
+function change(val, record, index, store) {
+
+    if (record.record.data.mediaAtual > record.record.data.cotacao) {
+        // Perdendo dinheiro
         return '<span style="color:red;">' + 'R$ ' + val + '</span>';
+    } else if (record.record.data.mediaAtual < record.record.data.cotacao) {
+        // Ganhando dinheiro
+        return '<span style="color:green;">' + 'R$ ' + val + '</span>';
     }
+
     return val;
 }

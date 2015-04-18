@@ -53,7 +53,8 @@ Ext.define('SistemaBolsa.Application', {
         'SistemaBolsa.view.movimentos.GridCarteira',        
         'SistemaBolsa.view.graficos.BaseLinha',
         'SistemaBolsa.view.graficos.BaseColuna',
-        'SistemaBolsa.view.graficos.BaseBarra'
+        'SistemaBolsa.view.graficos.BaseBarra',
+        'SistemaBolsa.view.graficos.BaseOscilacao'
     ],
 
     controllers: [
@@ -69,7 +70,8 @@ Ext.define('SistemaBolsa.Application', {
         'Carteira',
         'SistemaBolsa.controller.graficos.BaseLinha',
         'SistemaBolsa.controller.graficos.BaseColuna',
-        'SistemaBolsa.controller.graficos.BaseBarra'
+        'SistemaBolsa.controller.graficos.BaseBarra',
+        'SistemaBolsa.controller.graficos.BaseOscilacao'
     ],
 
     stores: [
@@ -78,7 +80,8 @@ Ext.define('SistemaBolsa.Application', {
         'SistemaBolsa.store.Cotacoes',
         'SistemaBolsa.store.graficos.GraficoLinhas',
         'SistemaBolsa.store.graficos.GraficoColuna',
-        'SistemaBolsa.store.graficos.GraficoBarras'
+        'SistemaBolsa.store.graficos.GraficoBarras',
+        'SistemaBolsa.store.graficos.GraficoOscilacao'
     ],
 
     splashscreen: {},

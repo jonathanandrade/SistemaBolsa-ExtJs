@@ -64,6 +64,7 @@ Ext.define('SistemaBolsa.view.movimentos.GridVendas', {
                 iconCls: 'icon-delete',
                 tooltip: 'Vender Ação',
                 handler: function(grid, rowIndex, colIndex) {
+                    //console.log('Função removida');
                     var win = Ext.create('SistemaBolsa.view.movimentos.FormVendas'); // Cria a janela
                     win.setTitle('Venda de Ações'); // Seta o título
                     var grid = Ext.ComponentQuery.query('gridvendas')[0]; // Recebe a referencia do grid

@@ -3,6 +3,6 @@ Ext.define('SistemaBolsa.model.Movimento', {
 
 	idProperty: 'idmovimento',
 
-	fields: ['idmovimento', 'idempresa', 'sigla', 'quantidade', 'valorUnitario', 'media', 'tipo', 'login', 'valorVenda', 'dataCompra', 'dataVenda', 'total']
+	fields: ['idmovimento', 'idempresa', 'sigla', 'quantidade', 'valorUnitario', 'media', 'tipo', 'login', 'valorVenda', 'dataCompra', 'dataVenda', 'total', 'tipo']
 
 });

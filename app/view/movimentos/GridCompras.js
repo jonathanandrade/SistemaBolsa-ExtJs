@@ -20,29 +20,29 @@ Ext.define('SistemaBolsa.view.movimentos.GridCompras', {
 
     store: 'SistemaBolsa.store.Movimentos',
 
-    columns: [
-     {
+    columns: [{
         text: 'ID',
         width: 35,
         dataIndex: 'idmovimento',
         hidden: true
-     },
-     {
-        xtype: 'rownumberer'        
-     },
-     {
+    }, {
+        xtype: 'rownumberer'
+    }, {
         xtype: 'checkcolumn',
         width: 40,
         header: 'Exibir',
         dataIndex: 'exibir',
         id: 'exibir',
         stopSelection: false
-     },
-     {
+    }, {
         text: 'Ativo',
         width: 170,
         flex: 1,
         dataIndex: 'sigla'
+    }, {
+        text: 'Tipo',
+        width: 45,
+        dataIndex: 'tipo'
     }, {
         text: 'Quantidade',
         width: 170,
