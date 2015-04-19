@@ -13,12 +13,12 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
         xtype: 'fieldset',
         title: 'Informações de Acesso',
         defaultType: 'textfield',
-        width: 650,
+        width: 650,        
         items: [{
             xtype: 'fieldcontainer',
             fieldLabel: 'Login',
             labelStyle: 'font-weight:bold;',
-            layout: 'hbox',
+            layout: 'hbox',            
             combineErrors: true,
             defaultType: 'textfield',
             defaults: {
@@ -31,7 +31,8 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
                 maxLength: 25,
                 flex: 1,
                 emptyText: 'Login',
-                allowBlank: false
+                readOnly : true,
+                allowBlank: false                
             }]
         }]
     }, {
@@ -55,7 +56,7 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
                 labelStyle: 'font-weight:bold;',
                 name: 'nome',
                 id: 'nome',
-                vtype: 'nome',
+                //vtype: 'nome',                
                 flex: 1,
                 allowBlank: false
             }],
@@ -71,7 +72,7 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
                 id: 'sobrenome',
                 labelStyle: 'font-weight:bold;',
                 name: 'sobrenome',
-                vtype: 'sobrenome',
+                //vtype: 'sobrenome',
                 flex: 1,
                 allowBlank: false
             }],
@@ -86,7 +87,7 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
                 labelStyle: 'font-weight:bold;',
                 name: 'email',
                 id: 'email',
-                vtype: 'email',
+                //vtype: 'email',
                 flex: 1,
                 allowBlank: false
             }]
@@ -142,7 +143,7 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
                     fieldLabel: 'Endereço',
                     labelStyle: 'font-weight:bold;',
                     name: 'endereco',
-                    vtype: 'endereco',
+                    //vtype: 'endereco',
                     flex: 1,
                     allowBlank: false
                 }],
@@ -157,7 +158,7 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
                     fieldLabel: 'Bairro',
                     labelStyle: 'font-weight:bold;',
                     name: 'bairro',
-                    vtype: 'bairro',
+                    //vtype: 'bairro',
                     flex: 1,
                     allowBlank: false
                 }],
@@ -203,7 +204,7 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
                 enforceMaxLength: true,
                 maskRe: /[\d\-]/,
                 regex: /^\d{5}(\-\d{3})?$/,
-                regexText: 'Deve ser neste formato xxxxx or xxxxx-xxxx'
+                regexText: 'Deve ser neste formato xxxxx-xxxx'
 
             }, {
 
@@ -254,7 +255,7 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
 
     dockedItems: [{
         xtype: 'toolbar',
-        dock: 'top',
+        dock: 'bottom',
         layout: {
             type: 'hbox'
         },
@@ -263,11 +264,6 @@ Ext.define('SistemaBolsa.view.usuario.AlteraUsuario', {
             text: 'Salvar',
             itemId: 'save',
             iconCls: 'icon-save'
-        }, {
-            xtype: 'button',
-            text: 'Cancelar',
-            itemId: 'cancel',
-            iconCls: 'icon-cancel'
         }]
     }]
     

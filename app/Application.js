@@ -49,6 +49,7 @@ Ext.define('SistemaBolsa.Application', {
         'SistemaBolsa.view.usuario.AlteraUsuario',
         'SistemaBolsa.view.movimentos.FormCompras',
         'SistemaBolsa.view.movimentos.FormVendas',
+        'SistemaBolsa.view.movimentos.FormVendaAcao',
         'SistemaBolsa.view.movimentos.GridVendas',
         'SistemaBolsa.view.movimentos.GridCarteira',        
         'SistemaBolsa.view.graficos.BaseLinha',

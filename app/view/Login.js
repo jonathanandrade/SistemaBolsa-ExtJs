@@ -26,7 +26,7 @@ Ext.define('SistemaBolsa.view.Login', {
             allowBlank: false,
             vtype: 'alphanum',
             minLength: 3,
-            msgTarget: 'under'
+            msgTarget: 'side'
         },
         items: [ {
             name: 'loginUsername',
@@ -42,7 +42,7 @@ Ext.define('SistemaBolsa.view.Login', {
             maxLength: 15,
             value: 'qwe123',
             //vtype: 'customPass',
-            msgTarget: 'under'
+            msgTarget: 'side'
         }],
         dockedItems: [{
             xtype: 'toolbar',

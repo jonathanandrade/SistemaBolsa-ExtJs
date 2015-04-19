@@ -1,5 +1,5 @@
 Ext.define('SistemaBolsa.controller.AlterarUsuario', {
-	extend: 'Ext.app.Controller',
+    extend: 'Ext.app.Controller',
 
     models: [
         'SistemaBolsa.model.Usuario'
@@ -28,7 +28,7 @@ Ext.define('SistemaBolsa.controller.AlterarUsuario', {
     },
 
     onRenderPanel: function(form, e0pts) {
-       
+
         var panel = Ext.ComponentQuery.query('mainpanel')[0];
         //console.log(panel);
         var form = panel.down('alterausuario');
@@ -36,10 +36,10 @@ Ext.define('SistemaBolsa.controller.AlterarUsuario', {
 
         Ext.Ajax.request({
             url: 'php/usuario/listaUsuario.php',
-            method: 'GET',            
+            method: 'GET',
             success: function(conn, response, options, eOpts) {
-                var result = Ext.JSON.decode(conn.responseText, true);   
-                
+                var result = Ext.JSON.decode(conn.responseText, true);
+
                 var modelUsuario = Ext.create('SistemaBolsa.model.Usuario', {
                     iduser: result.usuario[0].iduser,
                     nome: result.usuario[0].nome,
@@ -61,12 +61,9 @@ Ext.define('SistemaBolsa.controller.AlterarUsuario', {
                     //senha: result.usuario[0].senha 
                 })
 
-                //console.log(modelUsuario.data.login);
-                //form.loadRecord(modelUsuario);
-                //Ext.getCmp('login').setValue(modelUsuario.data.login);
-                //Ext.getCmp('nome').setValue(modelUsuario.data.nome);
-                //Ext.getCmp('sobrenome').setValue(modelUsuario.data.sobrenome);
-                Ext.getCmp('email').setValue(modelUsuario.data.email);                
+                //console.log(modelUsuario);
+                form.loadRecord(modelUsuario);
+                //Ext.getCmp('login').setValue(modelUsuario.data.login);                        
 
             }
         });
@@ -74,34 +71,15 @@ Ext.define('SistemaBolsa.controller.AlterarUsuario', {
     },
 
     onButtonClickSave: function(button, e, options) {
-    	console.log('Save..');       
+        //console.log('Save..');
 
-        Ext.create('widget.uxNotification', {
-            position: 't',
-            cls: 'ux-notification-light',
-            closable: false,
-            title: '',
-            iconCls: 'ux-notification-icon-information',
-            html: 'Using document as manager. No title and closable: false. Entering from the t edge.',
-            autoDestroyDelay: 1500,
-            slideInDelay: 600,
-            slideDownDelay: 600,
-            //slideInAnimation: 'bounceOut',
-            //slideDownAnimation: 'easeIn'
-        }).show();
-
-        //Ext.MessageBox.confirm('Confirm', 'Are you sure you want to do that?', showResult);
-
-        //function showResult(btn){
-        //Ext.example.msg('Button Click', 'You clicked the {0} button', btn);
-    
-    
-        /*var win  = button.up('window');
-        var form = win.down('form');
+        //var win  = button.up('window');
+        //var form = win.down('form');
+        var form = Ext.ComponentQuery.query('mainpanel alterausuario')[0];
         var values = form.getValues();
-        var record = form.getRecord();  
+        var record = form.getRecord();
 
-        if(record) {
+        if (record) {
             // Editando corretora
             //console.log(record); // Dados anteriores
             record.set(values);
@@ -113,68 +91,33 @@ Ext.define('SistemaBolsa.controller.AlterarUsuario', {
             Ext.Ajax.request({
                 url: 'php/usuario/atualizaUsuario.php',
                 method: 'POST',
-                success: function(conn, response, options, eOpts) {},
-                params: {
-                    'usuario': dadosUsuario
-                }
-            });    
-
-            win.close(); // Fecha o formulario         
-             
-        } else {
-            // Cadastro
-            var novoUsuario = Ext.create('SistemaBolsa.model.Usuario', {
-                nome: values.nome,
-                sobrenome: values.sobrenome,
-                email: values.email,
-                cpf: values.cpf,
-                rg: values.rg,
-                dataNasc: values.dataNasc,
-                telefone: values.telefone,
-                endereco: values.endereco,
-                bairro: values.bairro,
-                cidade: values.cidade,
-                estado: values.estado,
-                cep: values.cep,
-                complemento: values.complemento,
-                numero: values.numero,
-                celular: values.celular,
-                login: values.login,
-                senha: SistemaBolsa.util.MD5.encode(values.senha)           
-            })
-            
-            //console.log(novoUsuario);
-            //codifica os dados em JSON
-            var dadosUsuario = Ext.encode(novoUsuario.data);
-
-            //console.log(dadosUsuario);
-            Ext.Ajax.request({
-                url: 'php/usuario/criaUsuario.php',
-                method: 'POST',
-
                 params: {
                     'usuario': dadosUsuario
                 },
-                
+
                 success: function(conn, response, options, eOpts) {
-                    var result = Ext.JSON.decode(conn.responseText, true);
-                    if (!result.success) {
-                        Ext.MessageBox.show({
-                            title: 'Erro',
-                            msg: 'Já possui um cadastro com esse Login',
-                            icon: Ext.MessageBox.ERROR
-                        })
-                    } else {
-                        win.close(); // Fecha o formulario
-                    }
-                },
-            });                  
-        }   */
+                    Ext.create('widget.uxNotification', {
+                        position: 't',
+                        cls: 'ux-notification-light',
+                        closable: false,
+                        title: 'Informação',
+                        iconCls: 'ux-notification-icon-information',
+                        html: 'Salvo com sucesso.',
+                        autoDestroyDelay: 1800,
+                        slideInDelay: 600,
+                        slideDownDelay: 600,
+                        //slideInAnimation: 'bounceOut',
+                        //slideDownAnimation: 'easeIn'
+                    }).show();
+                }
+            });
+        }
+
     },
 
     onButtonClickCancel: function(button, e, options) {
-    	console.log('Cancel..');
-    	//button.up('window').close();
+        console.log('Cancel..');
+        //button.up('window').close();
     }
 
 });

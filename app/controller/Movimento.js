@@ -231,6 +231,7 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 
 		if (values.quantidade > parseInt(record.data.quantidade)) {
 			
+			//console.log('Não pode vender mais do que tem');
 			Ext.create('widget.uxNotification', {
 				position: 't',
 				cls: 'ux-notification-light',
@@ -245,8 +246,9 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 				//slideDownAnimation: 'easeIn'
 			}).show();
 
-		} else {
+		} else if (values.quantidade < parseInt(record.data.quantidade)) {
 			
+			//console.log('chama vende porque é menor');
 			var movVenda = Ext.create('SistemaBolsa.model.Movimento', {
 				idmovimento: values.idmovimento,
 				sigla: values.sigla,
@@ -264,12 +266,19 @@ Ext.define('SistemaBolsa.controller.Movimento', {
                     'movimento': dadosVenda
                 }
             });
+
+		} else if (values.quantidade = parseInt(record.data.quantidade)) {
 			
-		};		
-				
+			//console.log('chama delete');
+			var store = grid.getStore();
+						store.remove(record);  // Remove do grid
+						store.sync(); 			// Remove do banco						
+		}
+		
 		win.close();
 
 		grid.getStore().reload(); // Atualiza o grid
+		
 	}
 	
 /*&------------------------------------------- FIM VENDAS -------------------------------------------&*/

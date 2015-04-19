@@ -47,7 +47,8 @@ Ext.define('SistemaBolsa.view.movimentos.GridCarteira', {
         width: 170,
         dataIndex: 'cotacao',
         renderer: Ext.util.Format.brMoney
-    }, {
+    }
+    /*, {
         menuDisabled: true,
         sortable: false,
         xtype: 'actioncolumn',
@@ -66,7 +67,8 @@ Ext.define('SistemaBolsa.view.movimentos.GridCarteira', {
                 form.loadRecord(rec); // Carrega os dados no form
             }
         }]
-    }],
+    }*/
+    ],
 
     dockedItems: [{
         xtype: 'toolbar',
@@ -94,9 +96,11 @@ function change(val, record, index, store) {
 
     if (record.record.data.mediaAtual > record.record.data.cotacao) {
         // Perdendo dinheiro
+        console.log('Perdendo --> ' + record.record.data.mediaAtual + ' > ' + record.record.data.cotacao);
         return '<span style="color:red;">' + 'R$ ' + val + '</span>';
     } else if (record.record.data.mediaAtual < record.record.data.cotacao) {
         // Ganhando dinheiro
+        console.log('Ganhando --> ' + record.record.data.mediaAtual + ' < ' + record.record.data.cotacao);
         return '<span style="color:green;">' + 'R$ ' + val + '</span>';
     }
 

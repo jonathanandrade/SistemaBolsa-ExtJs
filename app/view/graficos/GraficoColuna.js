@@ -13,12 +13,19 @@ Ext.define('SistemaBolsa.view.graficos.GraficoColuna', {
     axes: [{
         type: 'Numeric',
         position: 'left',
-        fields: ['cotacao','mediaAtual'],
+        fields: ['cotacao', 'mediaAtual'],
         label: {
             renderer: Ext.util.Format.numberRenderer('0.00')
-        },        
+        },
         title: 'Valores',
-        grid: true,
+        grid: {
+            odd: {
+                opacity: 1,
+                fill: '#ddd',
+                stroke: '#bbb',
+                'stroke-width': 2
+            }
+        },
         minimum: 0
     }, {
         type: 'Category',
@@ -48,7 +55,7 @@ Ext.define('SistemaBolsa.view.graficos.GraficoColuna', {
             //color: '#333'
         },
         //xField: ['cotacao'],
-        yField: ['mediaAtual','cotacao']
+        yField: ['mediaAtual', 'cotacao']
     }]
 
 });
