@@ -47,10 +47,12 @@ Ext.define('SistemaBolsa.Application', {
         'SistemaBolsa.view.menu.MenuItem',
         'SistemaBolsa.view.movimentos.GridCompras',
         'SistemaBolsa.view.usuario.AlteraUsuario',
-        'SistemaBolsa.view.movimentos.FormCompras',
+        'SistemaBolsa.view.movimentos.FormCompras',        
+        'SistemaBolsa.view.movimentos.FormComprasHome',
         'SistemaBolsa.view.movimentos.FormVendas',
         'SistemaBolsa.view.movimentos.FormVendaAcao',
         'SistemaBolsa.view.movimentos.GridVendas',
+        'SistemaBolsa.view.movimentos.GridVendasHome',
         'SistemaBolsa.view.movimentos.GridCarteira',        
         'SistemaBolsa.view.graficos.BaseLinha',
         'SistemaBolsa.view.graficos.BaseColuna',
@@ -67,6 +69,7 @@ Ext.define('SistemaBolsa.Application', {
         'AlterarSenha',
         'AlterarUsuario',
         'Movimento',
+        'MovimentosHome',
         'MainPanel',
         'Carteira',
         'SistemaBolsa.controller.graficos.BaseLinha',
@@ -82,7 +85,8 @@ Ext.define('SistemaBolsa.Application', {
         'SistemaBolsa.store.graficos.GraficoLinhas',
         'SistemaBolsa.store.graficos.GraficoColuna',
         'SistemaBolsa.store.graficos.GraficoBarras',
-        'SistemaBolsa.store.graficos.GraficoOscilacao'
+        'SistemaBolsa.store.graficos.GraficoOscilacao',
+        'SistemaBolsa.store.MovimentosHome'
     ],
 
     splashscreen: {},

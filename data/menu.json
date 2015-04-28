@@ -170,15 +170,52 @@
 		]
 	},
 	{
+		"title": "Relatórios",
+		"iconCls": "icon-rel-pdf",
+		"id": "5",
+		"items": [
+			{
+				"text": "Relatório Compras",
+				"iconCls": "icon-rel-pdf",
+				"menu_id": "5",
+				"id": "45"
+			},
+			{
+				"text": "Relatório Vendas",
+				"iconCls": "icon-rel-pdf",
+				"menu_id": "5",
+				"id": "46"
+			},
+			{
+				"text": "Relatório Carteira",
+				"iconCls": "icon-rel-pdf",
+				"menu_id": "5",
+				"id": "47"
+			},
+			{
+				"text": "Relatório Empresas",
+				"iconCls": "icon-rel-pdf",
+				"menu_id": "5",
+				"id": "48"
+			},
+			{
+				"text": "Relatório Corretoras",
+				"iconCls": "icon-rel-pdf",
+				"menu_id": "5",
+				"id": "49"
+			}
+		]
+	},
+	{
 		"title": "Manutenção",
 		"iconCls": "icon-manutencao",
-		"id": "5",
+		"id": "6",
 		"items": [
 			{
 				"text": "Alterar Dados do Usuário",
 				"iconCls": "icon-usuario",
 				"menu_id": "5",
-				"id": "45",
+				"id": "50",
 				"className": "alterausuario"
 			}		
 		]

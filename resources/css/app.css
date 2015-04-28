@@ -201,6 +201,12 @@ body .ux-notification-light {
 }
 /*---------------------------------- FIM CARTEIRA ----------------------------------*/
 
+/*---------------------------------- RELATÓRIOS PDF ----------------------------------*/
+.icon-rel-pdf {
+	background-image: url(../images/rel-pdf.png) !important;	
+}
+/*------------------------------- FIM RELATÓRIOS PDF ----------------------------------*/
+
 #titleHeader {
 	color:#000;
 	font-size:20px;
