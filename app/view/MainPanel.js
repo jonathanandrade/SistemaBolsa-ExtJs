@@ -77,36 +77,17 @@ Ext.define('SistemaBolsa.view.MainPanel', {
 						
 						var grid = Ext.ComponentQuery.query('mainpanel grid')[0]; // Recebe a referencia do grid
 						var rec = grid.getStore().getAt(rowIndex); // Pega os valores da linha selecionada
-						//var dadosAtivo = Ext.encode(rec.data.Codigo);
-						//console.log(dadosAtivo);
 
 						var win = Ext.create('SistemaBolsa.view.movimentos.GridVendasHome'); // Cria a janela
 						win.setTitle('Venda de Ações'); // Seta o título
 						
-						var gridVendasHome = Ext.ComponentQuery.query('gridvendashome grid')[0];
-						var store = gridVendasHome.getStore();
-						console.log(store);
+						var gridVendasHome = Ext.ComponentQuery.query('gridvendashome grid')[0];						
+						var store = gridVendasHome.getStore();						
 						store.load({
 							params: {
 								movimento: rec.data.Codigo // Ação selecionada
 							}
 						});						
-
-						/*
-						Ext.Ajax.request({
-							url: 'php/movimento/listaMovimentoHome.php',
-							method: 'POST',
-							success: function(conn, response, options, eOpts) {},
-							params: {
-								'movimento': dadosAtivo
-							}
-						});
-						*/
-
-						//var grid = Ext.ComponentQuery.query('mainpanel')[0]; // Recebe a referencia do grid
-						//var rec = grid.getStore().getAt(rowIndex); // Pega os valores da linha selecionada
-						//var form = win.down('form'); // Pega a referencia do form
-						//form.loadRecord(rec); // Carrega os dados no form
 					}
 				}]
 			}]

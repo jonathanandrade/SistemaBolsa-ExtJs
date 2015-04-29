@@ -8,6 +8,10 @@ Ext.define('SistemaBolsa.view.movimentos.GridCompras', {
         'Ext.selection.CellModel'
     ],
 
+    features: [{
+        ftype: 'summary'
+    }],
+
     viewConfig: {
         stripeRows: true
     },
@@ -21,54 +25,56 @@ Ext.define('SistemaBolsa.view.movimentos.GridCompras', {
     store: 'SistemaBolsa.store.Movimentos',
 
     columns: [{
-        text: 'ID',
-        width: 35,
-        dataIndex: 'idmovimento',
-        hidden: true
-    }, {
-        xtype: 'rownumberer'
-    }, 
-    //{
-    //    xtype: 'checkcolumn',
-    //    width: 40,
-    //    header: 'Exibir',
-    //    dataIndex: 'exibir',
-    //    id: 'exibir',
-    //    stopSelection: false
-    //},
-    {
-        text: 'Ativo',
-        width: 170,
-        flex: 1,
-        dataIndex: 'sigla'
-    }, {
-        text: 'Quantidade',
-        width: 170,
-        dataIndex: 'quantidade'
-    }, {
-        text: 'Vlr. Unitário',
-        width: 170,
-        dataIndex: 'valorUnitario',
-        renderer: Ext.util.Format.brMoney
-    }, {
-        text: 'Total',
-        width: 170,
-        dataIndex: 'total',
-        renderer: Ext.util.Format.brMoney
-    }, {
-        text: 'Data Compra',
-        dataIndex: 'dataCompra',
-        xtype: 'datecolumn',
-        groupable: false,
-        width: 115,
-        renderer: Ext.util.Format.dateRenderer('d/m/Y'),
-        filter: {
-
+            text: 'ID',
+            width: 35,
+            dataIndex: 'idmovimento',
+            hidden: true
+        }, {
+            xtype: 'rownumberer'
         },
-        editor: {
-            xtype: 'datefield'
+        //{
+        //    xtype: 'checkcolumn',
+        //    width: 40,
+        //    header: 'Exibir',
+        //    dataIndex: 'exibir',
+        //    id: 'exibir',
+        //    stopSelection: false
+        //},
+        {
+            text: 'Ativo',
+            width: 170,
+            flex: 1,
+            dataIndex: 'sigla'
+        }, {
+            text: 'Data Compra',
+            dataIndex: 'dataCompra',
+            xtype: 'datecolumn',
+            groupable: false,
+            width: 150,
+            renderer: Ext.util.Format.dateRenderer('d/m/Y'),
+            filter: {
+
+            },
+            editor: {
+                xtype: 'datefield'
+            }
+        }, {
+            text: 'Quantidade',
+            width: 160,
+            dataIndex: 'quantidade'
+        }, {
+            text: 'Vlr. Unitário',
+            width: 170,
+            dataIndex: 'valorUnitario',
+            renderer: Ext.util.Format.brMoney
+        }, {
+            text: 'Total',
+            width: 170,
+            dataIndex: 'total',
+            renderer: Ext.util.Format.brMoney,
+            summaryType: 'sum'
         }
-    }],
+    ],
 
     dockedItems: [{
         xtype: 'toolbar',

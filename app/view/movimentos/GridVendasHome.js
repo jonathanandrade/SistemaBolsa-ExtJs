@@ -5,7 +5,9 @@ Ext.define('SistemaBolsa.view.movimentos.GridVendasHome', {
 
     requires: [
         'Ext.grid.RowNumberer',
-        'Ext.grid.column.Action'
+        'Ext.grid.column.Action',
+        'Ext.toolbar.Spacer',
+        'SistemaBolsa.ux.basePagingTbar'
     ],
 
     viewConfig: {
@@ -17,12 +19,16 @@ Ext.define('SistemaBolsa.view.movimentos.GridVendasHome', {
     title: 'Venda de Ações',
     iconCls: 'icon-exl-mov',
     autoShow: true,
-    modal: true, // Deixa como tela principal, impedindo alterações na parte de baixo
-
-    store: 'SistemaBolsa.store.MovimentosHome',
+    modal: true, // Deixa como tela principal, impedindo alterações na parte de baixo    
 
     items: [{
         xtype: 'grid',
+        features: [{
+            ftype: 'summary'
+        }],
+        title: 'Movimentos da Ação',
+        titleAlign: 'center',
+        store: 'SistemaBolsa.store.MovimentosHome',
         columns: [{
             text: 'ID',
             width: 35,
@@ -36,14 +42,18 @@ Ext.define('SistemaBolsa.view.movimentos.GridVendasHome', {
             flex: 1,
             dataIndex: 'sigla'
         }, {
-            text: 'Quantidade',
-            width: 160,
-            dataIndex: 'quantidade'
-        }, {
-            text: 'Vlr. Unitário de Compra',
-            width: 170,
-            dataIndex: 'valorUnitario',
-            renderer: Ext.util.Format.brMoney
+            text: 'Data Compra',
+            dataIndex: 'dataCompra',
+            xtype: 'datecolumn',
+            groupable: false,
+            width: 115,
+            renderer: Ext.util.Format.dateRenderer('d/m/Y'),
+            filter: {
+
+            },
+            editor: {
+                xtype: 'datefield'
+            }
         }, {
             text: 'Data Venda',
             dataIndex: 'dataVenda',
@@ -58,6 +68,17 @@ Ext.define('SistemaBolsa.view.movimentos.GridVendasHome', {
                 xtype: 'datefield'
             }
         }, {
+            text: 'Quantidade',
+            width: 160,
+            dataIndex: 'quantidade',
+            summaryType: 'sum'
+        }, {
+            text: 'Vlr. Unitário de Compra',
+            width: 170,
+            dataIndex: 'valorUnitario',
+            renderer: Ext.util.Format.brMoney,
+            summaryType: 'average'
+        }, {
             menuDisabled: true,
             sortable: false,
             xtype: 'actioncolumn',
@@ -67,33 +88,23 @@ Ext.define('SistemaBolsa.view.movimentos.GridVendasHome', {
                 iconCls: 'icon-delete',
                 tooltip: 'Vender Ação',
                 handler: function(grid, rowIndex, colIndex) {
-                    //console.log('Função removida');
-                    //var win = Ext.create('SistemaBolsa.view.movimentos.FormVendas'); // Cria a janela
-                    //win.setTitle('Venda de Ações'); // Seta o título
-                    //var grid = Ext.ComponentQuery.query('gridvendas')[0]; // Recebe a referencia do grid
-                    //var rec = grid.getStore().getAt(rowIndex); // Pega os valores da linha selecionada
-                    //var form = win.down('form'); // Pega a referencia do form
-                    //form.loadRecord(rec); // Carrega os dados no form
+                    var win = Ext.create('SistemaBolsa.view.movimentos.FormVendasHome'); // Cria a janela
+                    win.setTitle('Venda de Ações'); // Seta o título
+                    var grid = Ext.ComponentQuery.query('gridvendashome grid')[0]; // Recebe a referencia do grid
+                    var rec = grid.getStore().getAt(rowIndex); // Pega os valores da linha selecionada                    
+                    var form = win.down('form'); // Pega a referencia do form
+                    form.loadRecord(rec); // Carrega os dados no form
                 }
             }]
         }]
     }],
 
     dockedItems: [{
-        xtype: 'toolbar',
-        dock: 'top',
-        items: [
-            /*{
-                xtype: 'button',
-                text: 'Vender',
-                itemId: 'vender',
-                iconCls: 'icon-delete'
-            }*/
-        ]
-    }, {
-        xtype: 'pagingtoolbar',
+        xtype: 'basePagingTbar',
         store: 'SistemaBolsa.store.MovimentosHome',
-        dock: 'top',
+        hideRefresh: true,
+        saveParamsOnLoad: true,
+        dock: 'bottom',
         displayInfo: true,
         emptyMsg: 'Nenhum movimento encontrado'
     }]

@@ -37,11 +37,10 @@ Ext.define('SistemaBolsa.controller.MovimentosHome', {
 		})
 	},
 
-
 	onWindowRender: function(grid, e0pts) {
-		console.log('Window Render');
-		//grid.getStore().load();
+		//console.log('Window Render');
 	},
+
 	/*
 	onAddClick: function(btn, e, e0pts) {
 		//console.log('Adicionar...');

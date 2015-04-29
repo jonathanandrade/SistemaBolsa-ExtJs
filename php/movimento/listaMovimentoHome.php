@@ -4,7 +4,7 @@
 
 	session_start();
 	$login = $_SESSION['login'];
-	$sigla = $_REQUEST['movimento'];
+	$sigla = $_REQUEST['movimento'];	
 	
 	$start = $_REQUEST['start'];
 	$limit = $_REQUEST['limit'];
@@ -20,7 +20,7 @@
 	}
 
 	//consulta total de linhas na tabela
-	$queryTotal = mysql_query("SELECT count(*) as num FROM movimento where login = '$login'") or die(mysql_error());
+	$queryTotal = mysql_query("SELECT count(*) as num FROM movimento where login = '$login' and tipo = 'C' and sigla = '$sigla'") or die(mysql_error());
 	$row = mysql_fetch_assoc($queryTotal);
 	$total = $row['num'];
 	//encoda para formato JSON

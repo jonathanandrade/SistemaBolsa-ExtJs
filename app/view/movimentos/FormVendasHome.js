@@ -1,6 +1,6 @@
-Ext.define('SistemaBolsa.view.movimentos.FormVendaAcao', {
+Ext.define('SistemaBolsa.view.movimentos.FormVendasHome', {
 	extend: 'Ext.window.Window',
-	alias: 'widget.formvendaacao',
+	alias: 'widget.formvendashome',
 
 	height: 200,
 	width: 450,

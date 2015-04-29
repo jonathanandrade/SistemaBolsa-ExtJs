@@ -31,9 +31,6 @@ Ext.define('SistemaBolsa.controller.MainPanel', {
             },
             "formcomprascarteira button#cancel": {
                 click: this.onCancelClick
-            },
-            "mainpanel panel grid": {
-                celldblclick: this.onVenderClick
             }
         });
     },
@@ -103,10 +100,5 @@ Ext.define('SistemaBolsa.controller.MainPanel', {
         var form = win.down('form'); // Pegar a referencia do form
         form.getForm().reset(); // Reseta todos os campos
         win.close(); // Fecha a janela
-    },
-
-    onVenderClick: function(grid, td, cellIndex, record, tr, rowIndex, e, eOpts) {
-        console.log('duplo clique');
     }
-
 });
