@@ -120,6 +120,14 @@ body .ux-notification-light {
 	background-image: url(../images/ihome.png) !important;	
 }
 
+.icon-right {
+	background-image: url(../images/right.png) !important;	
+}
+
+.icon-wrong {
+	background-image: url(../images/wrong.png) !important;	
+}
+
 /*------------------------------------- EMPRESA ------------------------------------*/
 .icon-empresa {
 	background-image: url(../images/empresas.png) !important;	

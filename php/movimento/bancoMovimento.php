@@ -16,5 +16,14 @@
 		$sql = mysql_query("UPDATE movsaldo set mediaAtual = '$row[0]' where login = '$login' and siglaCons = '$sigla'");
 	}
 	
+	// Remove dados zerados da tabela movsaldo (sem movimentos para determinada ação)
+	function removeMovimentosZerados($login, $sigla) {
+		$retornoMovimento = mysql_query("SELECT qtdTotal, idmovsaldo from movsaldo where login = '$login' and siglaCons = '$sigla'");
+		$mov = mysql_fetch_row($retornoMovimento);
+
+		if ($mov[0] == '0') {
+			$sql = mysql_query("DELETE from movsaldo where login = '$login' and idmovsaldo = '$mov[1]'");		
+		}
+	}
 
 ?>

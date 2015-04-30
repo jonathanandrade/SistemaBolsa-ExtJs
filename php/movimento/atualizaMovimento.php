@@ -44,4 +44,5 @@
 
 	// Atualizando média
 	atualizaMedia($login, $sigla);
+	
 ?>

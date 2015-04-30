@@ -50,7 +50,7 @@
 		atualizaQuantidade($login, $sigla);
 
 		// Atualizando média
-		atualizaMedia($login, $sigla);
+		atualizaMedia($login, $sigla);		
 
 	} else {
 		// Primeiro lançamento

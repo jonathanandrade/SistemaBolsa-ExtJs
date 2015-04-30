@@ -44,4 +44,7 @@
 	// Atualizando média
 	atualizaMedia($login, $sigla);
 
+	// Remove dados da tabela movsaldo pois a ação selecionada não possui movimentos
+	removeMovimentosZerados($login, $sigla)
+
 ?>
