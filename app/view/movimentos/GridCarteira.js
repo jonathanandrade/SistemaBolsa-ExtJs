@@ -73,13 +73,16 @@ Ext.define('SistemaBolsa.view.movimentos.GridCarteira', {
 //funcao colorir
 function change(val, record, index, store) {
 
-    if (record.record.data.mediaAtual > record.record.data.cotacao) {
+    var mediaAtual = parseFloat(record.record.data.mediaAtual);
+    var cotacao = parseFloat(record.record.data.cotacao);
+
+    if (mediaAtual > cotacao) {
         // Perdendo dinheiro
-        console.log('Perdendo --> ' + record.record.data.mediaAtual + ' > ' + record.record.data.cotacao);
+        //console.log('Perdendo --> ' + mediaAtual + ' > ' + cotacao);
         return '<span style="color:red;">' + 'R$ ' + val + '</span>';
-    } else if (record.record.data.mediaAtual < record.record.data.cotacao) {
+    } else if (mediaAtual < cotacao) {
         // Ganhando dinheiro
-        console.log('Ganhando --> ' + record.record.data.mediaAtual + ' < ' + record.record.data.cotacao);
+        //console.log('Ganhando --> ' + mediaAtual + ' < ' + cotacao);
         return '<span style="color:green;">' + 'R$ ' + val + '</span>';
     }
 
