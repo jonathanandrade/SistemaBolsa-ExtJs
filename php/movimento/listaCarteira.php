@@ -3,7 +3,7 @@
 	include("../conectar.php");
 
 	session_start();
-	$login = $_SESSION['login'];	
+	$login = $_SESSION['login'];
 
 	// Lista todos os dados de todas as ações que estão na carteira
 	if (empty($_REQUEST['acao'])) {

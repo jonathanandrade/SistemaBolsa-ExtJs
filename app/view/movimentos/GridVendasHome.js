@@ -15,7 +15,7 @@ Ext.define('SistemaBolsa.view.movimentos.GridVendasHome', {
     },
 
     height: 400,
-    width: 800,
+    width: 1000,
     title: 'Venda de Ações',
     iconCls: 'icon-exl-mov',
     autoShow: true,
@@ -77,7 +77,14 @@ Ext.define('SistemaBolsa.view.movimentos.GridVendasHome', {
             width: 170,
             dataIndex: 'valorUnitario',
             renderer: Ext.util.Format.brMoney,
+            renderer: real,
             summaryType: 'average'
+        }, {
+            text: 'Cotação Atual',
+            width: 150,
+            dataIndex: 'cotacao',
+            renderer: Ext.util.Format.brMoney,
+            renderer: real
         }, {
             menuDisabled: true,
             sortable: false,
@@ -109,5 +116,8 @@ Ext.define('SistemaBolsa.view.movimentos.GridVendasHome', {
         emptyMsg: 'Nenhum movimento encontrado'
     }]
 
-
 });
+
+function real(val) {
+    return '<span>' + 'R$ ' + val + '</span>';
+}

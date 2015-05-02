@@ -6,7 +6,7 @@
 	$login = $_SESSION['login'];
 
 	$info = $_POST['empresa'];
-	$data = json_decode(stripslashes($info));
+	$data = json_decode($info);
 	$descricao = $data->descricao;
 	$sigla = $data->sigla;
 	$atividade = $data->atividade;

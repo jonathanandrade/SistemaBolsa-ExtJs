@@ -241,7 +241,7 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 				var cotacaoAtual = parseFloat(result.carteira[0].cotacao);
 				var mediaAtual = parseFloat(result.carteira[0].mediaAtual);
 
-				if (mediaAtual >= cotacaoAtual) {
+				if (mediaAtual > cotacaoAtual) {
 					// PERDENDO DINHEIRO                    
 					var prejuizo = (mediaAtual - cotacaoAtual);
 
@@ -279,11 +279,13 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 									var movVenda = Ext.create('SistemaBolsa.model.Movimento', {
 										idmovimento: values.idmovimento,
 										sigla: values.sigla,
+										dataCompra: record.dataCompra,
 										quantidade: values.quantidade, // Quantidade para a venda
 										valorUnitario: values.valorUnitario
 									});
 
 									var dadosVenda = Ext.encode(movVenda.data);
+									console.log(dadosVenda);
 
 									Ext.Ajax.request({
 										url: 'php/movimento/vendeMovimento.php',
@@ -300,6 +302,7 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 										idmovimento: values.idmovimento,
 										sigla: values.sigla,
 										quantidade: values.quantidade, // Quantidade para a venda
+										dataCompra: record.dataCompra,
 										valorUnitario: values.valorUnitario
 									});
 
@@ -363,11 +366,12 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 									var movVenda = Ext.create('SistemaBolsa.model.Movimento', {
 										idmovimento: values.idmovimento,
 										sigla: values.sigla,
+										dataCompra: record.dataCompra,
 										quantidade: values.quantidade, // Quantidade para a venda
 										valorUnitario: values.valorUnitario
 									});
 
-									var dadosVenda = Ext.encode(movVenda.data);
+									var dadosVenda = Ext.encode(movVenda.data);									
 
 									Ext.Ajax.request({
 										url: 'php/movimento/vendeMovimento.php',
@@ -383,6 +387,7 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 									var movVenda = Ext.create('SistemaBolsa.model.Movimento', {
 										idmovimento: values.idmovimento,
 										sigla: values.sigla,
+										dataCompra: record.dataCompra,
 										quantidade: values.quantidade, // Quantidade para a venda
 										valorUnitario: values.valorUnitario
 									});

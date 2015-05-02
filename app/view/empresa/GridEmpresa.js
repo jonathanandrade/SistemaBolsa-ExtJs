@@ -36,7 +36,7 @@ Ext.define('SistemaBolsa.view.empresa.GridEmpresa', {
         dataIndex: 'descricao'
     }, {
         text: 'Atividade',
-        width: 170,
+        width: 300,
         dataIndex: 'atividade'
     }],
 

@@ -58,7 +58,12 @@ Ext.define('SistemaBolsa.Application', {
         'SistemaBolsa.view.graficos.BaseLinha',
         'SistemaBolsa.view.graficos.BaseColuna',
         'SistemaBolsa.view.graficos.BaseBarra',
-        'SistemaBolsa.view.graficos.BaseOscilacao'
+        'SistemaBolsa.view.graficos.BaseOscilacao',
+        'SistemaBolsa.view.relatorios.RelEmpresa',
+        'SistemaBolsa.view.relatorios.RelCorretora',
+        'SistemaBolsa.view.relatorios.RelCompras',
+        'SistemaBolsa.view.relatorios.RelVendas',
+        'SistemaBolsa.view.relatorios.RelCarteira'
     ],
 
     controllers: [

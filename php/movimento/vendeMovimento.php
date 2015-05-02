@@ -10,7 +10,15 @@
 	$data = json_decode(stripslashes($info));
 	$idmovimento = $data->idmovimento;
 	$sigla = $data->sigla;
+	$quantidade = $data->quantidade;
+	$dataCompra = $data->dataCompra;
+	$valorUnitario = $data->valorUnitario;
+	$media = $data->media;
+	$total = ($data->quantidade * $data->valorUnitario);
 	$dataVenda = date("Y/m/d");
+
+	// Grava registro de venda
+	$histVenda = mysql_query("INSERT INTO movimento (sigla, quantidade, valorUnitario, media, total, tipo, dataVenda, login, dataCompra) VALUES ('$sigla', '$quantidade', '$valorUnitario', '$media', '$total', 'V', '$dataVenda', '$login', '$dataCompra')") or die(mysql_error());
 
 	$retornoQtd = mysql_query("SELECT quantidade from movimento where login = '$login' and sigla = '$sigla' and idmovimento = '$idmovimento'");
 	$qtd = mysql_fetch_row($retornoQtd);

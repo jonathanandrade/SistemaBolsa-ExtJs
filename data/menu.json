@@ -178,31 +178,36 @@
 				"text": "Relatório Compras",
 				"iconCls": "icon-rel-pdf",
 				"menu_id": "5",
-				"id": "45"
+				"id": "45",
+				"className": "relcompras"
 			},
 			{
 				"text": "Relatório Vendas",
 				"iconCls": "icon-rel-pdf",
 				"menu_id": "5",
-				"id": "46"
+				"id": "46",
+				"className": "relvendas"
 			},
 			{
 				"text": "Relatório Carteira",
 				"iconCls": "icon-rel-pdf",
 				"menu_id": "5",
-				"id": "47"
+				"id": "47",
+				"className": "relcarteira"
 			},
 			{
 				"text": "Relatório Empresas",
 				"iconCls": "icon-rel-pdf",
 				"menu_id": "5",
-				"id": "48"
+				"id": "48",
+				"className": "relempresa"
 			},
 			{
 				"text": "Relatório Corretoras",
 				"iconCls": "icon-rel-pdf",
 				"menu_id": "5",
-				"id": "49"
+				"id": "49",
+				"className": "relcorretora"
 			}
 		]
 	},

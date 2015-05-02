@@ -40,7 +40,14 @@ Ext.define('SistemaBolsa.view.movimentos.GridVendas', {
             text: 'Vlr. Unitário de Compra',
             width: 170,
             dataIndex: 'valorUnitario',
-            renderer: Ext.util.Format.brMoney
+            renderer: Ext.util.Format.brMoney,
+            renderer: real
+        },{
+            text: 'Cotação Atual',
+            width: 150,
+            dataIndex: 'cotacao',
+            renderer: Ext.util.Format.brMoney,
+            renderer: real
         }, {
             text: 'Data Venda',
             dataIndex: 'dataVenda',
@@ -95,5 +102,8 @@ Ext.define('SistemaBolsa.view.movimentos.GridVendas', {
         emptyMsg: 'Nenhum movimento encontrado'
     }]
 
-
 });
+
+function real(val) {
+    return '<span>' + 'R$ ' + val + '</span>';
+}

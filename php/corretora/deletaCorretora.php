@@ -3,7 +3,7 @@
 	include("../conectar.php");
 
 	$info = $_POST['corretora'];
-	$data = json_decode(stripslashes($info));
+	$data = json_decode($info);
 	$id = $data->idcorretora;
 	//consulta sql
 	$query = sprintf("DELETE FROM corretora WHERE idcorretora=%d",

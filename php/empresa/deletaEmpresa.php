@@ -3,7 +3,7 @@
 	include("../conectar.php");
 
 	$info = $_POST['empresa'];
-	$data = json_decode(stripslashes($info));
+	$data = json_decode($info);
 	$id = $data->idempresa;
 	//consulta sql
 	$query = sprintf("DELETE FROM empresa WHERE idempresa=%d",

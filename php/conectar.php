@@ -16,8 +16,10 @@
 	 
 	//seleciona a base de dados daquela conexão, caso contrário mostra o erro ocorrido
 	$banco = mysql_select_db($db, $conexao) or die(mysql_error());
+	
 	//outros
 	$mysqli = new mysqli($servidor, $user, $senha, $db);
+
 	/* check connection */
 	if ($mysqli->connect_errno) {
 	    printf("Connect failed: %s\n", mysqli_connect_error());

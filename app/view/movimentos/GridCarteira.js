@@ -80,7 +80,7 @@ function change(val, record, index, store) {
         // Perdendo dinheiro
         //console.log('Perdendo --> ' + mediaAtual + ' > ' + cotacao);
         return '<span style="color:red;">' + 'R$ ' + val + '</span>';
-    } else if (mediaAtual < cotacao) {
+    } else if (mediaAtual <= cotacao) {
         // Ganhando dinheiro
         //console.log('Ganhando --> ' + mediaAtual + ' < ' + cotacao);
         return '<span style="color:green;">' + 'R$ ' + val + '</span>';

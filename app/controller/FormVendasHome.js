@@ -61,7 +61,7 @@ Ext.define('SistemaBolsa.controller.FormVendasHome', {
                 //console.log('Minha média: ' + mediaAtual);
                 //console.log('sigla ' + values.sigla);
 
-                if (mediaAtual >= cotacaoAtual) {
+                if (mediaAtual > cotacaoAtual) {
                     // PERDENDO DINHEIRO
                     var prejuizo = (mediaAtual - cotacaoAtual);
 

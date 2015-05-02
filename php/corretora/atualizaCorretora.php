@@ -3,7 +3,7 @@
 	include("../conectar.php");
 
 	$info = $_POST['corretora'];
-	$data = json_decode(stripslashes($info));
+	$data = json_decode($info);
 	$razaoSocial = $data->razaoSocial;
 	$nomeFantasia = $data->nomeFantasia;
 	$cnpj = $data->cnpj;

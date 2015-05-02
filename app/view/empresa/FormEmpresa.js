@@ -28,18 +28,18 @@ Ext.define('SistemaBolsa.view.empresa.FormEmpresa', {
 			},
 			{
 				xtype: 'textfield',
-				name: 'descricao',
-				fieldLabel: 'Descrição',
-				allowBlank: false,
-				msgTarget: 'side'
-			},
-			{
-				xtype: 'textfield',
 				name: 'sigla',
 				fieldLabel: 'Sigla',
 				allowBlank: false,
 				msgTarget: 'side'
 			},
+			{
+				xtype: 'textfield',
+				name: 'descricao',
+				fieldLabel: 'Descrição',
+				allowBlank: false,
+				msgTarget: 'side'
+			},			
 			{
 				xtype: 'textfield',
 				name: 'atividade',

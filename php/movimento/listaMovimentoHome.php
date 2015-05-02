@@ -8,7 +8,8 @@
 	
 	$start = $_REQUEST['start'];
 	$limit = $_REQUEST['limit'];
-	$queryString = "SELECT idmovimento, sigla, quantidade, total, valorUnitario, dataCompra, dataVenda, tipo FROM movimento where login = '$login' and tipo = 'C' and sigla = '$sigla' LIMIT $start, $limit"; 
+	//$queryString = "SELECT idmovimento, sigla, quantidade, total, valorUnitario, dataCompra, dataVenda, tipo FROM movimento where login = '$login' and tipo = 'C' and sigla = '$sigla' LIMIT $start, $limit"; 
+	$queryString = "SELECT idmovimento, sigla, quantidade, total, valorUnitario, dataCompra, dataVenda, tipo, cotacao FROM movimento JOIN movsaldo on movimento.sigla = movsaldo.siglaCons and movimento.login = 'Jonathan' and movimento.tipo = 'C' and movimento.sigla = '$sigla'LIMIT $start, $limit";
 	
 	//consulta sql
 	$query = mysql_query($queryString) or die(mysql_error());
