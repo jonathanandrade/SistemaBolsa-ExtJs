@@ -49,6 +49,19 @@ Ext.define('SistemaBolsa.view.movimentos.GridVendas', {
             renderer: Ext.util.Format.brMoney,
             renderer: real
         }, {
+            text: 'Data Compra',
+            dataIndex: 'dataCompra',
+            xtype: 'datecolumn',
+            groupable: false,
+            width: 115,
+            renderer: Ext.util.Format.dateRenderer('d/m/Y'),
+            filter: {
+
+            },
+            editor: {
+                xtype: 'datefield'
+            }
+        }, {
             text: 'Data Venda',
             dataIndex: 'dataVenda',
             xtype: 'datecolumn',

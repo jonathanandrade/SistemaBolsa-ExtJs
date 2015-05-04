@@ -99,6 +99,7 @@ Ext.define('SistemaBolsa.controller.FormVendasHome', {
                                     var movVenda = Ext.create('SistemaBolsa.model.Movimento', {
                                         idmovimento: values.idmovimento,
                                         sigla: values.sigla,
+                                        dataCompra: record.data.dataCompra,
                                         quantidade: values.quantidade, // Quantidade para a venda
                                         valorUnitario: values.valorUnitario
                                     });
@@ -119,6 +120,7 @@ Ext.define('SistemaBolsa.controller.FormVendasHome', {
                                     var movVenda = Ext.create('SistemaBolsa.model.Movimento', {
                                         idmovimento: values.idmovimento,
                                         sigla: values.sigla,
+                                        dataCompra: record.data.dataCompra,
                                         quantidade: values.quantidade, // Quantidade para a venda
                                         valorUnitario: values.valorUnitario
                                     });
@@ -190,6 +192,7 @@ Ext.define('SistemaBolsa.controller.FormVendasHome', {
                                     var movVenda = Ext.create('SistemaBolsa.model.Movimento', {
                                         idmovimento: values.idmovimento,
                                         sigla: values.sigla,
+                                        dataCompra: record.data.dataCompra,
                                         quantidade: values.quantidade, // Quantidade para a venda
                                         valorUnitario: values.valorUnitario
                                     });
@@ -210,6 +213,7 @@ Ext.define('SistemaBolsa.controller.FormVendasHome', {
                                     var movVenda = Ext.create('SistemaBolsa.model.Movimento', {
                                         idmovimento: values.idmovimento,
                                         sigla: values.sigla,
+                                        dataCompra: record.data.dataCompra,
                                         quantidade: values.quantidade, // Quantidade para a venda
                                         valorUnitario: values.valorUnitario
                                     });

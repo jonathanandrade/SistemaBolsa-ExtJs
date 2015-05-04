@@ -279,13 +279,13 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 									var movVenda = Ext.create('SistemaBolsa.model.Movimento', {
 										idmovimento: values.idmovimento,
 										sigla: values.sigla,
-										dataCompra: record.dataCompra,
+										dataCompra: record.data.dataCompra,
 										quantidade: values.quantidade, // Quantidade para a venda
 										valorUnitario: values.valorUnitario
 									});
 
 									var dadosVenda = Ext.encode(movVenda.data);
-									console.log(dadosVenda);
+									//console.log(dadosVenda);
 
 									Ext.Ajax.request({
 										url: 'php/movimento/vendeMovimento.php',
@@ -302,7 +302,7 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 										idmovimento: values.idmovimento,
 										sigla: values.sigla,
 										quantidade: values.quantidade, // Quantidade para a venda
-										dataCompra: record.dataCompra,
+										dataCompra: record.data.dataCompra,
 										valorUnitario: values.valorUnitario
 									});
 
@@ -366,13 +366,13 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 									var movVenda = Ext.create('SistemaBolsa.model.Movimento', {
 										idmovimento: values.idmovimento,
 										sigla: values.sigla,
-										dataCompra: record.dataCompra,
+										dataCompra: record.data.dataCompra,
 										quantidade: values.quantidade, // Quantidade para a venda
 										valorUnitario: values.valorUnitario
 									});
 
-									var dadosVenda = Ext.encode(movVenda.data);									
-
+									var dadosVenda = Ext.encode(movVenda.data);
+									
 									Ext.Ajax.request({
 										url: 'php/movimento/vendeMovimento.php',
 										method: 'POST',
@@ -387,12 +387,12 @@ Ext.define('SistemaBolsa.controller.Movimento', {
 									var movVenda = Ext.create('SistemaBolsa.model.Movimento', {
 										idmovimento: values.idmovimento,
 										sigla: values.sigla,
-										dataCompra: record.dataCompra,
+										dataCompra: record.data.dataCompra,
 										quantidade: values.quantidade, // Quantidade para a venda
 										valorUnitario: values.valorUnitario
 									});
 
-									var dadosVenda = Ext.encode(movVenda.data);
+									var dadosVenda = Ext.encode(movVenda.data);									
 
 									Ext.Ajax.request({
 										url: 'php/movimento/deletaMovimento.php',

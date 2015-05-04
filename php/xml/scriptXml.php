@@ -9,7 +9,7 @@
 	
 	$link = "http://www.bmfbovespa.com.br/Pregao-Online/ExecutaAcaoAjax.asp?CodigoPapel=";
 
-	$sql = mysql_query("SELECT DISTINCT(sigla) FROM movimento WHERE login = '$login'");
+	$sql = mysql_query("SELECT DISTINCT(sigla) FROM movimento WHERE login = '$login' and tipo = 'C'");
 
 	while($sigla = mysql_fetch_assoc($sql)) {
 

@@ -63,7 +63,7 @@ class MYPDF extends TCPDF {
 	}
 }
 	//load data
-	$queryString = "SELECT siglaCons, descricao, qtdTotal, mediaAtual, cotacao from movsaldo join empresa on movsaldo.siglaCons = empresa.sigla and movsaldo.login = '$login'" or die(mysql_error());		
+	$queryString = "SELECT siglaCons, descricao, qtdTotal, mediaAtual, cotacao from movsaldo join empresa on movsaldo.siglaCons = empresa.sigla and movsaldo.login = empresa.login and movsaldo.login = '$login'" or die(mysql_error());		
 	//consulta total de linhas na tabela
 	$queryTotal = mysql_query("SELECT count(*) as num FROM movsaldo where login = '$login'") or die(mysql_error());
 	
