@@ -28,21 +28,26 @@ Ext.define('SistemaBolsa.view.MainPanel', {
 				width: 170,
 				flex: 1,
 				dataIndex: 'Nome'
-			}, {
-				text: 'Médio',
-				width: 170,
-				dataIndex: 'Medio',
-				renderer: real
-			}, {
-				text: 'Último',
+			}, 
+			//{
+			//	text: 'Média Diária',
+			//	width: 170,
+			//	dataIndex: 'Medio',
+			//	renderer: real,
+			//	tooltip: 'Valor médio da ação no dia.'
+			//},
+			{
+				text: 'Cotação Atual',
 				width: 170,
 				dataIndex: 'Ultimo',
-				renderer: real
+				renderer: real,
+				tooltip: 'Último valor da ação no dia.'
 			}, {
 				text: 'Oscilação',
 				width: 170,
 				dataIndex: 'Oscilacao',
-				renderer: change
+				renderer: change,
+				tooltip: 'Oscilação do momento'
 			}, {
 				menuDisabled: true,
 				sortable: false,

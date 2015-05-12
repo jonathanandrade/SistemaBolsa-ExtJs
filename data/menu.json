@@ -12,7 +12,7 @@
 				"id": "11",
 				"className": "gridempresa"
 			},
-			{
+			/*{
 				"text": "menu 1.2",
 				"iconCls": "user_gray",
 				"menu_id": "1",
@@ -47,7 +47,7 @@
 				"iconCls": "user",
 				"menu_id": "1",
 				"id": "17"
-			}
+			}*/
 		]
 	},
 	{
@@ -62,7 +62,7 @@
 				"id": "21",
 				"className": "gridcorretora"				
 			},
-			{
+			/*{
 				"text": "menu 2.2",
 				"iconCls": "chart_curve",
 				"menu_id": "2",
@@ -79,7 +79,7 @@
 				"iconCls": "chart_pie",
 				"menu_id": "2",
 				"id": "24"
-			}			
+			}*/			
 		]
 	},
 	{
@@ -108,7 +108,7 @@
 				"id": "33",				
 				"className": "gridcarteira"
 			},
-			{
+			/*{
 				"text": "menu 3.4",
 				"iconCls": "tag_pink",
 				"menu_id": "3",
@@ -131,7 +131,7 @@
 				"iconCls": "tag_yellow",
 				"menu_id": "3",
 				"id": "37"
-			}
+			}*/
 		]
 	},
 	{

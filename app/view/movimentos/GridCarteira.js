@@ -35,18 +35,21 @@ Ext.define('SistemaBolsa.view.movimentos.GridCarteira', {
     }, {
         text: 'Quantidade',
         width: 170,
-        dataIndex: 'qtdTotal'
+        dataIndex: 'qtdTotal',
+        tooltip: 'Quantidade total das ações.'
     }, {
         text: 'Sua média',
         width: 170,
         dataIndex: 'mediaAtual',
         renderer: Ext.util.Format.brMoney,
-        renderer: change
+        renderer: change,
+        tooltip: 'Valor médio das suas ações.'
     }, {
         text: 'Cotação atual',
         width: 170,
         dataIndex: 'cotacao',
-        renderer: Ext.util.Format.brMoney
+        renderer: Ext.util.Format.brMoney,
+        tooltip: 'Último valor da ação no dia.'
     }],
 
     dockedItems: [{
