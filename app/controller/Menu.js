@@ -44,12 +44,11 @@ Ext.define('SistemaBolsa.controller.Menu', {
                             leaf: true, 
                             iconCls: item.get('iconCls'),
                             id: item.get('id'),
-                            className: item.get('className') 
+                            className: item.get('className')
                         });
+                        
                     });  
                 });
-                //console.log("menu:" + menuPanel); //LOG
-                //console.log(menu); //LOG
 
                 menuPanel.add(menu);
             }); 

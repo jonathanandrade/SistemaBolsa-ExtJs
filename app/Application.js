@@ -125,7 +125,7 @@ Ext.define('SistemaBolsa.Application', {
 
             //Fade out the body mask
             splashscreen.fadeOut({
-                duration: 1000,
+                duration: 250,
                 remove: true
             });
 
@@ -144,7 +144,7 @@ Ext.define('SistemaBolsa.Application', {
             //Ext.widget('login');          
         });
 
-        task.delay(2000); // Tempo total de espera
+        task.delay(500); // Tempo total de espera
 
     }
 

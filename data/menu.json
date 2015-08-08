@@ -16,7 +16,8 @@
 				"text": "menu 1.2",
 				"iconCls": "user_gray",
 				"menu_id": "1",
-				"id": "12"
+				"id": "12",
+				"hidden": "true"
 			},
 			{
 				"text": "menu 1.3",
